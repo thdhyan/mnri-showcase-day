@@ -158,7 +158,49 @@
     mapHotspots.forEach((h) => h.classList.remove("active"));
   }
 
+  // Hover / focus tooltip: board ID, title and presenter, placed above the board.
+  const mapTip = document.getElementById("map-tip");
+  function showTip(hotspot) {
+    if (!mapTip) return;
+    const id = hotspot.dataset.poster;
+    const a = assignments[id];
+    mapTip.innerHTML = "";
+    const head = document.createElement("strong");
+    head.textContent = id + (a ? " · " + categories[a.cat].name : " · Open slot");
+    mapTip.appendChild(head);
+    if (a) {
+      const title = document.createElement("span");
+      title.className = "map-tip-title";
+      title.textContent = a.title;
+      const who = document.createElement("span");
+      who.className = "map-tip-who";
+      who.textContent = a.presenter;
+      mapTip.append(title, who);
+      mapTip.style.borderTopColor = categories[a.cat].color;
+    } else {
+      mapTip.style.borderTopColor = "";
+    }
+    mapTip.hidden = false;
+
+    const box = mapTip.parentElement.getBoundingClientRect();
+    const r = hotspot.getBoundingClientRect();
+    const tw = mapTip.offsetWidth, th = mapTip.offsetHeight;
+    let left = r.left - box.left + r.width / 2 - tw / 2;
+    left = Math.max(6, Math.min(left, box.width - tw - 6));
+    let top = r.top - box.top - th - 8;
+    if (top < 6) top = r.bottom - box.top + 8;
+    mapTip.style.left = left + "px";
+    mapTip.style.top = top + "px";
+  }
+  function hideTip() {
+    if (mapTip) mapTip.hidden = true;
+  }
+
   mapHotspots.forEach((hotspot) => {
+    hotspot.addEventListener("mouseenter", () => showTip(hotspot));
+    hotspot.addEventListener("mouseleave", hideTip);
+    hotspot.addEventListener("focus", () => showTip(hotspot));
+    hotspot.addEventListener("blur", hideTip);
     hotspot.addEventListener("click", () => openPoster(hotspot.dataset.poster));
     hotspot.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {

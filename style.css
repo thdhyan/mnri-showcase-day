@@ -394,7 +394,18 @@ a:hover { color: var(--mnri-gold); }
   background: #fff; box-shadow: var(--shadow-md); overflow: hidden;
   display: grid; grid-template-columns: 1fr 180px;
 }
-.map-scroll { min-width: 0; }
+.map-scroll { min-width: 0; position: relative; }
+.map-tip {
+  position: absolute; z-index: 5; max-width: 280px; pointer-events: none;
+  display: flex; flex-direction: column; gap: 0.2rem;
+  background: #fff; border: 1px solid #e2e8ee; border-top: 4px solid #9aa3ad;
+  border-radius: 10px; box-shadow: var(--shadow-lg);
+  padding: 0.6rem 0.8rem; font-size: 0.82rem; line-height: 1.4; color: var(--mnri-slate);
+}
+.map-tip[hidden] { display: none; }
+.map-tip strong { font-size: 0.72rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mnri-gold); }
+.map-tip-title { font-weight: 700; color: var(--mnri-navy-2); }
+.map-tip-who { font-size: 0.78rem; }
 .svg-map-container .map-legend {
   flex-direction: column; justify-content: center; align-items: flex-start; gap: 0.7rem;
   border-top: none; border-left: 1px solid #eef2f6;
