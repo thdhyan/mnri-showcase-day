@@ -44,177 +44,347 @@
   </div>
 </header>
 
+<span id="content"></span>
+
 <!-- PART 3: POSTER SESSION + INTERACTIVE MAP -->
 <section id="posters" class="section section-alt">
   <div class="container">
-  <div class="section-header reveal">
-    <h2 class="section-title">Poster Session &amp; Interactive Map</h2>
-    <p class="section-sub">2:00 – 3:10 PM &bull; Shepherd Lab 164 + Hallways (2nd Floor) &bull; 20 poster boards P01&ndash;P20</p>
-    <a class="source-pill" href="#" target="_blank" rel="noopener">
-      <i data-lucide="file-text"></i>Source: &ldquo;Nov 6, 2026 Event MnRI Showcase&rdquo;
-    </a>
-  </div>
-
-  <div class="poster-info">
-    <div class="poster-details reveal">
-      <h3><i data-lucide="presentation"></i>Poster Session</h3>
-      <p>Student posters fill the Drone Lab walls and the hallway easels. Talk with presenters, explore live demos, and walk the 2nd-floor corridor loop.</p>
-      <ul class="detail-list">
-        <li><i data-lucide="map-pin"></i><span><strong>Location:</strong> Shepherd Lab 164 (Drone Lab) + Hallways</span></li>
-        <li><i data-lucide="clock"></i><span><strong>Time:</strong> 2:00 &ndash; 3:10 PM</span></li>
-        <li><i data-lucide="scroll-text"></i><span><strong>Format:</strong> 20 boards &mdash; P01 to P20</span></li>
-        <li><i data-lucide="users"></i><span><strong>Audience:</strong> Open to all visitors, students, faculty, industry guests</span></li>
-        <li><i data-lucide="clipboard-list"></i><span><strong>Submissions:</strong> <a href="#" target="_blank" rel="noopener">poster form</a> &mdash; due Oct 16 (2026); review by Oct 23</span></li>
-      </ul>
+    <div class="section-header reveal">
+      <h2 class="section-title">Poster Session &amp; Interactive Map</h2>
+      <p class="section-sub">2:00 – 3:10 PM &bull; Shepherd Lab 164 (Drone Lab) + hallways &bull; 28 posters per final Plan C</p>
+      <a class="source-pill" href="#" target="_blank" rel="noopener">
+        <i data-lucide="file-text"></i>Source: &ldquo;Nov 6, 2026 Event MnRI Showcase&rdquo;
+      </a>
     </div>
 
-    <div class="map-wrapper reveal" aria-label="Poster session floor maps">
+    <div class="poster-info">
+      <div class="poster-details reveal">
+        <h3><i data-lucide="presentation"></i>Poster Session</h3>
+        <p>Twenty-eight student posters (one per presenter) fill the Drone Lab walls, its hallway-side outer wall, and the 2nd-floor corridor. Posters are 36 in wide, grouped student-presenter–poster–poster–student, with 48-in visitor viewing zones in front of every group.</p>
+        <ul class="detail-list">
+          <li><i data-lucide="map-pin"></i><span><strong>Location:</strong> Shepherd Lab 164 (Drone Lab) + hallways</span></li>
+          <li><i data-lucide="clock"></i><span><strong>Time:</strong> 2:00 &ndash; 3:10 PM</span></li>
+          <li><i data-lucide="scroll-text"></i><span><strong>Format (Plan C):</strong> 28 posters &mdash; 15 inside Shep 164 (P1&ndash;P15), 6 on its hallway-side outer wall (O1&ndash;O6), 7 in the 2nd-floor hallway (F1&ndash;F7)</span></li>
+          <li><i data-lucide="users"></i><span><strong>Audience:</strong> Open to all visitors, students, faculty, industry guests</span></li>
+          <li><i data-lucide="clipboard-list"></i><span><strong>Submissions:</strong> <a href="#" target="_blank" rel="noopener">poster form</a> &mdash; due Oct 16 (2026); review by Oct 23</span></li>
+        </ul>
+      </div>
+
+      <div class="map-wrapper reveal" aria-label="Poster session floor plan">
+        <div class="map-controls">
+          <button class="map-btn map-btn-active"><i data-lucide="layers"></i>Final layout &mdash; Plan C</button>
+        </div>
+        <div class="svg-row">
+          <div class="svg-card">
+            <h4><i data-lucide="map"></i>Plan C &mdash; final (dense S&ndash;P&ndash;P&ndash;S)</h4>
+            <div class="svg-wrap">
+              <object type="image/svg+xml" data="assets/floorplans/poster_plan_C.svg" aria-label="Plan C poster layout, Shepherd Lab 164 and hallways, 28 posters" tabindex="0">
+                <img src="assets/floorplans/poster_plan_C.svg" alt="Plan C poster layout, Shepherd Lab 164 and hallways, 28 posters">
+              </object>
+            </div>
+            <p class="svg-card-text">Plan C (final): 15 posters inside Shep 164 &mdash; 6 on the bottom wall, 4 centred easels, 2 on the left wall, 3 on the right wall (S&ndash;P&ndash;P&ndash;S groups, 18 in per student) &mdash; plus 6 on the hallway-side outer wall and 7 on the 2nd-floor corridor (4 on glass, 1 easel, 2 at Shep 256 glass). 28 posters = 28 presenters.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive poster map -->
+    <div class="map-wrapper reveal">
       <div class="map-controls">
-        <button class="map-btn map-btn-active"><i data-lucide="layers"></i>Hand-sketch reference maps</button>
+        <button class="map-btn map-btn-active"><i data-lucide="mouse-pointer-click"></i>Interactive Map &mdash; click any poster for slot details</button>
+      </div>
+      <div class="svg-map-container">
+        <svg class="floor-map" viewBox="50 80 1350 720" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+          <title id="map-title">Plan C — 28 posters, 2:00–3:10 PM</title>
+          <desc id="map-desc">Clickable Plan C layout: 15 posters inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 7 in the 2nd-floor hallway (F1 to F7). Click any poster for slot details.</desc>
+
+          <style>
+            .wall{fill:none;stroke:#111;stroke-width:5;stroke-linejoin:miter;stroke-linecap:square}
+            .thin{fill:none;stroke:#111;stroke-width:1.5}
+            .door{fill:none;stroke:#111;stroke-width:1.3}
+            .arc{fill:none;stroke:#111;stroke-width:1;stroke-dasharray:4 3}
+            .dim{fill:none;stroke:#1f5fbf;stroke-width:1.2}
+            .ext{fill:none;stroke:#1f5fbf;stroke-width:0.8;stroke-dasharray:3 3}
+            .glass{fill:none;stroke:#0a8f8f;stroke-width:1.6}
+            .void{fill:#9aa3ad;fill-opacity:.18}
+            .poster{fill:#f28c28;stroke:#a0520a;stroke-width:1}
+            .easel{fill:#f6c26b;stroke:#a0520a;stroke-width:1}
+            .stu{fill:#3b7dd8;stroke:#1d4f99;stroke-width:1}
+            .view{fill:#f28c28;fill-opacity:.10;stroke:#f28c28;stroke-opacity:.5;stroke-dasharray:4 3}
+            .szone{fill:#3b7dd8;fill-opacity:.10}
+            .dt{font:600 12px Helvetica,Arial,sans-serif;fill:#1f5fbf}
+            .ds{font:11px Helvetica,Arial,sans-serif;fill:#1f5fbf}
+            .pnd{font:700 10px Helvetica,Arial,sans-serif;fill:#6b3a07}
+            .room{font:700 24px Helvetica,Arial,sans-serif;fill:#333}
+            .h2{font:700 16px Helvetica,Arial,sans-serif;fill:#111}
+            .sub{font:12px Helvetica,Arial,sans-serif;fill:#555}
+            .lbl{font:600 12px Helvetica,Arial,sans-serif;fill:#0a8f8f}
+          </style>
+          <defs><marker id="t" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+          <path d="M5,0 L5,10" stroke="#1f5fbf" stroke-width="1.5"/></marker></defs>
+
+          <!-- Shep 164 walls -->
+          <polyline class="wall" points="130.0,222.5 130.0,545.0 388.0,545.0 388.0,518.0 454.0,518.0 454.0,545.0 841.0,545.0 841.0,470.0 886.0,470.0 886.0,212.0"/>
+          <polyline class="wall" points="130.0,168.5 130.0,152.0 886.0,152.0 886.0,158.0"/>
+          <line class="door" x1="130.0" y1="168.5" x2="91.8" y2="206.7"/><path class="arc" d="M130.0,222.5 A54.0,54.0 0 0 1 91.8,206.7"/>
+          <line class="door" x1="886.0" y1="212.0" x2="924.2" y2="173.8"/><path class="arc" d="M886.0,158.0 A54.0,54.0 0 0 1 924.2,173.8"/>
+
+          <!-- Bottom wall: 6 wall posters, S–P–P–S groups (43in×4 = 172in | pillar | 21½ft = 258in) -->
+          <rect class="view" x="176.5" y="468.5" width="165.0" height="72.0"/>
+          <rect class="szone" x="176.5" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="190.0" cy="531.5" r="10.5"/>
+          <rect class="poster" x="203.5" y="540.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="260.5" y="540.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="314.5" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="328.0" cy="531.5" r="10.5"/>
+
+          <rect class="view" x="454.0" y="468.5" width="165.0" height="72.0"/>
+          <rect class="szone" x="454.0" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="467.5" cy="531.5" r="10.5"/>
+          <rect class="poster" x="481.0" y="540.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="538.0" y="540.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="592.0" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="605.5" cy="531.5" r="10.5"/>
+
+          <rect class="view" x="619.0" y="468.5" width="165.0" height="72.0"/>
+          <rect class="szone" x="619.0" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="632.5" cy="531.5" r="10.5"/>
+          <rect class="poster" x="646.0" y="540.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="703.0" y="540.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="757.0" y="519.5" width="27.0" height="25.5"/>
+          <circle class="stu" cx="770.5" cy="531.5" r="10.5"/>
+
+          <!-- Flat side (top): 4 easels centred, S–P–P–S -->
+          <rect class="view" x="343.0" y="203.0" width="165.0" height="72.0"/>
+          <rect class="szone" x="343.0" y="167.0" width="27.0" height="57.0"/>
+          <circle class="stu" cx="356.5" cy="212.0" r="10.5"/>
+          <rect class="easel" x="370.0" y="167.0" width="54.0" height="36.0"/>
+          <rect class="easel" x="427.0" y="167.0" width="54.0" height="36.0"/>
+          <rect class="szone" x="481.0" y="167.0" width="27.0" height="57.0"/>
+          <circle class="stu" cx="494.5" cy="212.0" r="10.5"/>
+          <rect class="view" x="517.0" y="203.0" width="165.0" height="72.0"/>
+          <rect class="szone" x="517.0" y="167.0" width="27.0" height="57.0"/>
+          <circle class="stu" cx="530.5" cy="212.0" r="10.5"/>
+          <rect class="easel" x="544.0" y="167.0" width="54.0" height="36.0"/>
+          <rect class="easel" x="601.0" y="167.0" width="54.0" height="36.0"/>
+          <rect class="szone" x="655.0" y="167.0" width="27.0" height="57.0"/>
+          <circle class="stu" cx="668.5" cy="212.0" r="10.5"/>
+
+          <!-- Left wall: 2 posters -->
+          <rect class="view" x="134.5" y="297.5" width="72.0" height="165.0"/>
+          <rect class="szone" x="130.0" y="435.5" width="25.5" height="27.0"/>
+          <circle class="stu" cx="143.5" cy="449.0" r="10.5"/>
+          <rect class="poster" x="130.0" y="381.5" width="4.5" height="54.0"/>
+          <rect class="poster" x="130.0" y="324.5" width="4.5" height="54.0"/>
+          <rect class="szone" x="130.0" y="297.5" width="25.5" height="27.0"/>
+          <circle class="stu" cx="143.5" cy="311.0" r="10.5"/>
+
+          <!-- Right wall: 3 posters, S–P–P–S–P–S -->
+          <rect class="view" x="809.5" y="299.0" width="72.0" height="165.0"/>
+          <rect class="szone" x="860.5" y="437.0" width="25.5" height="27.0"/>
+          <circle class="stu" cx="872.5" cy="450.5" r="10.5"/>
+          <rect class="poster" x="881.5" y="383.0" width="4.5" height="54.0"/>
+          <rect class="poster" x="881.5" y="326.0" width="4.5" height="54.0"/>
+          <rect class="szone" x="860.5" y="299.0" width="25.5" height="27.0"/>
+          <circle class="stu" cx="872.5" cy="312.5" r="10.5"/>
+          <rect class="view" x="809.5" y="218.0" width="72.0" height="81.0"/>
+          <rect class="poster" x="881.5" y="245.0" width="4.5" height="54.0"/>
+          <rect class="szone" x="860.5" y="218.0" width="25.5" height="27.0"/>
+          <circle class="stu" cx="872.5" cy="231.5" r="10.5"/>
+
+          <!-- Dims -->
+          <line class="dim" x1="1015.0" y1="464.0" x2="1015.0" y2="218.0" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="1023.0" y="341.0" text-anchor="start">164 in</text>
+          <polyline class="ext" x1="508.0" y1="152.0" x2="508.0" y2="302.0"/>
+          <text class="dt" x="508.0" y="144.0" text-anchor="middle">&#8467; centreline &middot; easels centred</text>
+          <line class="dim" x1="79.0" y1="545.0" x2="79.0" y2="222.5" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="71.0" y="383.8" text-anchor="end">43in&times;5</text>
+          <text class="ds" x="71.0" y="397.8" text-anchor="end">215 in</text>
+          <line class="dim" x1="931.0" y1="470.0" x2="931.0" y2="212.0" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="939.0" y="341.0" text-anchor="start">43in&times;4</text>
+          <text class="ds" x="939.0" y="355.0" text-anchor="start">172 in</text>
+          <line class="dim" x1="130.0" y1="584.0" x2="388.0" y2="584.0" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="259.0" y="579.0" text-anchor="middle">43in &times; 4 = 172 in</text>
+          <line class="dim" x1="454.0" y1="584.0" x2="841.0" y2="584.0" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="647.5" y="579.0" text-anchor="middle">21&frac12; ft = 258 in</text>
+
+          <!-- Room labels -->
+          <text class="room" x="508.0" y="357.5" text-anchor="middle">Shep 164</text>
+          <text class="sub" x="508.0" y="377.5" text-anchor="middle">15 posters inside</text>
+          <text class="h2" x="90" y="118">Shep 164 &mdash; 1st floor (plan)</text>
+
+          <!-- Outer wall (hallway side), 6 posters O1–O6 -->
+          <polyline class="thin" points="194.5,687.5 194.5,657.5 388.0,657.5 388.0,678.5 454.0,678.5 454.0,657.5 904.0,657.5 904.0,687.5 194.5,687.5"/>
+          <polyline class="ext" points="388.0,549.5 388.0,657.5"/>
+          <polyline class="ext" points="454.0,549.5 454.0,657.5"/>
+          <rect class="view" x="196.8" y="692.0" width="189.0" height="72.0"/>
+          <rect class="szone" x="196.8" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="215.5" cy="701.0" r="10.5"/>
+          <rect class="poster" x="234.2" y="687.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="294.2" y="687.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="348.2" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="367.0" cy="701.0" r="10.5"/>
+          <rect class="view" x="490.0" y="692.0" width="189.0" height="72.0"/>
+          <rect class="szone" x="490.0" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="508.8" cy="701.0" r="10.5"/>
+          <rect class="poster" x="527.5" y="687.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="587.5" y="687.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="641.5" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="660.2" cy="701.0" r="10.5"/>
+          <rect class="view" x="679.0" y="692.0" width="189.0" height="72.0"/>
+          <rect class="szone" x="679.0" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="697.8" cy="701.0" r="10.5"/>
+          <rect class="poster" x="716.5" y="687.5" width="54.0" height="4.5"/>
+          <rect class="poster" x="776.5" y="687.5" width="54.0" height="4.5"/>
+          <rect class="szone" x="830.5" y="687.5" width="37.5" height="25.5"/>
+          <circle class="stu" cx="849.2" cy="701.0" r="10.5"/>
+          <text class="sub" x="194.5" y="651.5" text-anchor="start">Outer wall of Shep 164 (hallway side) &middot; 6 posters</text>
+
+          <!-- 2nd floor hallway (plan, smaller scale), 7 posters F1–F7 -->
+          <text class="h2" x="1170" y="100">2nd Floor &mdash; hallway</text>
+          <text class="sub" x="1170" y="118">(plan, smaller scale)</text>
+          <rect class="void" x="1203.0" y="176.0" width="111.8" height="279.5"/>
+          <text class="lbl" x="1258.9" y="315.8" text-anchor="middle" transform="rotate(-90 1258.9 315.8)">Open to Shep 164 below</text>
+          <text class="lbl" x="1258.9" y="617.4" text-anchor="middle" transform="rotate(-90 1258.9 617.4)">Shep 256</text>
+          <polyline class="wall" points="1320.0,150.0 1320.0,727.2"/>
+          <polyline class="wall" points="1388.9,150.0 1401.9,150.0 1401.9,727.2 1388.9,727.2"/>
+          <g class="glass">
+            <line x1="1314.8" y1="176.0" x2="1299.2" y2="190.3"/><line x1="1314.8" y1="204.6" x2="1299.2" y2="218.9"/>
+            <line x1="1314.8" y1="233.2" x2="1299.2" y2="247.5"/><line x1="1314.8" y1="261.8" x2="1299.2" y2="276.1"/>
+            <line x1="1314.8" y1="290.4" x2="1299.2" y2="304.7"/><line x1="1314.8" y1="319.0" x2="1299.2" y2="333.3"/>
+            <line x1="1314.8" y1="347.6" x2="1299.2" y2="361.9"/><line x1="1314.8" y1="376.2" x2="1299.2" y2="390.5"/>
+            <line x1="1314.8" y1="404.8" x2="1299.2" y2="419.1"/><line x1="1314.8" y1="433.4" x2="1299.2" y2="447.7"/>
+            <line x1="1314.8" y1="533.5" x2="1299.2" y2="547.8"/><line x1="1314.8" y1="562.1" x2="1299.2" y2="576.4"/>
+            <line x1="1314.8" y1="590.7" x2="1299.2" y2="605.0"/><line x1="1314.8" y1="619.3" x2="1299.2" y2="633.6"/>
+            <line x1="1314.8" y1="647.9" x2="1299.2" y2="662.2"/><line x1="1314.8" y1="676.5" x2="1299.2" y2="690.8"/>
+          </g>
+          <rect class="view" x="1323.9" y="172.8" width="62.4" height="143.0"/>
+          <rect class="szone" x="1320.0" y="172.8" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="184.4" r="9.1"/>
+          <rect class="poster" x="1320.0" y="196.2" width="3.9" height="46.8"/>
+          <rect class="poster" x="1320.0" y="245.6" width="3.9" height="46.8"/>
+          <rect class="szone" x="1320.0" y="292.4" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="304.1" r="9.1"/>
+          <rect class="view" x="1323.9" y="315.8" width="62.4" height="143.0"/>
+          <rect class="szone" x="1320.0" y="315.8" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="327.5" r="9.1"/>
+          <rect class="poster" x="1320.0" y="339.1" width="3.9" height="46.8"/>
+          <rect class="poster" x="1320.0" y="388.6" width="3.9" height="46.8"/>
+          <rect class="szone" x="1320.0" y="435.4" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="447.1" r="9.1"/>
+          <rect class="view" x="1335.6" y="459.4" width="62.4" height="70.2"/>
+          <rect class="szone" x="1320.0" y="459.4" width="33.8" height="23.4"/>
+          <circle class="stu" cx="1343.4" cy="471.1" r="9.1"/>
+          <rect class="easel" x="1320.0" y="482.8" width="15.6" height="46.8"/>
+          <rect class="view" x="1323.9" y="545.9" width="62.4" height="143.0"/>
+          <rect class="szone" x="1320.0" y="545.9" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="557.5" r="9.1"/>
+          <rect class="poster" x="1320.0" y="569.2" width="3.9" height="46.8"/>
+          <rect class="poster" x="1320.0" y="618.7" width="3.9" height="46.8"/>
+          <rect class="szone" x="1320.0" y="665.5" width="22.1" height="23.4"/>
+          <circle class="stu" cx="1331.7" cy="677.1" r="9.1"/>
+          <line class="dim" x1="1183.5" y1="176.0" x2="1183.5" y2="455.5" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="1175.5" y="315.8" text-anchor="end">43in&times;5</text>
+          <text class="ds" x="1175.5" y="329.8" text-anchor="end">215 in</text>
+          <line class="dim" x1="1183.5" y1="455.5" x2="1183.5" y2="533.5" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="1175.5" y="494.5" text-anchor="end">&asymp; 60 in</text>
+          <text class="ds" x="1175.5" y="508.5" text-anchor="end">easel</text>
+          <line class="dim" x1="1183.5" y1="533.5" x2="1183.5" y2="701.2" marker-start="url(#t)" marker-end="url(#t)"/>
+          <text class="dt" x="1175.5" y="617.4" text-anchor="end">43in&times;3</text>
+          <text class="ds" x="1175.5" y="631.4" text-anchor="end">129 in</text>
+          <text class="sub" x="1361.0" y="766.2" text-anchor="middle">7 posters, all on hallway side</text>
+
+          <!-- ===== Clickable hotspots (P1–P15, O1–O6, F1–F7) ===== -->
+          <g><!-- bottom wall -->
+            <rect class="map-hit map-hotspot poster" data-poster="P1" role="button" tabindex="0" aria-label="Poster P1" x="200" y="502" width="60" height="62"/>
+            <text class="pnd" x="230.5" y="558" text-anchor="middle">P1</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P2" role="button" tabindex="0" aria-label="Poster P2" x="257" y="502" width="60" height="62"/>
+            <text class="pnd" x="287.5" y="558" text-anchor="middle">P2</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P3" role="button" tabindex="0" aria-label="Poster P3" x="478" y="502" width="60" height="62"/>
+            <text class="pnd" x="508" y="558" text-anchor="middle">P3</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P4" role="button" tabindex="0" aria-label="Poster P4" x="535" y="502" width="60" height="62"/>
+            <text class="pnd" x="565" y="558" text-anchor="middle">P4</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P5" role="button" tabindex="0" aria-label="Poster P5" x="643" y="502" width="60" height="62"/>
+            <text class="pnd" x="673" y="558" text-anchor="middle">P5</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P6" role="button" tabindex="0" aria-label="Poster P6" x="700" y="502" width="60" height="62"/>
+            <text class="pnd" x="730" y="558" text-anchor="middle">P6</text></g>
+
+          <g><!-- flat side easels -->
+            <rect class="map-hit map-hotspot poster" data-poster="P7" role="button" tabindex="0" aria-label="Poster P7 (easel)" x="366" y="161" width="62" height="48"/>
+            <text class="pnd" x="397" y="189" text-anchor="middle">P7</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P8" role="button" tabindex="0" aria-label="Poster P8 (easel)" x="423" y="161" width="62" height="48"/>
+            <text class="pnd" x="454" y="189" text-anchor="middle">P8</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P9" role="button" tabindex="0" aria-label="Poster P9 (easel)" x="540" y="161" width="62" height="48"/>
+            <text class="pnd" x="571" y="189" text-anchor="middle">P9</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P10" role="button" tabindex="0" aria-label="Poster P10 (easel)" x="597" y="161" width="62" height="48"/>
+            <text class="pnd" x="628" y="189" text-anchor="middle">P10</text></g>
+
+          <g><!-- left wall -->
+            <rect class="map-hit map-hotspot poster" data-poster="P11" role="button" tabindex="0" aria-label="Poster P11" x="120" y="377" width="44" height="62"/>
+            <text class="pnd" x="126" y="411.5" text-anchor="middle">P11</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P12" role="button" tabindex="0" aria-label="Poster P12" x="120" y="320" width="44" height="62"/>
+            <text class="pnd" x="126" y="354.5" text-anchor="middle">P12</text></g>
+
+          <g><!-- right wall -->
+            <rect class="map-hit map-hotspot poster" data-poster="P13" role="button" tabindex="0" aria-label="Poster P13" x="871" y="378" width="44" height="62"/>
+            <text class="pnd" x="903" y="413" text-anchor="middle">P13</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P14" role="button" tabindex="0" aria-label="Poster P14" x="871" y="321" width="44" height="62"/>
+            <text class="pnd" x="903" y="356" text-anchor="middle">P14</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="P15" role="button" tabindex="0" aria-label="Poster P15" x="871" y="240" width="44" height="62"/>
+            <text class="pnd" x="903" y="275" text-anchor="middle">P15</text></g>
+
+          <g><!-- outer wall, hallway side -->
+            <rect class="map-hit map-hotspot poster" data-poster="O1" role="button" tabindex="0" aria-label="Poster O1, hallway outer wall" x="231" y="676" width="60" height="38"/>
+            <text class="pnd" x="261.2" y="728" text-anchor="middle">O1</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="O2" role="button" tabindex="0" aria-label="Poster O2, hallway outer wall" x="291" y="676" width="60" height="38"/>
+            <text class="pnd" x="321.2" y="728" text-anchor="middle">O2</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="O3" role="button" tabindex="0" aria-label="Poster O3, hallway outer wall" x="524" y="676" width="60" height="38"/>
+            <text class="pnd" x="554.5" y="728" text-anchor="middle">O3</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="O4" role="button" tabindex="0" aria-label="Poster O4, hallway outer wall" x="584" y="676" width="60" height="38"/>
+            <text class="pnd" x="614.5" y="728" text-anchor="middle">O4</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="O5" role="button" tabindex="0" aria-label="Poster O5, hallway outer wall" x="713" y="676" width="60" height="38"/>
+            <text class="pnd" x="743.5" y="728" text-anchor="middle">O5</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="O6" role="button" tabindex="0" aria-label="Poster O6, hallway outer wall" x="773" y="676" width="60" height="38"/>
+            <text class="pnd" x="803.5" y="728" text-anchor="middle">O6</text></g>
+
+          <g><!-- 2nd-floor hallway -->
+            <rect class="map-hit map-hotspot poster" data-poster="F1" role="button" tabindex="0" aria-label="Poster F1, 2nd-floor hallway" x="1314" y="192" width="48" height="55"/>
+            <text class="pnd" x="1342" y="222.6" text-anchor="middle">F1</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F2" role="button" tabindex="0" aria-label="Poster F2, 2nd-floor hallway" x="1314" y="241" width="48" height="55"/>
+            <text class="pnd" x="1342" y="272" text-anchor="middle">F2</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F3" role="button" tabindex="0" aria-label="Poster F3, 2nd-floor hallway" x="1314" y="335" width="48" height="55"/>
+            <text class="pnd" x="1342" y="365.6" text-anchor="middle">F3</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F4" role="button" tabindex="0" aria-label="Poster F4, 2nd-floor hallway" x="1314" y="384" width="48" height="55"/>
+            <text class="pnd" x="1342" y="415" text-anchor="middle">F4</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F5" role="button" tabindex="0" aria-label="Poster F5, easel, 2nd-floor hallway" x="1314" y="478" width="48" height="55"/>
+            <text class="pnd" x="1342" y="509.2" text-anchor="middle">F5</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F6" role="button" tabindex="0" aria-label="Poster F6, 2nd-floor hallway" x="1314" y="565" width="48" height="55"/>
+            <text class="pnd" x="1342" y="595.6" text-anchor="middle">F6</text></g>
+          <g><rect class="map-hit map-hotspot poster" data-poster="F7" role="button" tabindex="0" aria-label="Poster F7, 2nd-floor hallway" x="1314" y="614" width="48" height="55"/>
+            <text class="pnd" x="1342" y="645.1" text-anchor="middle">F7</text></g>
+        </svg>
+
+        <div class="map-legend">
+          <span class="legend-item"><span class="legend-dot wallp"></span> Poster on wall / glass (36 in)</span>
+          <span class="legend-item"><span class="legend-dot easelp"></span> Poster on easel</span>
+          <span class="legend-item"><span class="legend-dot student"></span> Student presenter</span>
+          <span class="legend-item"><span class="legend-dot viewz"></span> Visitor viewing zone (48 in)</span>
+          <span class="legend-item"><span class="legend-dot glass"></span> Glass</span>
+          <span class="legend-item"><span class="legend-dot open"></span> Open to floor below</span>
+        </div>
       </div>
 
-      <div class="svg-row">
-        <div class="svg-card">
-          <h4><i data-lucide="plane"></i>Drone Lab &mdash; Shep 164</h4>
-          <div class="svg-wrap">
-            <object type="image/svg+xml" data="assets/shep164.svg" aria-label="Drone Lab Shep 164 floor plan from hand sketch" tabindex="0">
-              <img src="assets/shep164.svg" alt="Drone Lab Shep 164 floor plan from hand sketch">
-            </object>
-          </div>
-          <p class="svg-card-text">Sketch 1 of 2 — drone lab layout with dimensions (inches/feet) and glass panel (slanted lines). Venue for poster boards and the closing reception.</p>
-        </div>
-
-        <div class="svg-card">
-          <h4><i data-lucide="sigma"></i>Poster Map &mdash; Shepherd Lab 164 + Hallways</h4>
-          <div class="svg-wrap">
-            <object type="image/svg+xml" data="assets/shep169_2ndfloor.svg" aria-label="Poster boards P01 to P20 layout, Shepherd Lab 164 plus hallways" tabindex="0">
-              <img src="assets/shep169_2ndfloor.svg" alt="Poster boards P01 to P20 layout, Shepherd Lab 164 plus hallways">
-            </object>
-          </div>
-          <p class="svg-card-text">Sketch 2 of 2 — P01&ndash;P10 boards on the inner drone-lab wall, P11&ndash;P20 hallway easels around the 2nd-floor loop.</p>
+      <div class="poster-detail" id="poster-detail" hidden>
+        <button class="close-detail" aria-label="Close poster details"><i data-lucide="x"></i></button>
+        <h3 id="detail-title">Poster <span id="detail-id"></span></h3>
+        <p id="detail-abstract">Click any poster board on the map to see slot info.</p>
+        <div class="detail-meta">
+          <span id="detail-presenter">Presenter:</span>
+          <span id="detail-topic">Topic:</span>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- Interactive poster map -->
-  <div class="map-wrapper reveal">
-    <div class="map-controls">
-      <button class="map-btn map-btn-active"><i data-lucide="mouse-pointer-click"></i>Interactive Map &mdash; click any poster board for slot details</button>
-    </div>
-    <div class="svg-map-container">
-      <svg class="floor-map" viewBox="0 0 940 650" aria-labelledby="map-title map-desc" role="img">
-        <title id="map-title">Shepherd Lab 164 + Hallways — Poster Board Map, 2:00 to 3:10 PM</title>
-        <desc id="map-desc">Interactive poster layout: P01 through P10 on the inner drone-lab wall, P11 through P20 hallway easels around the second floor loop.</desc>
-
-        <!-- hallway ring -->
-        <rect x="40" y="60" width="860" height="520" rx="14" fill="#f1f5f9" stroke="#1a2e3c" stroke-width="3" stroke-dasharray="10,6"/>
-        <text x="470" y="42" font-size="13" fill="#64748b" text-anchor="middle" font-weight="700" letter-spacing="2">POSTER SESSION &bull; 2:00&ndash;3:10 PM &bull; 20 BOARDS</text>
-
-        <!-- P11–P15 left hallway easels -->
-        <g>
-          <rect x="70" y="110" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P11" role="button" tabindex="0" aria-label="Poster P11 hallway easel"/>
-          <rect x="70" y="184" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P12" role="button" tabindex="0" aria-label="Poster P12 hallway easel"/>
-          <rect x="70" y="258" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P13" role="button" tabindex="0" aria-label="Poster P13 hallway easel"/>
-          <rect x="70" y="332" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P14" role="button" tabindex="0" aria-label="Poster P14 hallway easel"/>
-          <rect x="70" y="406" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P15" role="button" tabindex="0" aria-label="Poster P15 hallway easel"/>
-        </g>
-        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
-          <text x="91" y="140">P11</text><text x="91" y="214">P12</text><text x="91" y="288">P13</text><text x="91" y="362">P14</text><text x="91" y="436">P15</text>
-        </g>
-        <text x="64" y="290" font-size="11" fill="#64748b" font-weight="600" transform="rotate(-90 64,290)" text-anchor="middle" letter-spacing="2">HALLWAY EASELS</text>
-
-        <!-- room -->
-        <rect x="160" y="120" width="640" height="400" rx="8" fill="#ffffff" stroke="#1a2e3c" stroke-width="4"/>
-        <text x="480" y="165" font-size="24" fill="#1a2e3c" text-anchor="middle" font-weight="700">SHEPHERD LAB 164 &bull; DRONE LAB</text>
-
-        <!-- P01–P06 north wall -->
-        <g>
-          <rect x="185" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P01" role="button" tabindex="0" aria-label="Poster P01"/>
-          <rect x="277" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P02" role="button" tabindex="0" aria-label="Poster P02"/>
-          <rect x="369" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P03" role="button" tabindex="0" aria-label="Poster P03"/>
-          <rect x="461" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P04" role="button" tabindex="0" aria-label="Poster P04"/>
-          <rect x="553" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P05" role="button" tabindex="0" aria-label="Poster P05"/>
-          <rect x="645" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P06" role="button" tabindex="0" aria-label="Poster P06"/>
-        </g>
-        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
-          <text x="216" y="190">P01</text><text x="308" y="190">P02</text><text x="400" y="190">P03</text>
-          <text x="492" y="190">P04</text><text x="584" y="190">P05</text><text x="676" y="190">P06</text>
-        </g>
-        <text x="480" y="270" font-size="12" fill="#7c6a12" text-anchor="middle" font-weight="700">INNER NORTH WALL &bull; P01&ndash;P06</text>
-
-        <!-- open isle -->
-        <rect x="240" y="290" width="480" height="30" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
-        <text x="480" y="310" font-size="10" fill="#94a3b8" text-anchor="middle">Open isle — visitors circulate &amp; ask questions</text>
-
-        <!-- P07–P10 south wall -->
-        <g>
-          <rect x="240" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P07" role="button" tabindex="0" aria-label="Poster P07"/>
-          <rect x="340" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P08" role="button" tabindex="0" aria-label="Poster P08"/>
-          <rect x="440" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P09" role="button" tabindex="0" aria-label="Poster P09"/>
-          <rect x="540" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P10" role="button" tabindex="0" aria-label="Poster P10"/>
-        </g>
-        <g font-size="11" fill="#92400e" font-weight="700" text-anchor="middle">
-          <text x="275" y="408">P07</text><text x="375" y="408">P08</text><text x="475" y="408">P09</text><text x="575" y="408">P10</text>
-        </g>
-        <text x="480" y="335" font-size="12" fill="#7c6a12" text-anchor="middle" font-weight="700">INNER SOUTH WALL &bull; P07&ndash;P10</text>
-
-        <!-- P16–P20 south hallway easels -->
-        <g>
-          <rect x="190" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P16" role="button" tabindex="0" aria-label="Poster P16 hallway easel"/>
-          <rect x="252" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P17" role="button" tabindex="0" aria-label="Poster P17 hallway easel"/>
-          <rect x="314" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P18" role="button" tabindex="0" aria-label="Poster P18 hallway easel"/>
-          <rect x="376" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P19" role="button" tabindex="0" aria-label="Poster P19 hallway easel"/>
-          <rect x="438" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P20" role="button" tabindex="0" aria-label="Poster P20 hallway easel"/>
-        </g>
-        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
-          <text x="211" y="495">P16</text><text x="273" y="495">P17</text><text x="335" y="495">P18</text><text x="397" y="495">P19</text><text x="459" y="495">P20</text>
-        </g>
-        <text x="340" y="572" font-size="12" fill="#64748b" text-anchor="middle" font-weight="600">South hallway easels &bull; P16&ndash;P20</text>
-
-        <!-- dims from sketch -->
-        <g font-size="11" fill="#64748b" font-family="monospace">
-          <text x="480" y="548" text-anchor="middle">43 in &times; 5</text>
-          <text x="825" y="330" text-anchor="middle" transform="rotate(90 825,330)">4 1/2 feet</text>
-          <text x="843" y="205">85 in</text>
-          <text x="770" y="590">43 in &times; 3</text>
-        </g>
-
-        <!-- glass panel slanted lines right wall -->
-        <g stroke="#4b7a9c" stroke-width="2.5" fill="none" opacity="0.7">
-          <line x1="794" y1="125" x2="798" y2="505"/>
-          <line x1="800" y1="125" x2="804" y2="505"/>
-          <line x1="794" y1="160" x2="806" y2="172"/>
-          <line x1="794" y1="230" x2="806" y2="242"/>
-          <line x1="794" y1="300" x2="806" y2="312"/>
-          <line x1="794" y1="370" x2="806" y2="382"/>
-          <line x1="794" y1="440" x2="806" y2="452"/>
-        </g>
-        <text x="800" y="112" font-size="11" fill="#4b7a9c" text-anchor="middle" font-weight="600">Glass panel &mdash; slanted lines</text>
-
-        <!-- entry/stairs -->
-        <rect x="160" y="430" width="40" height="70" fill="#e8a33d" stroke="#1a2e3c" stroke-width="3" class="map-hotspot" data-target="entry" role="button" tabindex="0" aria-label="Entry and stairs to second floor"/>
-        <text x="180" y="422" font-size="11" fill="#1a2e3c" text-anchor="middle" font-weight="600">Entry / stairs</text>
-      </svg>
-
-      <div class="map-legend">
-        <span class="legend-item"><span class="legend-dot poster"></span> Drone-lab wall board</span>
-        <span class="legend-item"><span class="legend-dot demo"></span> Hallway easel</span>
-        <span class="legend-item"><span class="legend-dot entry"></span> Entry / stairs</span>
-      </div>
-    </div>
-
-    <div class="poster-detail" id="poster-detail" hidden>
-      <button class="close-detail" aria-label="Close poster details"><i data-lucide="x"></i></button>
-      <h3 id="detail-title">Poster <span id="detail-id"></span></h3>
-      <p id="detail-abstract">Click any poster board on the map to see slot info.</p>
-      <div class="detail-meta">
-        <span id="detail-presenter">Presenter:</span>
-        <span id="detail-topic">Topic:</span>
-      </div>
-    </div>
-  </div>
-</div>
 </section>
 
 <footer class="site-footer">
@@ -224,7 +394,7 @@
       <div>Minnesota Robotics Institute &bull; Showcase Day</div>
     </div>
     <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
-    <p class="footer-disclaimer">Maps based on hand-drawn sketches; layout per the event planning doc. Poster titles/presenters published after student submissions are reviewed.</p>
+    <p class="footer-disclaimer">Layout per final Plan C (28 posters: 15 in Shep 164, 6 hallway-side outer wall, 7 second-floor corridor). Poster titles/presenters published after student submissions are reviewed.</p>
   </div>
 </footer>
 

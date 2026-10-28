@@ -66,18 +66,22 @@
   const detailTopic = document.getElementById("detail-topic");
   const closeDetail = document.querySelector(".close-detail");
 
-  // Poster slots P01–P20 per the event doc ("Student Poster Session — Shepherd Lab 164 + Hallways").
+  // Poster slots per the final Plan C layout: 28 total —
+  // P1–P15 inside Shep 164, O1–O6 on its hallway-side outer wall,
+  // F1–F7 in the 2nd-floor hallway ("Student Poster Session — Shepherd Lab 164 + Hallways").
   // Titles/presenters pending student submissions (form deadline Oct 16, review deadline Oct 23, 2026).
   const posterData = {};
-  for (let i = 1; i <= 20; i++) {
-    const id = "P" + String(i).padStart(2, "0");
+  const addSlot = (id, where) => {
     posterData[id] = {
       title: "Poster Slot " + id,
       presenter: "To be announced",
-      topic: "Shepherd Lab 164 + Hallways",
+      topic: where,
       abstract: "Student poster slot pending submission and review. Submission deadline: Oct 16, 2026; reviewed selection deadline: Oct 23, 2026.",
     };
-  }
+  };
+  for (let i = 1; i <= 15; i++) addSlot("P" + i, "Shep 164 (Drone Lab) — inside");
+  for (let i = 1; i <= 6; i++) addSlot("O" + i, "Shep 164 outer wall — hallway side");
+  for (let i = 1; i <= 7; i++) addSlot("F" + i, "2nd-floor hallway");
 
   function openPoster(id) {
     const data = posterData[id] || {
