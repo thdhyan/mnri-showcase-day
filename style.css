@@ -363,22 +363,6 @@ a:hover { color: var(--mnri-gold); }
   color: #fff; box-shadow: var(--shadow-sm);
 }
 
-.svg-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem; margin: 1.5rem; }
-.svg-card {
-  border: 1px solid #e8edf2; border-radius: var(--radius); overflow: hidden;
-  background: #fff; box-shadow: var(--shadow-md);
-  transition: transform var(--transition), box-shadow var(--transition);
-}
-.svg-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
-.svg-card .svg-wrap { padding: 1.2rem; overflow-x: auto; min-height: 340px; display: flex; justify-content: center; align-items: flex-start; background: radial-gradient(circle at center, #f8fafc 0%, #f1f5f9 100%); }
-.svg-card svg { max-width: 100%; height: auto; display: block; filter: drop-shadow(0 8px 20px rgba(15,32,39,0.12)); border-radius: var(--radius-sm); }
-.svg-card h4 {
-  font-family: var(--font-heading); font-size: 1.12rem; color: var(--mnri-navy-2); margin: 0;
-  display: flex; align-items: center; gap: 0.55rem;
-}
-.svg-card h4 .lucide { color: var(--mnri-blue); width: 1.15em; height: 1.15em; }
-.svg-card-text { padding: 0.2rem 1.2rem 1.1rem; font-size: 0.86rem; color: var(--mnri-slate); line-height: 1.6; }
-
 .map-hotspot { cursor: pointer; transition: fill var(--transition-fast), filter var(--transition-fast); }
 .map-hotspot:hover { filter: brightness(1.12) drop-shadow(0 2px 6px rgba(15,32,39,0.2)); }
 .map-hotspot:focus-visible { outline: 3px solid var(--mnri-gold-light); outline-offset: 2px; }
@@ -396,15 +380,10 @@ a:hover { color: var(--mnri-gold); }
 .legend-dot.poster { background: #bfdbfe; border: 1.5px solid #1d4ed8; }
 .legend-dot.entry  { background: #fed7aa; border: 1.5px solid #c2410c; border-radius: 50%; }
 .legend-dot.demo   { background: #fde68a; border: 1.5px solid #b45309; }
-.legend-dot.wallp  { background: #f28c28; border: 1.5px solid #a0520a; }
-.legend-dot.easelp { background: #f6c26b; border: 1.5px solid #a0520a; }
-.legend-dot.student{ background: #3b7dd8; border: 1.5px solid #1d4f99; border-radius: 50%; }
-.legend-dot.viewz  { background: rgba(242,140,40,0.14); border: 1.5px dashed #f28c28; }
+.legend-dot.viewz  { background: rgba(154,163,173,0.12); border: 1.5px dashed #9aa3ad; }
+.legend-dot.emptyp { background: #fff; border: 1.5px dashed #9aa3ad; }
 .legend-dot.glass  { background: #e2f9f9; border: 1.5px solid #0a8f8f; }
 .legend-dot.open   { background: #9aa3ad; border: 1.5px solid #7b848d; }
-
-/* Object-embedded plan SVGs scale to card width */
-.svg-wrap object, .svg-wrap img { width: 100%; max-width: 1100px; height: auto; display: block; }
 
 /* Interactive Plan C map */
 .svg-map-container {
@@ -412,9 +391,9 @@ a:hover { color: var(--mnri-gold); }
   background: #fff; box-shadow: var(--shadow-md); overflow: hidden;
 }
 .floor-map { width: 100%; height: auto; display: block; background: #fff; }
-.map-hit { fill: transparent; cursor: pointer; }
-.map-hit:hover { fill: rgba(232,180,35,0.28); }
-.map-hit:focus-visible { outline: 3px solid var(--mnri-gold-light); outline-offset: -3px; }
+.map-hit { fill: transparent; }
+.map-hotspot:hover .map-hit, .map-hotspot.active .map-hit { fill: rgba(232,180,35,0.28); }
+.map-hotspot.active .tile { stroke: var(--mnri-gold); stroke-width: 3; }
 
 .poster-detail {
   margin: 1.5rem; border: 1px solid #e8edf2; border-radius: var(--radius);
@@ -803,7 +782,6 @@ a:hover { color: var(--mnri-gold); }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .poster-info { grid-template-columns: 1fr; }
-  .svg-row { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 768px) {
