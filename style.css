@@ -102,8 +102,8 @@ a:hover { color: var(--mnri-gold); }
   background: linear-gradient(135deg, var(--mnri-gold) 0%, var(--mnri-gold-light) 100%);
   color: #fff; border-radius: 10px;
   display: grid; place-items: center;
-  font-weight: 800; font-size: 1.2rem; letter-spacing: 0.5px;
-  box-shadow: var(--shadow-gold);
+  font-weight: 800; font-size: 0.82rem; letter-spacing: 0.3px;
+  box-shadow: var(--shadow-gold); flex-shrink: 0;
   transition: transform var(--transition-bounce);
 }
 .logo:hover .logo-mark { transform: rotate(-6deg) scale(1.06); }
@@ -293,11 +293,11 @@ a:hover { color: var(--mnri-gold); }
 /* ---------- Steps list (numbered with ring shadow) ---------- */
 .nav-steps { margin-top: 2.5rem; }
 .nav-steps h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--mnri-navy-2); display: flex; align-items: center; gap: 0.6rem; }
-.steps-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; }
+.steps-list { display: flex; flex-direction: column; gap: 0.9rem; margin-bottom: 1.5rem; counter-reset: step; }
 .steps-list li {
-  display: flex; gap: 1rem; align-items: flex-start;
+  position: relative;
   font-size: 0.94rem; color: var(--mnri-navy-2); list-style: none;
-  padding: 0.85rem 1.1rem; border-radius: var(--radius);
+  padding: 0.85rem 1.1rem 0.85rem 3.4rem; border-radius: var(--radius);
   background: linear-gradient(160deg,#fff 0%,#f8fafc 100%);
   border: 1px solid #eef2f6; box-shadow: var(--shadow-xs);
   transition: all var(--transition-fast);
@@ -310,7 +310,7 @@ a:hover { color: var(--mnri-gold); }
   color: #fff; border-radius: 9px;
   display: grid; place-items: center; font-size: 0.82rem; font-weight: 700; flex-shrink: 0;
   box-shadow: 0 3px 8px rgba(15,32,39,0.3);
-  margin-top: 0.1rem;
+  position: absolute; left: 1.1rem; top: 50%; transform: translateY(-50%);
 }
 .nav-alert {
   display: flex; align-items: flex-start; gap: 0.8rem;
@@ -524,7 +524,7 @@ a:hover { color: var(--mnri-gold); }
 }
 .footer-inner { display: flex; flex-direction: column; gap: 1rem; align-items: center; text-align: center; position: relative; }
 .footer-brand { display: flex; align-items: center; gap: 0.65rem; }
-.footer-brand .logo-mark { width: 36px; height: 36px; font-size: 1.05rem; }
+.footer-brand .logo-mark { width: 36px; height: 36px; font-size: 0.74rem; }
 .footer-brand div { font-weight: 600; font-size: 0.95rem; color: #fff; }
 .footer-note { font-size: 0.85rem; color: #9fb3c4; }
 .footer-disclaimer { font-size: 0.8rem; color: #7fa0b8; margin-top: 0.4rem; max-width: 660px; line-height: 1.65; }
@@ -771,7 +771,7 @@ a:hover { color: var(--mnri-gold); }
   box-shadow: 0 2px 6px rgba(124,106,18,0.25);
 }
 
-.steps-list.compact li { padding: 0.7rem 1rem; font-size: 0.9rem; }
+.steps-list.compact li { padding: 0.7rem 1rem 0.7rem 3.3rem; font-size: 0.9rem; }
 
 /* Scroll reveal animation */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s cubic-bezier(.4,0,.2,1); }
@@ -786,18 +786,18 @@ a:hover { color: var(--mnri-gold); }
 }
 
 @media (max-width: 768px) {
-  .header-inner { flex-wrap: wrap; padding: 0.8rem 0; }
-  .main-nav {
+  .header-inner { padding: 0.7rem 0; }
+  .logo { min-width: 0; }
+  .nav-list {
     display: none; position: absolute; top: 100%; left: 0; right: 0;
-    background: rgba(255,255,255,0.97); backdrop-filter: blur(12px);
-    border-bottom: 1px solid #e2e8ee; padding: 0.75rem;
-    box-shadow: var(--shadow-lg); flex-direction: column; align-items: stretch;
+    background: #fff; z-index: 100;
+    border-bottom: 1px solid #e2e8ee; padding: 0.5rem 0;
+    box-shadow: var(--shadow-lg); flex-direction: column; align-items: stretch; gap: 0;
   }
-  .main-nav.open { display: flex; }
-  .nav-list { flex-direction: column; gap: 0; }
+  .nav-list.open { display: flex; }
   .nav-link { display: flex; padding: 0.9rem 1.1rem; border-radius: 0; border-bottom: 1px solid #f1f5f9; }
   .nav-toggle { display: flex; }
-  .header-meta { width: 100%; text-align: center; order: 3; }
+  .header-meta { display: none; }
   .section { padding: 3.25rem 0; }
   .hero { padding: 4rem 0 3.5rem; }
 }
