@@ -394,7 +394,7 @@ a:hover { color: var(--mnri-gold); }
   background: #fff; box-shadow: var(--shadow-md); overflow: hidden;
   display: grid; grid-template-columns: 1fr 180px;
 }
-.map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.map-scroll { min-width: 0; }
 .svg-map-container .map-legend {
   flex-direction: column; justify-content: center; align-items: flex-start; gap: 0.7rem;
   border-top: none; border-left: 1px solid #eef2f6;
@@ -781,7 +781,6 @@ a:hover { color: var(--mnri-gold); }
 @media (max-width: 900px) {
   .poster-info { grid-template-columns: 1fr; }
   .svg-map-container { grid-template-columns: 1fr; }
-  .floor-map { min-width: 760px; }
   .svg-map-container .map-legend { flex-direction: row; justify-content: center; border-left: none; border-top: 1px solid #eef2f6; }
 }
 
