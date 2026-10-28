@@ -389,6 +389,11 @@ a:hover { color: var(--mnri-gold); }
 .svg-map-container {
   border: 1px solid #e8edf2; border-radius: var(--radius-lg);
   background: #fff; box-shadow: var(--shadow-md); overflow: hidden;
+  display: grid; grid-template-columns: 1fr 210px;
+}
+.svg-map-container .map-legend {
+  flex-direction: column; justify-content: center; align-items: flex-start; gap: 0.7rem;
+  border-top: none; border-left: 1px solid #eef2f6;
 }
 .floor-map { width: 100%; height: auto; display: block; background: #fff; }
 .map-hit { fill: transparent; }
@@ -782,6 +787,8 @@ a:hover { color: var(--mnri-gold); }
 /* ---------- Responsive ---------- */
 @media (max-width: 900px) {
   .poster-info { grid-template-columns: 1fr; }
+  .svg-map-container { grid-template-columns: 1fr; }
+  .svg-map-container .map-legend { flex-direction: row; justify-content: center; border-left: none; border-top: 1px solid #eef2f6; }
 }
 
 @media (max-width: 768px) {
