@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Poster Session &amp; Map | MNRI Showcase Day</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237c6a12'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' fill='white' text-anchor='middle' font-weight='bold'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo">
+      <span class="logo-mark">MNRI</span>
+      <div class="logo-text">
+        <div class="logo-main">Minnesota Robotics Institute</div>
+        <div class="logo-sub">Showcase Day</div>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-list" id="nav-menu">
+        <li><a href="index.html" class="nav-link"><i data-lucide="sunrise"></i>Welcome</a></li>
+        <li><a href="navigation.html" class="nav-link"><i data-lucide="route"></i>Navigation</a></li>
+        <li><a href="posters.html" class="nav-link active"><i data-lucide="map"></i>Poster Session</a></li>
+        <li><a href="schedule.html" class="nav-link"><i data-lucide="calendar-days"></i>Schedule</a></li>
+      </ul>
+    </nav>
+    <div class="header-meta">
+      <span class="event-date"><i data-lucide="calendar"></i>November 6, 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- PART 3: POSTER SESSION + INTERACTIVE MAP -->
+<section id="posters" class="section section-alt">
+  <div class="container">
+  <div class="section-header reveal">
+    <h2 class="section-title">Poster Session &amp; Interactive Map</h2>
+    <p class="section-sub">2:00 – 3:10 PM &bull; Shepherd Lab 164 + Hallways (2nd Floor) &bull; 20 poster boards P01&ndash;P20</p>
+    <a class="source-pill" href="#" target="_blank" rel="noopener">
+      <i data-lucide="file-text"></i>Source: &ldquo;Nov 6, 2026 Event MnRI Showcase&rdquo;
+    </a>
+  </div>
+
+  <div class="poster-info">
+    <div class="poster-details reveal">
+      <h3><i data-lucide="presentation"></i>Poster Session</h3>
+      <p>Student posters fill the Drone Lab walls and the hallway easels. Talk with presenters, explore live demos, and walk the 2nd-floor corridor loop.</p>
+      <ul class="detail-list">
+        <li><i data-lucide="map-pin"></i><span><strong>Location:</strong> Shepherd Lab 164 (Drone Lab) + Hallways</span></li>
+        <li><i data-lucide="clock"></i><span><strong>Time:</strong> 2:00 &ndash; 3:10 PM</span></li>
+        <li><i data-lucide="scroll-text"></i><span><strong>Format:</strong> 20 boards &mdash; P01 to P20</span></li>
+        <li><i data-lucide="users"></i><span><strong>Audience:</strong> Open to all visitors, students, faculty, industry guests</span></li>
+        <li><i data-lucide="clipboard-list"></i><span><strong>Submissions:</strong> <a href="#" target="_blank" rel="noopener">poster form</a> &mdash; due Oct 16 (2026); review by Oct 23</span></li>
+      </ul>
+    </div>
+
+    <div class="map-wrapper reveal" aria-label="Poster session floor maps">
+      <div class="map-controls">
+        <button class="map-btn map-btn-active"><i data-lucide="layers"></i>Hand-sketch reference maps</button>
+      </div>
+
+      <div class="svg-row">
+        <div class="svg-card">
+          <h4><i data-lucide="plane"></i>Drone Lab &mdash; Shep 164</h4>
+          <div class="svg-wrap">
+            <object type="image/svg+xml" data="assets/shep164.svg" aria-label="Drone Lab Shep 164 floor plan from hand sketch" tabindex="0">
+              <img src="assets/shep164.svg" alt="Drone Lab Shep 164 floor plan from hand sketch">
+            </object>
+          </div>
+          <p class="svg-card-text">Sketch 1 of 2 — drone lab layout with dimensions (inches/feet) and glass panel (slanted lines). Venue for poster boards and the closing reception.</p>
+        </div>
+
+        <div class="svg-card">
+          <h4><i data-lucide="sigma"></i>Poster Map &mdash; Shepherd Lab 164 + Hallways</h4>
+          <div class="svg-wrap">
+            <object type="image/svg+xml" data="assets/shep169_2ndfloor.svg" aria-label="Poster boards P01 to P20 layout, Shepherd Lab 164 plus hallways" tabindex="0">
+              <img src="assets/shep169_2ndfloor.svg" alt="Poster boards P01 to P20 layout, Shepherd Lab 164 plus hallways">
+            </object>
+          </div>
+          <p class="svg-card-text">Sketch 2 of 2 — P01&ndash;P10 boards on the inner drone-lab wall, P11&ndash;P20 hallway easels around the 2nd-floor loop.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive poster map -->
+  <div class="map-wrapper reveal">
+    <div class="map-controls">
+      <button class="map-btn map-btn-active"><i data-lucide="mouse-pointer-click"></i>Interactive Map &mdash; click any poster board for slot details</button>
+    </div>
+    <div class="svg-map-container">
+      <svg class="floor-map" viewBox="0 0 940 650" aria-labelledby="map-title map-desc" role="img">
+        <title id="map-title">Shepherd Lab 164 + Hallways — Poster Board Map, 2:00 to 3:10 PM</title>
+        <desc id="map-desc">Interactive poster layout: P01 through P10 on the inner drone-lab wall, P11 through P20 hallway easels around the second floor loop.</desc>
+
+        <!-- hallway ring -->
+        <rect x="40" y="60" width="860" height="520" rx="14" fill="#f1f5f9" stroke="#1a2e3c" stroke-width="3" stroke-dasharray="10,6"/>
+        <text x="470" y="42" font-size="13" fill="#64748b" text-anchor="middle" font-weight="700" letter-spacing="2">POSTER SESSION &bull; 2:00&ndash;3:10 PM &bull; 20 BOARDS</text>
+
+        <!-- P11–P15 left hallway easels -->
+        <g>
+          <rect x="70" y="110" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P11" role="button" tabindex="0" aria-label="Poster P11 hallway easel"/>
+          <rect x="70" y="184" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P12" role="button" tabindex="0" aria-label="Poster P12 hallway easel"/>
+          <rect x="70" y="258" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P13" role="button" tabindex="0" aria-label="Poster P13 hallway easel"/>
+          <rect x="70" y="332" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P14" role="button" tabindex="0" aria-label="Poster P14 hallway easel"/>
+          <rect x="70" y="406" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P15" role="button" tabindex="0" aria-label="Poster P15 hallway easel"/>
+        </g>
+        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
+          <text x="91" y="140">P11</text><text x="91" y="214">P12</text><text x="91" y="288">P13</text><text x="91" y="362">P14</text><text x="91" y="436">P15</text>
+        </g>
+        <text x="64" y="290" font-size="11" fill="#64748b" font-weight="600" transform="rotate(-90 64,290)" text-anchor="middle" letter-spacing="2">HALLWAY EASELS</text>
+
+        <!-- room -->
+        <rect x="160" y="120" width="640" height="400" rx="8" fill="#ffffff" stroke="#1a2e3c" stroke-width="4"/>
+        <text x="480" y="165" font-size="24" fill="#1a2e3c" text-anchor="middle" font-weight="700">SHEPHERD LAB 164 &bull; DRONE LAB</text>
+
+        <!-- P01–P06 north wall -->
+        <g>
+          <rect x="185" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P01" role="button" tabindex="0" aria-label="Poster P01"/>
+          <rect x="277" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P02" role="button" tabindex="0" aria-label="Poster P02"/>
+          <rect x="369" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P03" role="button" tabindex="0" aria-label="Poster P03"/>
+          <rect x="461" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P04" role="button" tabindex="0" aria-label="Poster P04"/>
+          <rect x="553" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P05" role="button" tabindex="0" aria-label="Poster P05"/>
+          <rect x="645" y="195" width="62" height="52" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P06" role="button" tabindex="0" aria-label="Poster P06"/>
+        </g>
+        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
+          <text x="216" y="190">P01</text><text x="308" y="190">P02</text><text x="400" y="190">P03</text>
+          <text x="492" y="190">P04</text><text x="584" y="190">P05</text><text x="676" y="190">P06</text>
+        </g>
+        <text x="480" y="270" font-size="12" fill="#7c6a12" text-anchor="middle" font-weight="700">INNER NORTH WALL &bull; P01&ndash;P06</text>
+
+        <!-- open isle -->
+        <rect x="240" y="290" width="480" height="30" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="6,4"/>
+        <text x="480" y="310" font-size="10" fill="#94a3b8" text-anchor="middle">Open isle — visitors circulate &amp; ask questions</text>
+
+        <!-- P07–P10 south wall -->
+        <g>
+          <rect x="240" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P07" role="button" tabindex="0" aria-label="Poster P07"/>
+          <rect x="340" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P08" role="button" tabindex="0" aria-label="Poster P08"/>
+          <rect x="440" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P09" role="button" tabindex="0" aria-label="Poster P09"/>
+          <rect x="540" y="340" width="70" height="54" fill="#fde68a" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P10" role="button" tabindex="0" aria-label="Poster P10"/>
+        </g>
+        <g font-size="11" fill="#92400e" font-weight="700" text-anchor="middle">
+          <text x="275" y="408">P07</text><text x="375" y="408">P08</text><text x="475" y="408">P09</text><text x="575" y="408">P10</text>
+        </g>
+        <text x="480" y="335" font-size="12" fill="#7c6a12" text-anchor="middle" font-weight="700">INNER SOUTH WALL &bull; P07&ndash;P10</text>
+
+        <!-- P16–P20 south hallway easels -->
+        <g>
+          <rect x="190" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P16" role="button" tabindex="0" aria-label="Poster P16 hallway easel"/>
+          <rect x="252" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P17" role="button" tabindex="0" aria-label="Poster P17 hallway easel"/>
+          <rect x="314" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P18" role="button" tabindex="0" aria-label="Poster P18 hallway easel"/>
+          <rect x="376" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P19" role="button" tabindex="0" aria-label="Poster P19 hallway easel"/>
+          <rect x="438" y="500" width="42" height="54" fill="#bfdbfe" stroke="#1a2e3c" stroke-width="2" class="map-hotspot poster" data-poster="P20" role="button" tabindex="0" aria-label="Poster P20 hallway easel"/>
+        </g>
+        <g font-size="11" fill="#1e3a8a" font-weight="700" text-anchor="middle">
+          <text x="211" y="495">P16</text><text x="273" y="495">P17</text><text x="335" y="495">P18</text><text x="397" y="495">P19</text><text x="459" y="495">P20</text>
+        </g>
+        <text x="340" y="572" font-size="12" fill="#64748b" text-anchor="middle" font-weight="600">South hallway easels &bull; P16&ndash;P20</text>
+
+        <!-- dims from sketch -->
+        <g font-size="11" fill="#64748b" font-family="monospace">
+          <text x="480" y="548" text-anchor="middle">43 in &times; 5</text>
+          <text x="825" y="330" text-anchor="middle" transform="rotate(90 825,330)">4 1/2 feet</text>
+          <text x="843" y="205">85 in</text>
+          <text x="770" y="590">43 in &times; 3</text>
+        </g>
+
+        <!-- glass panel slanted lines right wall -->
+        <g stroke="#4b7a9c" stroke-width="2.5" fill="none" opacity="0.7">
+          <line x1="794" y1="125" x2="798" y2="505"/>
+          <line x1="800" y1="125" x2="804" y2="505"/>
+          <line x1="794" y1="160" x2="806" y2="172"/>
+          <line x1="794" y1="230" x2="806" y2="242"/>
+          <line x1="794" y1="300" x2="806" y2="312"/>
+          <line x1="794" y1="370" x2="806" y2="382"/>
+          <line x1="794" y1="440" x2="806" y2="452"/>
+        </g>
+        <text x="800" y="112" font-size="11" fill="#4b7a9c" text-anchor="middle" font-weight="600">Glass panel &mdash; slanted lines</text>
+
+        <!-- entry/stairs -->
+        <rect x="160" y="430" width="40" height="70" fill="#e8a33d" stroke="#1a2e3c" stroke-width="3" class="map-hotspot" data-target="entry" role="button" tabindex="0" aria-label="Entry and stairs to second floor"/>
+        <text x="180" y="422" font-size="11" fill="#1a2e3c" text-anchor="middle" font-weight="600">Entry / stairs</text>
+      </svg>
+
+      <div class="map-legend">
+        <span class="legend-item"><span class="legend-dot poster"></span> Drone-lab wall board</span>
+        <span class="legend-item"><span class="legend-dot demo"></span> Hallway easel</span>
+        <span class="legend-item"><span class="legend-dot entry"></span> Entry / stairs</span>
+      </div>
+    </div>
+
+    <div class="poster-detail" id="poster-detail" hidden>
+      <button class="close-detail" aria-label="Close poster details"><i data-lucide="x"></i></button>
+      <h3 id="detail-title">Poster <span id="detail-id"></span></h3>
+      <p id="detail-abstract">Click any poster board on the map to see slot info.</p>
+      <div class="detail-meta">
+        <span id="detail-presenter">Presenter:</span>
+        <span id="detail-topic">Topic:</span>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">MNRI</span>
+      <div>Minnesota Robotics Institute &bull; Showcase Day</div>
+    </div>
+    <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
+    <p class="footer-disclaimer">Maps based on hand-drawn sketches; layout per the event planning doc. Poster titles/presenters published after student submissions are reviewed.</p>
+  </div>
+</footer>
+
+<a class="back-to-top" href="#" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
+
+<script src="media/vendor/lucide.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Navigation &amp; Directions | MNRI Showcase Day</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237c6a12'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' fill='white' text-anchor='middle' font-weight='bold'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo">
+      <span class="logo-mark">MNRI</span>
+      <div class="logo-text">
+        <div class="logo-main">Minnesota Robotics Institute</div>
+        <div class="logo-sub">Showcase Day</div>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-list" id="nav-menu">
+        <li><a href="index.html" class="nav-link"><i data-lucide="sunrise"></i>Welcome</a></li>
+        <li><a href="navigation.html" class="nav-link active"><i data-lucide="route"></i>Navigation</a></li>
+        <li><a href="posters.html" class="nav-link"><i data-lucide="map"></i>Poster Session</a></li>
+        <li><a href="schedule.html" class="nav-link"><i data-lucide="calendar-days"></i>Schedule</a></li>
+      </ul>
+    </nav>
+    <div class="header-meta">
+      <span class="event-date"><i data-lucide="calendar"></i>November 6, 2026</span>
+    </div>
+  </div>
+</header>
+
+<!-- PART 2: NAVIGATION / WALKING DIRECTIONS -->
+<section id="navigation" class="section">
+  <div class="container">
+  <div class="section-header reveal">
+    <h2 class="section-title">Navigation &amp; Walking Directions</h2>
+    <p class="section-sub">Route from Mechanical Engineering 1130 &rarr; Shepherd Labs (Shep 164 / 169)</p>
+  </div>
+
+  <div class="nav-grid">
+    <div class="nav-card start-card reveal">
+      <div class="nav-head">
+        <div class="nav-badge">1</div>
+        <div class="icon-tile blue"><i data-lucide="door-open"></i></div>
+      </div>
+      <h3>Start: Mechanical Engineering 1130</h3>
+      <p>Enter Mechanical Engineering building, walk straight down the hall to ME 1130.</p>
+      <div class="nav-meta">
+        <span class="meta-item"><i data-lucide="building-2"></i>Mechanical Engineering</span>
+        <span class="meta-item"><i data-lucide="hash"></i>Room 1130</span>
+      </div>
+    </div>
+
+    <div class="nav-card route-card reveal">
+      <div class="nav-head">
+        <div class="nav-badge">2</div>
+        <div class="icon-tile gold"><i data-lucide="footprints"></i></div>
+      </div>
+      <h3>Exit &amp; head to Shepherd Labs</h3>
+      <p>Walk back out, take a right toward Shepherd Labs, follow the covered walkway to the end of the building.</p>
+      <div class="nav-meta">
+        <span class="meta-item"><i data-lucide="ruler"></i>~0.25 mi</span>
+        <span class="meta-item"><i data-lucide="timer"></i>5&ndash;7 min walk</span>
+      </div>
+    </div>
+
+    <div class="nav-card end-card reveal">
+      <div class="nav-head">
+        <div class="nav-badge">3</div>
+        <div class="icon-tile maroon"><i data-lucide="flag"></i></div>
+      </div>
+      <h3>Destination: Shepherd Labs</h3>
+      <p>Take a right then immediate left to enter &mdash; Drone Lab (Shep 164) and hallway poster area (Shep 169).</p>
+      <div class="nav-meta">
+        <span class="meta-item"><i data-lucide="building"></i>Shepherd Labs</span>
+        <span class="meta-item"><i data-lucide="hash"></i>Rooms 164 / 169</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Walking route photo carousel -->
+  <div class="nav-steps">
+    <h3><div class="icon-tile slate" style="width:36px;height:36px;font-size:1rem;"><i data-lucide="camera"></i></div>Follow the photos &mdash; step-by-step</h3>
+  </div>
+  <div class="route-gallery reveal">
+    <div class="carousel" id="routeCarousel" tabindex="0" aria-roledescription="carousel" aria-label="Walking route photo guide">
+      <div class="carousel-viewport">
+        <div class="carousel-track">
+          <figure class="carousel-slide"><img src="media/walking/step01-entrance-me.png" alt="Entrance to Mechanical Engineering" loading="lazy" draggable="false"><figcaption>1 &middot; Entrance to Mechanical Engineering</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step02-right-after-entering.png" alt="Take a right after entering" loading="lazy" draggable="false"><figcaption>2 &middot; Take a right after entering</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step03-hallway-me1130.png" alt="Walk straight into this hallway till ME 1130" loading="lazy" draggable="false"><figcaption>3 &middot; Walk straight down this hallway to ME 1130</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step04-exit-building.png" alt="Walk back to exit building" loading="lazy" draggable="false"><figcaption>4 &middot; Walk back to exit the building</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step05-right-sheplabs.png" alt="Take a right to head towards Shepherd Labs" loading="lazy" draggable="false"><figcaption>5 &middot; Take a right to head towards Shepherd Labs</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step06-walk-end.png" alt="Keep walking till end of building" loading="lazy" draggable="false"><figcaption>6 &middot; Keep walking till end of building</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step07-left-turn.png" alt="Take a left turn" loading="lazy" draggable="false"><figcaption>7 &middot; Take a left turn</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step08-walk-end2.png" alt="Keep walking till end of building" loading="lazy" draggable="false"><figcaption>8 &middot; Keep walking till end of building</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step09-entrance-shepherd.png" alt="Entrance to Shepherd Labs" loading="lazy" draggable="false"><figcaption>9 &middot; Entrance to Shepherd Labs</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step10-right-then-left.png" alt="Take a right turn and then an immediate left. Entrance to Shepherd Labs" loading="lazy" draggable="false"><figcaption>10 &middot; Take a right, then an immediate left to enter</figcaption></figure>
+          <figure class="carousel-slide"><img src="media/walking/step11-drone-lab-entrance.png" alt="Entrance to Drone Lab Shep 164, keep on walking" loading="lazy" draggable="false"><figcaption>11 &middot; Drone Lab (Shep 164) entrance &mdash; keep walking</figcaption></figure>
+        </div>
+      </div>
+      <button class="carousel-btn carousel-prev" aria-label="Previous image"><i data-lucide="chevron-left"></i></button>
+      <button class="carousel-btn carousel-next" aria-label="Next image"><i data-lucide="chevron-right"></i></button>
+      <div class="carousel-dots" id="carouselDots" role="tablist"></div>
+    </div>
+  </div>
+
+  <!-- Full panels grid -->
+  <div class="steps-panels reveal">
+    <div class="step-panel"><img src="media/walking/step01-entrance-me.png" alt="Entrance to Mechanical Engineering" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 1</span><p><strong>Enter Mechanical Engineering</strong> &mdash; use the main entrance.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step02-right-after-entering.png" alt="Take a right after entering" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 2</span><p><strong>Take a right after entering</strong> and follow the corridor.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step03-hallway-me1130.png" alt="Walk straight into this hallway till ME 1130" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 3</span><p><strong>Walk straight down the hallway till ME 1130</strong> &mdash; check-in here.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step04-exit-building.png" alt="Walk back to exit building" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 4</span><p><strong>Walk back to the exit building door</strong> to head outside.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step05-right-sheplabs.png" alt="Take a right to head towards Shepherd Labs" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 5</span><p><strong>Take a right to head towards Shepherd Labs</strong> from the exit.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step06-walk-end.png" alt="Keep walking till end of building" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 6</span><p><strong>Keep walking till end of building</strong> along the covered walkway.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step07-left-turn.png" alt="Take a left turn" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 7</span><p><strong>Take a left turn</strong> at the end of the walkway.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step08-walk-end2.png" alt="Keep walking till end of building" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 8</span><p><strong>Keep walking till end of building</strong> to reach Shepherd Labs entrance.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step09-entrance-shepherd.png" alt="Entrance to Shepherd Labs" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 9</span><p><strong>Entrance to Shepherd Labs</strong> &mdash; right turn, then immediate left to enter.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step10-right-then-left.png" alt="Take a right turn and then an immediate left. Entrance to Shepherd Labs" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 10</span><p><strong>Shepherd Laboratories 100</strong> &mdash; enter the building.</p></div></div>
+    <div class="step-panel"><img src="media/walking/step11-drone-lab-entrance.png" alt="Entrance to Drone Lab Shep 164, keep on walking" loading="lazy"><div class="step-panel-body"><span class="step-num">Step 11</span><p><strong>Drone Lab (Shep 164)</strong> on the left; keep walking for hallway poster boards.</p></div></div>
+  </div>
+
+  <div class="media-stubs" style="margin-top:2.5rem;">
+    <div class="media-card video-stub reveal">
+      <div class="stub-placeholder">
+        <div class="icon-tile gold"><i data-lucide="clapperboard"></i></div>
+        <span class="stub-label">Walking route video</span>
+        <span class="stub-note">Stub &mdash; video with arrows to be uploaded later</span>
+      </div>
+    </div>
+    <div class="media-card images-stub reveal">
+      <div class="stub-placeholder">
+        <div class="icon-tile maroon"><i data-lucide="square-check-big"></i></div>
+        <span class="stub-label">All 11 direction screenshots embedded</span>
+        <span class="stub-note">Annotated images from the movement-order walkthrough &mdash; shown above in carousel &amp; panels</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-steps">
+    <h3><div class="icon-tile slate" style="width:36px;height:36px;font-size:1rem;"><i data-lucide="list-ordered"></i></div>Quick directions recap</h3>
+    <ol class="steps-list compact">
+      <li><strong>Enter Mechanical Engineering</strong> &mdash; use the main entrance.</li>
+      <li><strong>Take a right after entering</strong> and follow the corridor.</li>
+      <li><strong>Walk straight to ME 1130</strong> &mdash; then head back out of the building.</li>
+      <li><strong>Right toward Shepherd Labs</strong>, walk to the end of the building, then left.</li>
+      <li><strong>Entrance to Shepherd Labs</strong> &mdash; right turn then immediate left inside.</li>
+      <li><strong>Drone Lab (Shep 164) / hallway poster boards</strong> and 2nd-floor rooms via stairs.</li>
+    </ol>
+    <div class="nav-alert">
+      <i data-lucide="info"></i>
+      <span><strong>Note:</strong> Route video is still pending and will be posted here before the event.</span>
+    </div>
+  </div>
+</div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">MNRI</span>
+      <div>Minnesota Robotics Institute &bull; Showcase Day</div>
+    </div>
+    <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
+    <p class="footer-disclaimer">Walking route video will be added prior to the event. Photos from the walkthrough of the movement-order route.</p>
+  </div>
+</footer>
+
+<a class="back-to-top" href="#" aria-label="Back to top"><i data-lucide="arrow-up"></i></a>
+
+<script src="media/vendor/lucide.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

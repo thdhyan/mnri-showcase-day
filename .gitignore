@@ -1,0 +1,5 @@
+node_modules/
+mnri-showcase/
+email_drafts/
+.DS_Store
+*.log
