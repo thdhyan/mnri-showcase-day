@@ -3,3 +3,7 @@ mnri-showcase/
 email_drafts/
 .DS_Store
 *.log
+
+# Planning-only files (keep local, never publish)
+POSTER_CATEGORIES.md
+assets/
