@@ -73,7 +73,7 @@
       <div class="svg-map-container">
         <div class="map-scroll">
           <div class="map-tip" id="map-tip" role="tooltip" hidden></div>
-        <svg class="floor-map" viewBox="70 80 1440 1010" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="floor-map" viewBox="70 80 1600 1010" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Poster session map</title>
           <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 5 on the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S5), 7 in the 2nd-floor hallway (F1 to F7), and 3 easels by the Akerman skyway on the 2nd floor (S6 to S8). Boards are coloured by poster category. Click any board for details.</desc>
 
@@ -136,13 +136,12 @@
           <rect class="void" x="1203.0" y="421.7" width="111.8" height="279.5"/>
           <text class="lbl" x="1258.9" y="561.5" text-anchor="middle" transform="rotate(-90 1258.9 561.5)">Open to Shep 164 below</text>
           <text class="lbl" x="1258.9" y="259.9" text-anchor="middle" transform="rotate(-90 1258.9 259.9)">Shep 256</text>
-          <polyline class="wall" points="1320.0,150.0 1320.0,1045.0 1401.9,1045.0"/>
-          <polyline class="wall" points="1388.9,150.0 1401.9,150.0 1401.9,745.0 1500.0,745.0"/>
-          <!-- Akerman skyway (DRAFT): opens right at the bottom of the hallway; easels S6–S8 on the left wall below it,
-               offset down from F7 so the skyway corner stays clear (same idea as O6 → S1). To be measured. -->
-          <polyline class="wall" points="1500.0,830.0 1401.9,830.0 1401.9,1045.0"/>
-          <text class="sub" x="1412" y="783">Akerman</text>
-          <text class="sub" x="1412" y="799">skyway &rarr;</text>
+          <polyline class="wall" points="1320.0,150.0 1320.0,860.0 1401.9,860.0 1401.9,830.0"/>
+          <polyline class="wall" points="1388.9,150.0 1401.9,150.0 1401.9,745.0 1660.0,745.0"/>
+          <!-- Akerman skyway (DRAFT): opens right at the bottom of the hallway; easels S6–S8 inside it on its bottom wall,
+               offset right from the corner so it stays clear (same idea as O6 → S1). To be measured. -->
+          <polyline class="wall" points="1660.0,830.0 1401.9,830.0"/>
+          <text class="sub" x="1530" y="765" text-anchor="middle">Akerman skyway &rarr; &middot; 3 easels</text>
           <text class="sub" x="1361" y="790" text-anchor="middle" transform="rotate(-90 1361 790)">keep clear</text>
           <g class="glass">
             <line x1="1314.8" y1="176.0" x2="1299.2" y2="190.3"/><line x1="1314.8" y1="204.6" x2="1299.2" y2="218.9"/>
@@ -238,13 +237,13 @@
             <rect class="map-hit" x="954" y="948" width="51" height="60"/><rect class="tile" x="984.5" y="951" width="13" height="54"/><text class="pnd" x="979" y="982" text-anchor="end">S4</text></g>
           <g class="map-hotspot poster" data-poster="S5" role="button" tabindex="96" aria-label="Poster S5, Solar Vehicle Project wall">
             <rect class="map-hit" x="954" y="1005" width="51" height="60"/><rect class="tile" x="984.5" y="1008" width="13" height="54"/><text class="pnd" x="979" y="1039" text-anchor="end">S5</text></g>
-          <!-- 2nd floor easels on the hallway left wall, below the Akerman skyway (top to bottom) -->
-          <g class="map-hotspot poster" data-poster="S6" role="button" tabindex="90" aria-label="Poster S6, easel by the Akerman skyway, 2nd floor">
-            <rect class="map-hit" x="1322" y="860" width="62" height="54"/><rect class="tile" x="1326" y="864" width="31" height="46.8"/><text class="pnd" x="1363" y="891" text-anchor="start">S6</text></g>
-          <g class="map-hotspot poster" data-poster="S7" role="button" tabindex="90" aria-label="Poster S7, easel by the Akerman skyway, 2nd floor">
-            <rect class="map-hit" x="1322" y="914" width="62" height="54"/><rect class="tile" x="1326" y="918" width="31" height="46.8"/><text class="pnd" x="1363" y="945" text-anchor="start">S7</text></g>
-          <g class="map-hotspot poster" data-poster="S8" role="button" tabindex="90" aria-label="Poster S8, easel by the Akerman skyway, 2nd floor">
-            <rect class="map-hit" x="1322" y="968" width="62" height="54"/><rect class="tile" x="1326" y="972" width="31" height="46.8"/><text class="pnd" x="1363" y="999" text-anchor="start">S8</text></g>
+          <!-- 2nd floor easels inside the Akerman skyway, on its bottom wall (left to right from the corner) -->
+          <g class="map-hotspot poster" data-poster="S6" role="button" tabindex="90" aria-label="Poster S6, easel in the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1460" y="782" width="54" height="48"/><rect class="tile" x="1463" y="813" width="46.8" height="13"/><text class="pnd" x="1486.4" y="806" text-anchor="middle">S6</text></g>
+          <g class="map-hotspot poster" data-poster="S7" role="button" tabindex="90" aria-label="Poster S7, easel in the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1514" y="782" width="54" height="48"/><rect class="tile" x="1517" y="813" width="46.8" height="13"/><text class="pnd" x="1540.4" y="806" text-anchor="middle">S7</text></g>
+          <g class="map-hotspot poster" data-poster="S8" role="button" tabindex="90" aria-label="Poster S8, easel in the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1568" y="782" width="54" height="48"/><rect class="tile" x="1571" y="813" width="46.8" height="13"/><text class="pnd" x="1594.4" y="806" text-anchor="middle">S8</text></g>
         </svg>
         </div>
 

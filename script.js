@@ -80,7 +80,7 @@
   const slotWhere = (id) =>
     id[0] === "P" ? "Shep 164 (Drone Lab) — inside" :
     id[0] === "O" ? "Shep 164 outer wall — 1st-floor hallway" :
-    ["S6", "S7", "S8"].includes(id) ? "2nd-floor hallway — easel by the Akerman skyway" :
+    ["S6", "S7", "S8"].includes(id) ? "2nd floor — easel inside the Akerman skyway" :
     id[0] === "S" ? "Solar Vehicle Project wall — 1st-floor hallway" :
     (id === "F1" || id === "F2") ? "2nd-floor hallway — Shep 256 glass" :
     id === "F3" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
