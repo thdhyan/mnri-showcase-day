@@ -57,7 +57,7 @@
     <div class="poster-info">
       <div class="poster-details reveal">
         <h3><i data-lucide="presentation"></i>Poster Session</h3>
-        <p>Student posters fill the Drone Lab walls, its hallway-side outer wall, the Solar Vehicle Project wall across the 1st-floor corridor, and the 2nd-floor corridor. Each board is colour-coded by research area &mdash; click any board on the map to see the poster and presenter.</p>
+        <p>Student posters fill the Drone Lab walls, its hallway-side outer wall, the Solar Vehicle Project wall across the 1st-floor corridor, and the 2nd-floor corridor up to the Akerman skyway. Each board is colour-coded by research area &mdash; click any board on the map to see the poster and presenter.</p>
         <ul class="detail-list">
           <li><i data-lucide="map-pin"></i><span><strong>Location:</strong> Shepherd Lab 164 (Drone Lab) + hallways</span></li>
           <li><i data-lucide="clock"></i><span><strong>Time:</strong> 2:00 &ndash; 3:10 PM</span></li>
@@ -73,9 +73,9 @@
       <div class="svg-map-container">
         <div class="map-scroll">
           <div class="map-tip" id="map-tip" role="tooltip" hidden></div>
-        <svg class="floor-map" viewBox="70 80 1340 1100" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="floor-map" viewBox="70 80 1340 1010" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Poster session map</title>
-          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 8 by the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S8), 7 in the 2nd-floor hallway (F1 to F7). Boards are coloured by poster category. Click any board for details.</desc>
+          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 5 on the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S5), 7 in the 2nd-floor hallway (F1 to F7), and 3 easels by the Akerman skyway on the 2nd floor (S6 to S8). Boards are coloured by poster category. Click any board for details.</desc>
 
           <style>
             .wall{fill:none;stroke:#111;stroke-width:5;stroke-linejoin:miter;stroke-linecap:square}
@@ -122,12 +122,12 @@
           <text class="sub" x="508.0" y="786.0" text-anchor="middle">1st-floor hallway</text>
 
           <!-- Solar Vehicle Project wall (DRAFT): across the corridor from Shep 164, offset right + down from O6
-               so the hallway corner stays clear. Assumed 5 boards like Shep 164 right wall, + 3 easels; to be measured. -->
+               so the hallway corner stays clear. Assumed 5 boards like Shep 164 right wall; to be measured. -->
           <polyline class="wall" points="1000.0,770.0 1000.0,1075.0"/>
           <rect class="view" x="938.5" y="777.0" width="43.0" height="290.0"/>
           <text class="sub" x="952" y="735" text-anchor="middle">corridor corner &middot; keep clear</text>
           <text class="h2" x="1020" y="900">Solar Vehicle Project</text>
-          <text class="sub" x="1020" y="920">Across the corridor &middot; 5 posters + 3 easels</text>
+          <text class="sub" x="1020" y="920">Across the corridor &middot; 5 posters</text>
           <text class="sub" x="1020" y="938">(draft &mdash; dimensions to be measured)</text>
 
           <!-- 2nd floor hallway (top to bottom: Shep 256 glass, easel, glass over Shep 164) -->
@@ -137,7 +137,12 @@
           <text class="lbl" x="1258.9" y="561.5" text-anchor="middle" transform="rotate(-90 1258.9 561.5)">Open to Shep 164 below</text>
           <text class="lbl" x="1258.9" y="259.9" text-anchor="middle" transform="rotate(-90 1258.9 259.9)">Shep 256</text>
           <polyline class="wall" points="1320.0,150.0 1320.0,727.2"/>
-          <polyline class="wall" points="1388.9,150.0 1401.9,150.0 1401.9,727.2 1388.9,727.2"/>
+          <polyline class="wall" points="1388.9,150.0 1401.9,150.0 1401.9,835.0 1050.0,835.0"/>
+          <!-- Akerman skyway (DRAFT): opens left at the bottom of the hallway; easels S6–S8 offset left + down from F7
+               so the skyway corner stays clear (same idea as O6 → S1). To be measured. -->
+          <polyline class="wall" points="1320.0,727.2 1050.0,727.2"/>
+          <text class="sub" x="1060" y="745">&larr; Akerman skyway &middot; 3 easels</text>
+          <text class="sub" x="1361" y="790" text-anchor="middle">keep clear</text>
           <g class="glass">
             <line x1="1314.8" y1="176.0" x2="1299.2" y2="190.3"/><line x1="1314.8" y1="204.6" x2="1299.2" y2="218.9"/>
             <line x1="1314.8" y1="233.2" x2="1299.2" y2="247.5"/><line x1="1314.8" y1="261.8" x2="1299.2" y2="276.1"/>
@@ -232,12 +237,13 @@
             <rect class="map-hit" x="954" y="948" width="51" height="60"/><rect class="tile" x="984.5" y="951" width="13" height="54"/><text class="pnd" x="979" y="982" text-anchor="end">S4</text></g>
           <g class="map-hotspot poster" data-poster="S5" role="button" tabindex="96" aria-label="Poster S5, Solar Vehicle Project wall">
             <rect class="map-hit" x="954" y="1005" width="51" height="60"/><rect class="tile" x="984.5" y="1008" width="13" height="54"/><text class="pnd" x="979" y="1039" text-anchor="end">S5</text></g>
-          <g class="map-hotspot poster" data-poster="S6" role="button" tabindex="90" aria-label="Poster S6, easel by the Solar Vehicle Project wall">
-            <rect class="map-hit" x="930" y="1085" width="66" height="62"/><rect class="tile" x="936" y="1091" width="54" height="36"/><text class="pnd" x="963" y="1141" text-anchor="middle">S6</text></g>
-          <g class="map-hotspot poster" data-poster="S7" role="button" tabindex="90" aria-label="Poster S7, easel by the Solar Vehicle Project wall">
-            <rect class="map-hit" x="864" y="1085" width="66" height="62"/><rect class="tile" x="870" y="1091" width="54" height="36"/><text class="pnd" x="897" y="1141" text-anchor="middle">S7</text></g>
-          <g class="map-hotspot poster" data-poster="S8" role="button" tabindex="90" aria-label="Poster S8, easel by the Solar Vehicle Project wall">
-            <rect class="map-hit" x="798" y="1085" width="66" height="62"/><rect class="tile" x="804" y="1091" width="54" height="36"/><text class="pnd" x="831" y="1141" text-anchor="middle">S8</text></g>
+          <!-- 2nd floor, Akerman skyway easels (right to left from the corner) -->
+          <g class="map-hotspot poster" data-poster="S6" role="button" tabindex="90" aria-label="Poster S6, easel by the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1171" y="766" width="57" height="62"/><rect class="tile" x="1176" y="770" width="46.8" height="31"/><text class="pnd" x="1199.4" y="819" text-anchor="middle">S6</text></g>
+          <g class="map-hotspot poster" data-poster="S7" role="button" tabindex="90" aria-label="Poster S7, easel by the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1113" y="766" width="57" height="62"/><rect class="tile" x="1118" y="770" width="46.8" height="31"/><text class="pnd" x="1141.4" y="819" text-anchor="middle">S7</text></g>
+          <g class="map-hotspot poster" data-poster="S8" role="button" tabindex="90" aria-label="Poster S8, easel by the Akerman skyway, 2nd floor">
+            <rect class="map-hit" x="1055" y="766" width="57" height="62"/><rect class="tile" x="1060" y="770" width="46.8" height="31"/><text class="pnd" x="1083.4" y="819" text-anchor="middle">S8</text></g>
         </svg>
         </div>
 
@@ -271,7 +277,7 @@
       <div>Minnesota Robotics Institute &bull; Showcase Day</div>
     </div>
     <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
-    <p class="footer-disclaimer">36 poster boards: 15 in Shep 164, 6 on its hallway-side outer wall, 8 by the Solar Vehicle Project wall, 7 in the second-floor corridor. Poster placement may change before the event.</p>
+    <p class="footer-disclaimer">36 poster boards: 15 in Shep 164, 6 on its hallway-side outer wall, 5 on the Solar Vehicle Project wall, 7 in the second-floor corridor, 3 easels by the Akerman skyway. Poster placement may change before the event.</p>
   </div>
 </footer>
 

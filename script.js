@@ -76,11 +76,11 @@
     networked:  { name: "Networked & Connected Robotics",         color: "#4E9C9C" },
   };
 
-  // Board locations: Plan C (28 boards) + Solar Vehicle Project wall S1–S5 + easels S6–S8 (36 boards).
+  // Board locations: Plan C (28 boards) + Solar Vehicle Project wall S1–S5 + Akerman skyway easels S6–S8 (36 boards).
   const slotWhere = (id) =>
     id[0] === "P" ? "Shep 164 (Drone Lab) — inside" :
     id[0] === "O" ? "Shep 164 outer wall — 1st-floor hallway" :
-    ["S6", "S7", "S8"].includes(id) ? "1st-floor hallway — easel by the Solar Vehicle Project wall" :
+    ["S6", "S7", "S8"].includes(id) ? "2nd-floor hallway — easel by the Akerman skyway" :
     id[0] === "S" ? "Solar Vehicle Project wall — 1st-floor hallway" :
     (id === "F1" || id === "F2") ? "2nd-floor hallway — Shep 256 glass" :
     id === "F3" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
