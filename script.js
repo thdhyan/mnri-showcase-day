@@ -85,7 +85,7 @@
     (id === "F1" || id === "F2") ? "2nd-floor hallway — Shep 256 glass" :
     id === "F3" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
 
-  // MOCK assignment: 32 posters on 36 boards (4 open for expected posters), same category never on neighbouring boards.
+  // MOCK assignment: 33 posters on 36 boards (3 open for expected posters), same category never on neighbouring boards.
   // Boards not listed here are open slots (room for late additions).
   const assignments = {
     P1:  { cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
@@ -120,6 +120,7 @@
     F4:  { cat: "marine",     title: "Overcoming Data Scarcity in Child AUV Position Estimation (SIFT-YOLOv9)", presenter: "Francis Aweenagua" },
     F5:  { cat: "learning",   title: "A-PACE: Asynchronous Predictive Alignment for Frozen VLA Execution", presenter: "Tian Xie" },
     F6:  { cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
+    F7:  { cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
   };
 
   // Colour each board by category; unassigned boards render as open slots.
