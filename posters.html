@@ -51,13 +51,13 @@
   <div class="container">
     <div class="section-header reveal">
       <h2 class="section-title">Poster Session &amp; Interactive Map</h2>
-      <p class="section-sub">2:00 – 3:10 PM &bull; Shepherd Lab 164 (Drone Lab) + hallways &bull; 28 poster boards, colour-coded by research area</p>
+      <p class="section-sub">2:00 – 3:10 PM &bull; Shepherd Lab 164 (Drone Lab) + hallways &bull; 36 poster boards, colour-coded by research area</p>
     </div>
 
     <div class="poster-info">
       <div class="poster-details reveal">
         <h3><i data-lucide="presentation"></i>Poster Session</h3>
-        <p>Student posters fill the Drone Lab walls, its hallway-side outer wall, and the 2nd-floor corridor. Each board is colour-coded by research area &mdash; click any board on the map to see the poster and presenter.</p>
+        <p>Student posters fill the Drone Lab walls, its hallway-side outer wall, the Solar Vehicle Project wall across the 1st-floor hallway, and the 2nd-floor corridor. Each board is colour-coded by research area &mdash; click any board on the map to see the poster and presenter.</p>
         <ul class="detail-list">
           <li><i data-lucide="map-pin"></i><span><strong>Location:</strong> Shepherd Lab 164 (Drone Lab) + hallways</span></li>
           <li><i data-lucide="clock"></i><span><strong>Time:</strong> 2:00 &ndash; 3:10 PM</span></li>
@@ -73,9 +73,9 @@
       <div class="svg-map-container">
         <div class="map-scroll">
           <div class="map-tip" id="map-tip" role="tooltip" hidden></div>
-        <svg class="floor-map" viewBox="70 80 1340 720" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="floor-map" viewBox="70 80 1340 990" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Poster session map</title>
-          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 7 in the 2nd-floor hallway (F1 to F7). Boards are coloured by poster category. Click any board for details.</desc>
+          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 8 by the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S8), 7 in the 2nd-floor hallway (F1 to F7). Boards are coloured by poster category. Click any board for details.</desc>
 
           <style>
             .wall{fill:none;stroke:#111;stroke-width:5;stroke-linejoin:miter;stroke-linecap:square}
@@ -120,6 +120,13 @@
           <polyline class="thin" points="194.5,687.5 194.5,657.5 388.0,657.5 388.0,678.5 454.0,678.5 454.0,657.5 904.0,657.5 904.0,687.5 194.5,687.5"/>
           <text class="sub" x="194.5" y="651.5" text-anchor="start">Outer wall of Shep 164 (hallway side) &middot; 6 posters</text>
           <text class="sub" x="508.0" y="786.0" text-anchor="middle">1st-floor hallway</text>
+
+          <!-- Solar Vehicle Project wall (DRAFT: assumed 5 boards like Shep 164 right wall, + 3 easels; to be measured) -->
+          <polyline class="wall" points="904.0,687.5 904.0,990.0"/>
+          <rect class="view" x="842.5" y="697.0" width="43.0" height="290.0"/>
+          <text class="h2" x="925" y="820">Solar Vehicle Project</text>
+          <text class="sub" x="925" y="840">Wall across from Shep 164 &middot; 5 posters + 3 easels</text>
+          <text class="sub" x="925" y="858">(draft &mdash; dimensions to be measured)</text>
 
           <!-- 2nd floor hallway (top to bottom: Shep 256 glass, easel, glass over Shep 164) -->
           <text class="h2" x="1170" y="100">2nd Floor &mdash; hallway</text>
@@ -211,6 +218,24 @@
             <rect class="map-hit" x="1316" y="583" width="50" height="50"/><rect class="tile" x="1322.5" y="584.9" width="10" height="46.8"/><text class="pnd" x="1340" y="612.3" text-anchor="start">F6</text></g>
           <g class="map-hotspot poster" data-poster="F7" role="button" tabindex="0" aria-label="Poster F7, 2nd-floor hallway, glass over Shep 164">
             <rect class="map-hit" x="1316" y="633" width="50" height="50"/><rect class="tile" x="1322.5" y="634.2" width="10" height="46.8"/><text class="pnd" x="1340" y="661.6" text-anchor="start">F7</text></g>
+
+          <!-- Solar Vehicle Project wall, 1st-floor hallway (S1 at the north end, next to O6) -->
+          <g class="map-hotspot poster" data-poster="S1" role="button" tabindex="0" aria-label="Poster S1, Solar Vehicle Project wall">
+            <rect class="map-hit" x="858" y="697" width="51" height="60"/><rect class="tile" x="888.5" y="700" width="13" height="54"/><text class="pnd" x="883" y="731" text-anchor="end">S1</text></g>
+          <g class="map-hotspot poster" data-poster="S2" role="button" tabindex="0" aria-label="Poster S2, Solar Vehicle Project wall">
+            <rect class="map-hit" x="858" y="754" width="51" height="60"/><rect class="tile" x="888.5" y="757" width="13" height="54"/><text class="pnd" x="883" y="788" text-anchor="end">S2</text></g>
+          <g class="map-hotspot poster" data-poster="S3" role="button" tabindex="0" aria-label="Poster S3, Solar Vehicle Project wall">
+            <rect class="map-hit" x="858" y="811" width="51" height="60"/><rect class="tile" x="888.5" y="814" width="13" height="54"/><text class="pnd" x="883" y="845" text-anchor="end">S3</text></g>
+          <g class="map-hotspot poster" data-poster="S4" role="button" tabindex="0" aria-label="Poster S4, Solar Vehicle Project wall">
+            <rect class="map-hit" x="858" y="868" width="51" height="60"/><rect class="tile" x="888.5" y="871" width="13" height="54"/><text class="pnd" x="883" y="902" text-anchor="end">S4</text></g>
+          <g class="map-hotspot poster" data-poster="S5" role="button" tabindex="0" aria-label="Poster S5, Solar Vehicle Project wall">
+            <rect class="map-hit" x="858" y="925" width="51" height="60"/><rect class="tile" x="888.5" y="928" width="13" height="54"/><text class="pnd" x="883" y="959" text-anchor="end">S5</text></g>
+          <g class="map-hotspot poster" data-poster="S6" role="button" tabindex="0" aria-label="Poster S6, easel by the Solar Vehicle Project wall">
+            <rect class="map-hit" x="840" y="995" width="66" height="62"/><rect class="tile" x="846" y="1001" width="54" height="36"/><text class="pnd" x="873" y="1051" text-anchor="middle">S6</text></g>
+          <g class="map-hotspot poster" data-poster="S7" role="button" tabindex="0" aria-label="Poster S7, easel by the Solar Vehicle Project wall">
+            <rect class="map-hit" x="774" y="995" width="66" height="62"/><rect class="tile" x="780" y="1001" width="54" height="36"/><text class="pnd" x="807" y="1051" text-anchor="middle">S7</text></g>
+          <g class="map-hotspot poster" data-poster="S8" role="button" tabindex="0" aria-label="Poster S8, easel by the Solar Vehicle Project wall">
+            <rect class="map-hit" x="708" y="995" width="66" height="62"/><rect class="tile" x="714" y="1001" width="54" height="36"/><text class="pnd" x="741" y="1051" text-anchor="middle">S8</text></g>
         </svg>
         </div>
 
@@ -244,7 +269,7 @@
       <div>Minnesota Robotics Institute &bull; Showcase Day</div>
     </div>
     <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
-    <p class="footer-disclaimer">28 poster boards: 15 in Shep 164, 6 on its hallway-side outer wall, 7 in the second-floor corridor. Poster placement may change before the event.</p>
+    <p class="footer-disclaimer">36 poster boards: 15 in Shep 164, 6 on its hallway-side outer wall, 8 by the Solar Vehicle Project wall, 7 in the second-floor corridor. Poster placement may change before the event.</p>
   </div>
 </footer>
 
