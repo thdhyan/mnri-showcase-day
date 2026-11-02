@@ -29,10 +29,12 @@ general = []
 for name, fname, label, hint, url in [
     ("Main voting page", "vote-main", "Pick a poster and rate it", "Scan to vote", f"{SITE}vote.html"),
     ("Showcase Day website", "website", "Schedule, navigation and poster map", "Scan to open the website", SITE),
+    ("Showcase Day schedule", "schedule", "Full schedule for the day", "Scan to open the schedule", f"{SITE}schedule.html"),
     ("Questions & Suggestions", "questions-and-suggestions", "Ask the organizers a question or share a suggestion", "Scan to open the form", f"{SITE}feedback.html"),
 ]:
     q = segno.make(url, error="m")
     q.save(f"qr/{fname}.png", scale=12, border=3)
+    q.save(f"qr/{fname}.pdf", scale=12, border=3)
     general.append(card(name, label, "", hint, q.svg_inline(scale=4, border=2)))
 
 # Landscape letter, 3 columns x 2 rows = 6 per page; general codes get their own last page.
