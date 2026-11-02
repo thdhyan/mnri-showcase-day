@@ -76,8 +76,9 @@
     networked:  { name: "Networked & Connected Robotics",         color: "#4E9C9C" },
   };
 
-  // Board locations: Plan C (28 boards) + Solar Vehicle Project wall S1–S5 + Akerman skyway easels S6–S8 (36 boards).
+  // 36 planned slots plus 2 optional study-room overflow easels (F8–F9).
   const slotWhere = (id) =>
+    ["F8", "F9"].includes(id) ? "2nd-floor study room — optional overflow easel, opposite existing poster wall" :
     id[0] === "P" ? "Shep 164 (Drone Lab) — inside" :
     id[0] === "O" ? "Shep 164 outer wall — 1st-floor hallway" :
     ["S6", "S7", "S8"].includes(id) ? "2nd floor — easel inside the Akerman skyway" :
@@ -85,7 +86,7 @@
     (id === "F1" || id === "F2") ? "2nd-floor hallway — Shep 256 glass" :
     id === "F3" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
 
-  // MOCK assignment: 33 posters on 36 boards (3 open for expected posters), same category never on neighbouring boards.
+  // MOCK assignment: 34 submitted posters, 2 expected slots, 2 optional overflow easels.
   // Boards not listed here are open slots (room for late additions).
   const assignments = {
     P1:  { cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
@@ -114,6 +115,7 @@
     S3:  { cat: "wearables",  title: "Robots for Those in Transition: Exploring Mental Wellness through Design Probes", presenter: "Minghe Lu" },
     S4:  { cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Golamari, Mundada, Narapareddy, Tumu" },
     S5:  { cat: "networked",  title: "C-V2X Monitoring and Anomaly Detection", presenter: "Farhad Soleimani" },
+    S8:  { cat: "networked", title: "DRIVE-SAFE: Remote and Cooperative Autonomous Driving in Dynamic Environments using 5G/NextG Technology", presenter: "Lalitaditya Divakarla" },
     F1:  { cat: "perception", title: "Autonomous Drone for Dynamic Smoke Plume Tracking", presenter: "Srijan Kumar Pal" },
     F2:  { cat: "systems",    title: "Solar Sail Momentum Management Using Predictive Control", presenter: "Ping-Yen Shen" },
     F3:  { cat: "networked",  title: "CAVA: Context-Aware Video Adaptation for Teleoperation", presenter: "Faaiq Bilal" },
