@@ -76,53 +76,52 @@
     networked:  { name: "Networked & Connected Robotics",         color: "#4E9C9C" },
   };
 
-  // 36 planned slots plus 2 optional study-space overflow easels (F8–F9).
+  // IDs: floor-room-number. H = hallway, SV = Solar Vehicle wall, ST = study space.
   const slotWhere = (id) =>
-    ["F8", "F9"].includes(id) ? "2nd-floor study space — easel facing bottom-left" :
-    id[0] === "P" ? "Shep 164 (Drone Lab) — inside" :
-    id[0] === "O" ? "Shep 164 outer wall — 1st-floor hallway" :
-    ["S6", "S7", "S8"].includes(id) ? "2nd floor — easel inside the Akerman skyway" :
-    id[0] === "S" ? "Solar Vehicle Project wall — 1st-floor hallway" :
-    (id === "F1" || id === "F2") ? "2nd-floor hallway — Shep 256 glass" :
-    id === "F3" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
+    id.startsWith("1-164-") ? "1st floor — Shep 164 (Drone Lab)" :
+    id.startsWith("1-H-") ? "1st-floor hallway — Shep 164 outer wall" :
+    id.startsWith("1-SV-") ? "1st-floor hallway — Solar Vehicle Project wall" :
+    id.startsWith("2-ST-") ? "2nd-floor study space — easel" :
+    ["2-H-01", "2-H-02"].includes(id) ? "2nd-floor hallway — Shep 256 glass" :
+    id === "2-H-03" ? "2nd-floor hallway — easel" : "2nd-floor hallway — glass over Shep 164";
 
   // MOCK assignment: 34 submitted posters, 2 expected slots, 2 optional overflow easels.
   // Boards not listed here are open slots (room for late additions).
   const assignments = {
-    P1:  { cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
-    P2:  { cat: "learning",   title: "Reasoning Over Fully-occluded Obstacle for Non-prehensile Loco-manipulation", presenter: "Minghao Zou" },
-    P3:  { cat: "perception", title: "FLi-SLAM: FPGA Codesign for ICP Registration in 3D LiDAR SLAM", presenter: "Sangjae Park" },
-    P4:  { cat: "marine",     title: "SeaCube: Open-Source Autonomous Docking Station for AUV Operations", presenter: "Rishi Mukherjee" },
-    P5:  { cat: "wearables", title: "Look and Pick: Gaze-Directed Grasping with Closed-Loop Correction from Smart Glasses", presenter: "Narapareddy, Tumu, Mundada" },
-    P6:  { cat: "learning",   title: "CrowdMAPS: Multiple Actions per State for Robot Imitation Learning", presenter: "Yilong Song" },
-    P7:  { cat: "wearables", title: "Smart Thermally Actuating Textiles: Lumbar Support Garment", presenter: "Audrey Percich" },
-    P8:  { cat: "perception", title: "From Rows to Ground Truth: Field Robot for Vineyard Mapping", presenter: "Vamsi Krishna Kocherla" },
-    P9:  { cat: "systems",    title: "Spacecraft Motion Simulation using Cable-Driven Parallel Robots (SPACESiM)", presenter: "Konner Brickey" },
-    P10: { cat: "marine",     title: "Detection-Driven Underwater Image Enhancement", presenter: "Ayaan Mohammed" },
-    P11: { cat: "learning",   title: "Tailorable Force Sensing Skins for Manipulators", presenter: "Adam Imdieke" },
-    P12: { cat: "systems",    title: "CABLESSail: Solar Sail Momentum Management Using Shape Control", presenter: "Soojeong Lee" },
-    P13: { cat: "marine",     title: "AUV-Assisted Optical-Acoustic Detection of Invasive Mystery Snails", presenter: "Amreen Hossain" },
-    P14: { cat: "systems",    title: "Data-Driven Robust Refinement of Dual-Stage HDD Controllers", presenter: "Erik Lehner" },
-    P15: { cat: "learning",   title: "Grasp-TAGS: Task-Aware Grasp Selection for Loco-manipulation", presenter: "Xun Tu" },
-    O1:  { cat: "systems",    title: "Active Control of a Laser-Levitated Photonic Metasurface", presenter: "Lucas Myers" },
-    O2:  { cat: "marine",     title: "Context-Aware Safety Assessment for AUVs in Marine Debris Management", presenter: "Sakshi Singh" },
-    O3:  { cat: "perception", title: "Automated Truck Parking Occupancy Detection using 3D Perception", presenter: "Mohammed Jassim Jahubar Ali" },
-    O4:  { cat: "wearables", title: "Step Placement Swing Control for Powered Knee-Ankle Prostheses", presenter: "Michael Feldkamp" },
-    O5:  { cat: "learning",   title: "PILOT: Long-Horizon World-Model Planning with Visual Subgoals", presenter: "Hanchen Cui" },
-    O6:  { cat: "perception", title: "Vision-Language-Guided Waypoint Generation for Mapless Robot Navigation", presenter: "Kalyan Sai Reddy Lankireddy" },
-    S1:  { cat: "networked",  title: "Resource-Aware Data Uploads for Agricultural Robots", presenter: "Yuanzheng Li" },
-    S2:  { cat: "learning",   title: "Traceable VLA Policy: From Memory to Motion", presenter: "Mingxi Su" },
-    S3:  { cat: "wearables",  title: "Robots for Those in Transition: Exploring Mental Wellness through Design Probes", presenter: "Minghe Lu" },
-    S4:  { cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Golamari, Mundada, Narapareddy, Tumu" },
-    S5:  { cat: "networked",  title: "C-V2X Monitoring and Anomaly Detection", presenter: "Farhad Soleimani" },
-    S8:  { cat: "networked", title: "DRIVE-SAFE: Remote and Cooperative Autonomous Driving in Dynamic Environments using 5G/NextG Technology", presenter: "Lalitaditya Divakarla" },
-    F1:  { cat: "perception", title: "Autonomous Drone for Dynamic Smoke Plume Tracking", presenter: "Srijan Kumar Pal" },
-    F2:  { cat: "systems",    title: "Solar Sail Momentum Management Using Predictive Control", presenter: "Ping-Yen Shen" },
-    F3:  { cat: "networked",  title: "CAVA: Context-Aware Video Adaptation for Teleoperation", presenter: "Faaiq Bilal" },
-    F4:  { cat: "marine",     title: "Overcoming Data Scarcity in Child AUV Position Estimation (SIFT-YOLOv9)", presenter: "Francis Aweenagua" },
-    F5:  { cat: "learning",   title: "A-PACE: Asynchronous Predictive Alignment for Frozen VLA Execution", presenter: "Tian Xie" },
-    F6:  { cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
-    F7:  { cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
+    "1-164-01":  { cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
+    "1-164-02":  { cat: "learning",   title: "Reasoning Over Fully-occluded Obstacle for Non-prehensile Loco-manipulation", presenter: "Minghao Zou" },
+    "1-164-03":  { cat: "perception", title: "FLi-SLAM: FPGA Codesign for ICP Registration in 3D LiDAR SLAM", presenter: "Sangjae Park" },
+    "1-164-04":  { cat: "marine",     title: "SeaCube: Open-Source Autonomous Docking Station for AUV Operations", presenter: "Rishi Mukherjee" },
+    "1-164-05":  { cat: "wearables", title: "Look and Pick: Gaze-Directed Grasping with Closed-Loop Correction from Smart Glasses", presenter: "Narapareddy, Tumu, Mundada" },
+    "1-164-06":  { cat: "learning",   title: "CrowdMAPS: Multiple Actions per State for Robot Imitation Learning", presenter: "Yilong Song" },
+    "1-164-07":  { cat: "wearables", title: "Smart Thermally Actuating Textiles: Lumbar Support Garment", presenter: "Audrey Percich" },
+    "1-164-08":  { cat: "perception", title: "From Rows to Ground Truth: Field Robot for Vineyard Mapping", presenter: "Vamsi Krishna Kocherla" },
+    "1-164-09":  { cat: "systems",    title: "Spacecraft Motion Simulation using Cable-Driven Parallel Robots (SPACESiM)", presenter: "Konner Brickey" },
+    "1-164-10": { cat: "marine",     title: "Detection-Driven Underwater Image Enhancement", presenter: "Ayaan Mohammed" },
+    "1-164-11": { cat: "learning",   title: "Tailorable Force Sensing Skins for Manipulators", presenter: "Adam Imdieke" },
+    "1-164-12": { cat: "systems",    title: "CABLESSail: Solar Sail Momentum Management Using Shape Control", presenter: "Soojeong Lee" },
+    "1-164-13": { cat: "marine",     title: "AUV-Assisted Optical-Acoustic Detection of Invasive Mystery Snails", presenter: "Amreen Hossain" },
+    "1-164-14": { cat: "systems",    title: "Data-Driven Robust Refinement of Dual-Stage HDD Controllers", presenter: "Erik Lehner" },
+    "1-164-15": { cat: "learning",   title: "Grasp-TAGS: Task-Aware Grasp Selection for Loco-manipulation", presenter: "Xun Tu" },
+    "1-H-01":  { cat: "systems",    title: "Active Control of a Laser-Levitated Photonic Metasurface", presenter: "Lucas Myers" },
+    "1-H-02":  { cat: "marine",     title: "Context-Aware Safety Assessment for AUVs in Marine Debris Management", presenter: "Sakshi Singh" },
+    "1-H-03":  { cat: "perception", title: "Automated Truck Parking Occupancy Detection using 3D Perception", presenter: "Mohammed Jassim Jahubar Ali" },
+    "1-H-04":  { cat: "wearables", title: "Step Placement Swing Control for Powered Knee-Ankle Prostheses", presenter: "Michael Feldkamp" },
+    "1-H-05":  { cat: "learning",   title: "PILOT: Long-Horizon World-Model Planning with Visual Subgoals", presenter: "Hanchen Cui" },
+    "1-H-06":  { cat: "perception", title: "Vision-Language-Guided Waypoint Generation for Mapless Robot Navigation", presenter: "Kalyan Sai Reddy Lankireddy" },
+    "1-SV-01":  { cat: "networked",  title: "Resource-Aware Data Uploads for Agricultural Robots", presenter: "Yuanzheng Li" },
+    "1-SV-02":  { cat: "learning",   title: "Traceable VLA Policy: From Memory to Motion", presenter: "Mingxi Su" },
+    "1-SV-03":  { cat: "wearables",  title: "Robots for Those in Transition: Exploring Mental Wellness through Design Probes", presenter: "Minghe Lu" },
+    "1-SV-04":  { cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Golamari, Mundada, Narapareddy, Tumu" },
+    "1-SV-05":  { cat: "networked",  title: "C-V2X Monitoring and Anomaly Detection", presenter: "Farhad Soleimani" },
+    "1-164-17":  { cat: "networked", title: "DRIVE-SAFE: Remote and Cooperative Autonomous Driving in Dynamic Environments using 5G/NextG Technology", presenter: "Lalitaditya Divakarla" },
+    "2-H-01":  { cat: "perception", title: "Autonomous Drone for Dynamic Smoke Plume Tracking", presenter: "Srijan Kumar Pal" },
+    "2-H-02":  { cat: "systems",    title: "Solar Sail Momentum Management Using Predictive Control", presenter: "Ping-Yen Shen" },
+    "2-H-03":  { cat: "networked",  title: "CAVA: Context-Aware Video Adaptation for Teleoperation", presenter: "Faaiq Bilal" },
+    "2-H-04":  { cat: "marine",     title: "Overcoming Data Scarcity in Child AUV Position Estimation (SIFT-YOLOv9)", presenter: "Francis Aweenagua" },
+    "2-H-05":  { cat: "learning",   title: "A-PACE: Asynchronous Predictive Alignment for Frozen VLA Execution", presenter: "Tian Xie" },
+    "2-H-06":  { cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
+    "2-H-07":  { cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
   };
 
   // Colour each board by category; unassigned boards render as open slots.
