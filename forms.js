@@ -56,6 +56,12 @@
       document.getElementById("poster-card-id").textContent = "Poster " + id;
       document.getElementById("poster-card-title").textContent = a.title;
       document.getElementById("poster-card-presenter").textContent = "Presenter: " + a.presenter;
+      const pdf = document.getElementById("poster-card-pdf");
+      if (pdf) {
+        const has = (window.MNRI_PDFS || []).indexOf(id) !== -1;
+        if (has) pdf.href = "posters/" + id + ".pdf";
+        pdf.hidden = !has;
+      }
       card.hidden = false;
     }
 

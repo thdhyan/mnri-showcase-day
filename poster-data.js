@@ -51,4 +51,7 @@
   "2-H-06":  { cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
   "2-H-07":  { cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
 };
+
+  // Boards with a poster PDF in posters/<board>.pdf (shown on the map panel and vote page).
+  window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-18", "1-H-01", "1-H-02", "1-H-03", "1-H-04", "1-H-05", "2-H-01", "2-H-02", "2-H-04", "2-H-05", "2-H-06"];
 })();

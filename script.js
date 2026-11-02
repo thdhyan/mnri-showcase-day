@@ -108,7 +108,8 @@
     detailTitle.innerHTML = 'Poster <span id="detail-id">' + id + "</span>" + (a ? " &mdash; " + a.title : " &mdash; Open slot");
     detailAbstract.textContent = "Location: " + where;
     detailPresenter.innerHTML = "<strong>Presenter:</strong> " + (a ? a.presenter : "—");
-    detailTopic.innerHTML = "<strong>Category:</strong> " + (a ? categories[a.cat].name : "—");
+    detailTopic.innerHTML = "<strong>Category:</strong> " + (a ? categories[a.cat].name : "—") +
+      (a && (window.MNRI_PDFS || []).indexOf(id) !== -1 ? ' <a class="poster-pdf-link" href="posters/' + id + '.pdf" target="_blank" rel="noopener">View poster (PDF)</a>' : "");
 
     mapHotspots.forEach((h) => h.classList.remove("active"));
     const active = document.querySelector('.map-hotspot.poster[data-poster="' + id + '"]');
