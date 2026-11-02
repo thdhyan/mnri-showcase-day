@@ -76,9 +76,9 @@
     networked:  { name: "Networked & Connected Robotics",         color: "#4E9C9C" },
   };
 
-  // 36 planned slots plus 2 optional study-room overflow easels (F8–F9).
+  // 36 planned slots plus 2 optional study-space overflow easels (F8–F9).
   const slotWhere = (id) =>
-    ["F8", "F9"].includes(id) ? "2nd-floor study room — optional overflow easel facing bottom-left, vertically arranged; room bottom-left corner above F1" :
+    ["F8", "F9"].includes(id) ? "2nd-floor study space — easel facing bottom-left" :
     id[0] === "P" ? "Shep 164 (Drone Lab) — inside" :
     id[0] === "O" ? "Shep 164 outer wall — 1st-floor hallway" :
     ["S6", "S7", "S8"].includes(id) ? "2nd floor — easel inside the Akerman skyway" :

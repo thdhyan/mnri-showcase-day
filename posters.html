@@ -75,7 +75,7 @@
           <div class="map-tip" id="map-tip" role="tooltip" hidden></div>
         <svg class="floor-map" viewBox="70 -90 1830 1180" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Poster session map</title>
-          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 5 on the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S5), 7 in the 2nd-floor hallway (F1 to F7), 2 optional easels in the study room above F1 on opposite side of hallway (F8 to F9), and 3 easels by the Akerman skyway on the 2nd floor (S6 to S8). Boards are coloured by poster category. Click any board for details.</desc>
+          <desc id="map-desc">Clickable poster layout: 15 boards inside Shep 164 (P1 to P15), 6 on its hallway-side outer wall (O1 to O6), 5 on the Solar Vehicle Project wall in the 1st-floor hallway (S1 to S5), 7 in the 2nd-floor hallway (F1 to F7), 2 optional easels in the study space above F1 on opposite side of hallway (F8 to F9), and 3 easels by the Akerman skyway on the 2nd floor (S6 to S8). Boards are coloured by poster category. Click any board for details.</desc>
 
           <style>
             .wall{fill:none;stroke:#111;stroke-width:5;stroke-linejoin:miter;stroke-linecap:square}
@@ -122,13 +122,10 @@
           <text class="sub" x="508.0" y="786.0" text-anchor="middle">1st-floor hallway</text>
 
           <!-- Ground-floor flight A: approximately 4 m right of O6; same switchback as Akerman flight A. -->
-          <path d="M830.5 665h239.5 M830.5 659v12 M1070 659v12" fill="none" stroke="#64748b" stroke-dasharray="4 3"/>
-          <text class="sub" x="950" y="646" text-anchor="middle">≈4 m right of O6</text>
           <rect x="1070" y="690" width="80" height="120" fill="#f1f5f9" stroke="#64748b"/>
           <path d="M1070 705h80 M1070 720h80 M1070 735h80 M1070 750h80 M1070 765h80 M1070 780h80 M1070 795h80" stroke="#64748b"/>
-          <text class="sub" x="1110" y="680" text-anchor="middle">Stairs ↓ · A</text>
-          <text class="sub" x="1110" y="831" text-anchor="middle">A · switchback to Akerman</text>
-          <text class="sub" x="1110" y="849" text-anchor="middle">Schematic · keep landing clear</text>
+          <text class="sub" x="1110" y="680" text-anchor="middle">Stairs</text>
+          <g aria-label="Ground-floor staircase connected to Akerman skyway by switchback"><title>Ground-floor staircase connected to Akerman skyway by switchback</title><path d="M1104 720h12v39h14l-20 22 -20 -22h14Z" fill="#2563eb" stroke="#fff" stroke-width="2"/></g>
 
           <!-- Solar Vehicle Project wall (DRAFT): across the corridor from Shep 164, offset right + down from O6
                so the hallway corner stays clear. Assumed 5 boards like Shep 164 right wall; to be measured. -->
@@ -146,26 +143,22 @@
           <text class="lbl" x="1258.9" y="561.5" text-anchor="middle" transform="rotate(-90 1258.9 561.5)">Open to Shep 164 below</text>
           <text class="lbl" x="1258.9" y="259.9" text-anchor="middle" transform="rotate(-90 1258.9 259.9)">Shep 256</text>
           <polyline class="wall" points="1320.0,10.0 1320.0,860.0 1401.9,860.0 1401.9,830.0"/>
-          <polyline class="wall" points="1401.9,-50 1401.9,110"/>
 
-          <!-- Schematic study room above F1 on opposite side of hallway. Opening faces hallway. -->
-          <polyline class="wall" points="1401.9,180 1401.9,745 1660,745"/>
+
+          <!-- Schematic study space above F1 on opposite side of hallway. Opening faces hallway. -->
+          <polyline class="wall" points="1401.9,190 1401.9,745 1660,745"/>
           <polyline class="wall" points="1401.9,-50 1642,-50 1642,190 1401.9,190"/>
-          <text class="h2" x="1522" y="-5" text-anchor="middle">Study room</text>
-          <text class="sub" x="1522" y="18" text-anchor="middle">Schematic · optional overflow</text>
-          <text class="sub" x="1522" y="40" text-anchor="middle">2 easels only if needed</text>
-          <text class="sub" x="1363" y="160" text-anchor="middle">entry →</text>
-          <!-- Stairs continue north along hallway, outside study room. -->
+          <text class="h2" x="1522" y="-5" text-anchor="middle">Study space</text>
+          <!-- Stairs continue north along hallway, outside study space. -->
           <rect x="1330" y="-50" width="62" height="60" fill="#f1f5f9" stroke="#64748b"/>
           <path d="M1330 -40h62 M1330 -30h62 M1330 -20h62 M1330 -10h62 M1330 0h62" stroke="#64748b"/>
-          <text class="sub" x="1230" y="-20">Stairs ↑</text>
+          <text class="sub" x="1230" y="-20">Stairs</text>
           <!-- Stairs turn south after S8 at end of Akerman skyway. -->
           <polyline class="wall" points="1660,745 1710,745 1710,930"/>
           <rect x="1630" y="830" width="80" height="100" fill="#f1f5f9" stroke="#64748b"/>
           <path d="M1630 844h80 M1630 858h80 M1630 872h80 M1630 886h80 M1630 900h80 M1630 914h80" stroke="#64748b"/>
-          <text class="sub" x="1670" y="950" text-anchor="middle">Stairs ↓ · A</text>
-          <text class="sub" x="1670" y="974" text-anchor="middle">A · same switchback stair</text>
-          <text class="sub" x="1670" y="795" text-anchor="middle" transform="rotate(-90 1670 795)">keep clear</text>
+          <text class="sub" x="1670" y="950" text-anchor="middle">Stairs</text>
+          <g aria-label="Akerman staircase connected to ground floor by switchback"><title>Akerman staircase connected to ground floor by switchback</title><path d="M1664 850h12v39h14l-20 22 -20 -22h14Z" fill="#2563eb" stroke="#fff" stroke-width="2"/></g>
           <!-- Akerman skyway (DRAFT): opens right at the bottom of the hallway; easels S6–S8 inside it on its bottom wall,
                offset right from the corner so it stays clear (same idea as O6 → S1). To be measured. -->
           <polyline class="wall" points="1630.0,830.0 1401.9,830.0"/>
@@ -265,11 +258,11 @@
             <rect class="map-hit" x="954" y="948" width="51" height="60"/><rect class="tile" x="984.5" y="951" width="13" height="54"/><text class="pnd" x="979" y="982" text-anchor="end">S4</text></g>
           <g class="map-hotspot poster" data-poster="S5" role="button" tabindex="96" aria-label="Poster S5, Solar Vehicle Project wall">
             <rect class="map-hit" x="954" y="1005" width="51" height="60"/><rect class="tile" x="984.5" y="1008" width="13" height="54"/><text class="pnd" x="979" y="1039" text-anchor="end">S5</text></g>
-          <g class="map-hotspot poster" data-poster="F8" role="button" tabindex="0" aria-label="F8, optional study-room easel facing bottom-left, vertically arranged, unassigned">
+          <g class="map-hotspot poster" data-poster="F8" role="button" tabindex="0" aria-label="F8, optional study-space easel facing bottom-left, vertically arranged, unassigned">
             <rect class="map-hit" x="1498" y="48" width="64" height="64"/><rect class="tile empty" x="1506.6" y="73.5" width="46.8" height="13" transform="rotate(45 1530 80)"/><text class="pnd" x="1565" y="85">F8</text>
             <path d="M1521 89l-17 17 m0 0l8 0 m-8 0l0 -8" fill="none" stroke="#64748b" stroke-width="2"/>
           </g>
-          <g class="map-hotspot poster" data-poster="F9" role="button" tabindex="0" aria-label="F9, optional study-room easel facing bottom-left, vertically arranged, unassigned">
+          <g class="map-hotspot poster" data-poster="F9" role="button" tabindex="0" aria-label="F9, optional study-space easel facing bottom-left, vertically arranged, unassigned">
             <rect class="map-hit" x="1498" y="118" width="64" height="64"/><rect class="tile empty" x="1506.6" y="143.5" width="46.8" height="13" transform="rotate(45 1530 150)"/><text class="pnd" x="1565" y="155">F9</text>
             <path d="M1521 159l-17 17 m0 0l8 0 m-8 0l0 -8" fill="none" stroke="#64748b" stroke-width="2"/>
           </g>
@@ -313,7 +306,7 @@
       <div>Minnesota Robotics Institute &bull; Showcase Day</div>
     </div>
     <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
-    <p class="footer-disclaimer">36 planned poster boards + 2 optional easels: 15 in Shep 164, 6 on its hallway-side outer wall, 5 on the Solar Vehicle Project wall, 7 in the second-floor corridor, 3 easels by the Akerman skyway; 2 optional study-room easels (F8–F9). Study-room easels are arranged vertically and face bottom-left; room’s bottom-left corner is above F1. Stairs continue north along hallway and south from Akerman skyway. Ground-floor stairs about 4 m right of O6 connect to Akerman stairs via the same switchback (A). Geometry is schematic; verify dimensions and clear landings on site. Poster placement may change before the event.</p>
+    <p class="footer-disclaimer">36 planned poster boards + 2 optional easels: 15 in Shep 164, 6 on its hallway-side outer wall, 5 on the Solar Vehicle Project wall, 7 in the second-floor corridor, 3 easels by the Akerman skyway; 2 optional study-space easels (F8–F9). Matching blue arrows mark connected stairs. Poster placement may change before the event.</p>
   </div>
 </footer>
 
