@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Questions & Suggestions | MNRI Showcase Day</title>
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%237c6a12'/%3E%3Ctext x='32' y='42' font-family='Arial' font-size='26' fill='white' text-anchor='middle' font-weight='bold'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<a class="skip-link" href="#content">Skip to content</a>
+<div class="page-progress" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner container">
+    <div class="logo">
+      <span class="logo-mark">MNRI</span>
+      <div class="logo-text">
+        <div class="logo-main">Minnesota Robotics Institute</div>
+        <div class="logo-sub">Showcase Day</div>
+      </div>
+    </div>
+    <nav class="main-nav" aria-label="Main navigation">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-menu">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="sr-only">Menu</span>
+      </button>
+      <ul class="nav-list" id="nav-menu">
+        <li><a href="index.html" class="nav-link"><i data-lucide="sunrise"></i>Welcome</a></li>
+        <li><a href="navigation.html" class="nav-link"><i data-lucide="route"></i>Navigation</a></li>
+        <li><a href="posters.html" class="nav-link"><i data-lucide="map"></i>Poster Session</a></li>
+        <li><a href="schedule.html" class="nav-link"><i data-lucide="calendar-days"></i>Schedule</a></li>
+        <li><a href="vote.html" class="nav-link"><i data-lucide="star"></i>Vote</a></li>
+        <li><a href="feedback.html" class="nav-link active"><i data-lucide="message-square"></i>Feedback</a></li>
+      </ul>
+    </nav>
+    <div class="header-meta">
+      <span class="event-date"><i data-lucide="calendar"></i>November 6, 2026</span>
+    </div>
+  </div>
+</header>
+
+<span id="content"></span>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header reveal">
+      <h2 class="section-title">Questions &amp; Suggestions</h2>
+      <p class="section-sub">Ask the organizers a question or tell us how to improve the Showcase</p>
+    </div>
+
+    <div class="form-card reveal">
+      <form id="feedback-form" class="mnri-form" novalidate>
+        <div class="form-row">
+          <label for="fb-type">This is a</label>
+          <select id="fb-type" name="kind">
+            <option value="Question">Question</option>
+            <option value="Suggestion">Suggestion</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="fb-name">Your name <span class="optional">(optional)</span></label>
+          <input type="text" id="fb-name" name="name" autocomplete="name" maxlength="100">
+        </div>
+        <div class="form-row">
+          <label for="fb-email">Email <span class="optional">(optional, only if you want a reply)</span></label>
+          <input type="email" id="fb-email" name="email" autocomplete="email" maxlength="150">
+        </div>
+        <div class="form-row">
+          <label for="fb-message">Your message</label>
+          <textarea id="fb-message" name="message" rows="5" maxlength="2000" required></textarea>
+        </div>
+
+        <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
+        <button type="submit" class="btn btn-primary" id="submit-btn"><i data-lucide="send"></i>Send</button>
+      </form>
+
+      <div class="form-done" id="form-done" hidden>
+        <h3>Thank you!</h3>
+        <p>Your message was sent to the organizers.</p>
+        <a class="btn btn-primary" href="feedback.html"><i data-lucide="rotate-ccw"></i>Send another</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-mark">MNRI</span>
+      <div>Minnesota Robotics Institute &bull; Showcase Day</div>
+    </div>
+    <div class="footer-note">&copy; November 6, 2026 &bull; University of Minnesota</div>
+  </div>
+</footer>
+
+<script src="media/vendor/lucide.min.js"></script>
+<script src="config.js"></script>
+<script src="forms.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

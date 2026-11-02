@@ -852,3 +852,29 @@ a:hover { color: var(--mnri-gold); }
 
 /* Default hidden state guarded for browsers without JS */
 .back-to-top { pointer-events: auto; }
+
+/* ==========================================================================
+   Forms: vote.html + feedback.html
+   ========================================================================== */
+.form-card { max-width: 640px; margin: 0 auto; background: var(--mnri-white); border-radius: var(--radius-lg); box-shadow: var(--shadow-md); padding: 2rem; }
+.mnri-form { display: flex; flex-direction: column; gap: 1.25rem; }
+.form-row { display: flex; flex-direction: column; gap: 0.4rem; border: 0; padding: 0; margin: 0; min-width: 0; }
+.form-row label, .form-row legend { font-weight: 600; color: var(--mnri-navy); }
+.form-row .optional { font-weight: 400; color: var(--mnri-slate); font-size: 0.85em; }
+.form-row input[type="text"], .form-row input[type="email"], .form-row select, .form-row textarea {
+  font: inherit; padding: 0.7rem 0.85rem; border: 1px solid #cbd5e1; border-radius: var(--radius-sm); background: #fff; width: 100%;
+}
+.form-row input:focus-visible, .form-row select:focus-visible, .form-row textarea:focus-visible { outline: 3px solid var(--mnri-gold-light); outline-offset: 1px; }
+.form-msg { color: var(--mnri-maroon); font-weight: 600; }
+.form-done { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 1rem; }
+.poster-pick { background: var(--mnri-light); border-left: 4px solid var(--mnri-gold); border-radius: var(--radius-sm); padding: 1rem 1.25rem; margin-bottom: 1.5rem; }
+.poster-pick-id { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--mnri-gold); }
+.poster-pick h3 { margin: 0.25rem 0; }
+/* Star rating: radios listed 5..1 and reversed so hovering/selecting a star fills all stars up to it. */
+.rating-options { display: flex; flex-direction: row-reverse; justify-content: flex-end; gap: 0.25rem; }
+.rating-options input { position: absolute; opacity: 0; pointer-events: none; }
+.rating-options label { font-size: 2.6rem; line-height: 1; color: #cbd5e1; cursor: pointer; padding: 0 0.1rem; }
+.rating-options label:hover, .rating-options label:hover ~ label,
+.rating-options input:checked ~ label { color: var(--mnri-gold-light); }
+.rating-options input:focus-visible + label { outline: 3px solid var(--mnri-gold-light); border-radius: 4px; }
+.form-row[hidden], .form-done[hidden], .mnri-form[hidden], .poster-pick[hidden], .form-msg[hidden] { display: none; }
