@@ -72,6 +72,7 @@
 
   // IDs: floor-room-number. H = hallway, SV = Solar Vehicle wall, ST = study space.
   const slotWhere = (id) =>
+    ["1-164-18", "1-164-19", "1-164-20"].includes(id) ? "1st floor — easels outside the top-left corner of Shep 164 (Drone Lab), facing down" :
     id.startsWith("1-164-") ? "1st floor — Shep 164 (Drone Lab)" :
     id.startsWith("1-H-") ? "1st-floor hallway — Shep 164 outer wall" :
     id.startsWith("1-SV-") ? "1st-floor hallway — Solar Vehicle Project wall" :
