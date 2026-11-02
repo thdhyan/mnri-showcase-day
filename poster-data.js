@@ -41,6 +41,7 @@
   "1-SV-03":  { cat: "wearables",  title: "Robots for Those in Transition: Exploring Mental Wellness through Design Probes", presenter: "Minghe Lu" },
   "1-SV-04":  { cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Golamari, Mundada, Narapareddy, Tumu" },
   "1-SV-05":  { cat: "networked",  title: "C-V2X Monitoring and Anomaly Detection", presenter: "Farhad Soleimani" },
+  "1-164-18":  { cat: "perception", title: "FarmGuard: Unmanned Aerial Robotic Defender for Deer Detection and Deterrence", presenter: "Maria Gini" },
   "1-164-17":  { cat: "networked", title: "DRIVE-SAFE: Remote and Cooperative Autonomous Driving in Dynamic Environments using 5G/NextG Technology", presenter: "Lalitaditya Divakarla" },
   "2-H-01":  { cat: "perception", title: "Autonomous Drone for Dynamic Smoke Plume Tracking", presenter: "Srijan Kumar Pal" },
   "2-H-02":  { cat: "systems",    title: "Solar Sail Momentum Management Using Predictive Control", presenter: "Ping-Yen Shen" },
