@@ -60,7 +60,7 @@
   window.MNRI_ASSIGNMENTS_FULL = window.MNRI_ASSIGNMENTS;
   // Assigned so far = presenters who replied (Nov 2-3). Add boards here as others confirm.
   window.MNRI_ASSIGNMENTS = {};
-  ["1-164-03", "1-164-04", "1-164-07", "1-164-13", "1-H-06", "1-SV-05", "2-H-02", "2-H-07"].forEach(function (b) {
+  ["1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-13", "1-H-06", "1-SV-05", "2-H-02", "2-H-07"].forEach(function (b) {
     window.MNRI_ASSIGNMENTS[b] = window.MNRI_ASSIGNMENTS_FULL[b];
   });
 
