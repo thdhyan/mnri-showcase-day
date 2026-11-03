@@ -16,9 +16,21 @@ function doPost(e) {
   lock.waitLock(10000);
   try {
     if (p.sheet === "Votes") {
-      var rating = Number(p.rating);
-      if (!p.poster || !p.name || !(rating >= 1 && rating <= 5)) return reply("invalid");
-      append("Votes", [p.poster, p.title, p.presenter, p.name, rating]);
+      // Batch: p.votes = JSON array of {poster,title,presenter,rating}, with p.name = voter. Single: p.poster/title/presenter/rating.
+      var votes;
+      try {
+        votes = p.votes ? JSON.parse(p.votes) : [{ poster: p.poster, title: p.title, presenter: p.presenter, rating: p.rating }];
+      } catch (err) {
+        return reply("invalid");
+      }
+      if (!p.name || !votes.length || votes.length > 60) return reply("invalid");
+      var rows = [];
+      for (var i = 0; i < votes.length; i++) {
+        var v = votes[i], r = Number(v.rating);
+        if (!v.poster || !(r >= 1 && r <= 5)) return reply("invalid");  // all-or-nothing: nothing is saved
+        rows.push([v.poster, v.title, v.presenter, p.name, r]);
+      }
+      appendMany("Votes", rows);
     } else if (p.sheet === "Suggestions") {
       if (!p.message) return reply("invalid");
       append("Suggestions", [p.kind, p.name, p.email, p.message]);
@@ -32,6 +44,11 @@ function doPost(e) {
 }
 
 function append(name, cells) {
+  appendMany(name, [cells]);
+}
+
+/** Appends several rows in one write (all rows are saved together). */
+function appendMany(name, rowsOfCells) {
   var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
   var sheet = ss.getSheetByName(name);
   if (!sheet) {
@@ -40,10 +57,13 @@ function append(name, cells) {
     sheet.setFrozenRows(1);
   }
   // Cells are stored as text values; a leading = + - @ is neutralised so a message cannot become a formula.
-  var safe = cells.map(function (c) {
-    return typeof c === "string" && /^[=+\-@]/.test(c) ? "'" + c : c;
+  var now = new Date();
+  var out = rowsOfCells.map(function (cells) {
+    return [now].concat(cells.map(function (c) {
+      return typeof c === "string" && /^[=+\-@]/.test(c) ? "'" + c : c;
+    }));
   });
-  sheet.appendRow([new Date()].concat(safe));
+  sheet.getRange(sheet.getLastRow() + 1, 1, out.length, out[0].length).setValues(out);
 }
 
 function reply(status) {

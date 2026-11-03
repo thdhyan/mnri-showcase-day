@@ -31,7 +31,15 @@
       if (result.error) return showMsg(result.error);
       btn.disabled = true;
       try {
-        for (const p of (result.payloads || [result.payload])) await send(p);
+        const list = result.payloads || [result.payload];
+        btn.dataset.label = btn.innerHTML;
+        btn.textContent = "Submitting…";
+        if (cfg.BATCH_VOTES && list.length > 1 && list[0].sheet === "Votes") {
+          // One request for all votes: faster and all-or-nothing (needs the updated Apps Script).
+          await send({ sheet: "Votes", name: list[0].name, votes: JSON.stringify(list.map((v) => ({ poster: v.poster, title: v.title, presenter: v.presenter, rating: v.rating }))) });
+        } else {
+          for (const p of list) await send(p);
+        }
         form.hidden = true;
         document.getElementById("form-done").hidden = false;
       } catch (err) {
@@ -39,6 +47,7 @@
           ? "This form is not connected yet. Please tell an organizer."
           : "Could not send. Check your connection and try again.");
         btn.disabled = false;
+        if (btn.dataset.label) btn.innerHTML = btn.dataset.label;
       }
     });
   }

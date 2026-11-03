@@ -8,3 +8,14 @@ The website posts votes and questions/suggestions to a Google Apps Script web ap
 4. Put that URL in `SCRIPT_URL` in `../config.js`, commit and push.
 
 After changing `Code.gs`, redeploy (Deploy > Manage deployments > edit > New version).
+
+## Batched votes (multi-poster vote page)
+
+`Code.gs` accepts either one vote (`poster`, `title`, `presenter`, `rating`, `name`) or a batch
+(`name` + `votes` = JSON array of `{poster,title,presenter,rating}`). A batch is validated first and
+written in one `setValues` call, so it is all-or-nothing. To turn it on:
+
+1. Paste the updated `Code.gs` into the Apps Script project.
+2. Deploy > Manage deployments > pencil on the existing web app > Version: New version > Deploy
+   (the URL stays the same, so `config.js` `SCRIPT_URL` does not change).
+3. Set `BATCH_VOTES: true` in `config.js` and push.
