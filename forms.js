@@ -143,9 +143,15 @@
       voteForm.closest(".form-card").classList.add("wide");
     }
 
+    voteForm.elements.name.addEventListener("input", (e) => e.target.classList.remove("invalid"));
     wire(voteForm, () => {
-      const name = voteForm.elements.name.value.trim();
-      if (!name) return { error: "Please enter your name." };
+      const nameInput = voteForm.elements.name;
+      const name = nameInput.value.trim();
+      nameInput.classList.toggle("invalid", !name);
+      if (!name) {
+        nameInput.focus();
+        return { error: "Your name is required. Please enter it before submitting." };
+      }
       const payloads = [];
       for (const id of Object.keys(posters).concat(entry ? [posterId] : [])) {
         const r = voteForm.querySelector('input[name="rate-' + id + '"]:checked');
