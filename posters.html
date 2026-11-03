@@ -75,7 +75,7 @@
       <div class="svg-map-container">
         <div class="map-scroll">
           <div class="map-tip" id="map-tip" role="tooltip" hidden></div>
-        <svg class="floor-map" viewBox="20 -90 1880 1180" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
+        <svg class="floor-map" viewBox="20 -480 1880 1570" role="img" aria-labelledby="map-title map-desc" xmlns="http://www.w3.org/2000/svg">
           <title id="map-title">Poster session map</title>
           <desc id="map-desc">Poster layout: 17 positions inside Shep 164, 3 easels just outside its top-left corner, 6 on its outer hallway wall, 5 by Solar Vehicle Project, 7 in the second-floor hallway and 3 easels along a curved diagonal in the study space. IDs use floor-room-number: 164 = Drone Lab, H = hallway, SV = Solar Vehicle wall, ST = study space. Matching blue arrows show connected stairs.</desc>
 
@@ -116,7 +116,7 @@
           <!-- Room labels -->
           <text class="room" x="508.0" y="357.5" text-anchor="middle">Shep 164</text>
           <text class="sub" x="508.0" y="377.5" text-anchor="middle">Drone Lab &middot; 17 poster positions</text>
-          <text class="h2" x="90" y="55">Shep 164 &mdash; 1st floor</text>
+          <text class="h2" x="90" y="-452">Shep 164 &mdash; 1st floor</text>
 
           <!-- Outer wall (hallway side) -->
           <polyline class="thin" points="194.5,687.5 194.5,657.5 388.0,657.5 388.0,678.5 454.0,678.5 454.0,657.5 904.0,657.5 904.0,687.5 194.5,687.5"/>
@@ -182,8 +182,8 @@
           <text class="h2" x="1361.0" y="172.0" text-anchor="middle">Hallway</text>
 
           <!-- Alcove outside the top-left corner of Shep 164: back wall, left wall (one hallway width, 90, left of the lab's left wall, so the lab wall is the hallway's right wall) and right wall.
-               Easels face down: 1-164-18 in the hallway, then a 3-unit gap centred on the lab's left wall line (x=130), then 1-164-19 and 1-164-20 with a 1-unit gap. -->
-          <polyline class="wall" points="288,152 288,75 40,75 40,545"/>
+               Alcove is pushed up so it is a ~10 m walk (about 590 map units at ~59 units/m, 36-inch poster = 54 units) from the lab's left door. Easels face down: 1-164-18 in the hallway, then a 3-unit gap centred on the lab's left wall line (x=130), then 1-164-19 and 1-164-20 with a 1-unit gap. -->
+          <polyline class="wall" points="130,152 130,-358 288,-358 288,-435 40,-435 40,545"/>
 
           <!-- ===== Clickable poster boards (filled by category from script.js) ===== -->
           <g class="map-hotspot poster" data-poster="1-164-01" role="button" tabindex="0" aria-label="Poster 1-164-01">
@@ -277,11 +277,11 @@
             <rect class="map-hit" x="686" y="153" width="64" height="64"/><rect class="tile" x="691.0" y="167.0" width="54" height="36" transform="rotate(0 718 185)"/><text class="pnd" x="718" y="217" text-anchor="middle">1-164-17</text></g>
           <!-- Easels outside top-left corner of Shep 164, facing down -->
           <g class="map-hotspot poster" data-poster="1-164-18" role="button" tabindex="0" aria-label="Poster 1-164-18, easel outside the top-left corner of Shep 164">
-            <rect class="map-hit" x="52" y="88" width="60" height="50"/><rect class="tile" x="55" y="112" width="54" height="13"/><text class="pnd" x="82" y="105" text-anchor="middle">1-164-18</text></g>
+            <rect class="map-hit" x="52" y="-422" width="60" height="50"/><rect class="tile" x="55" y="-398" width="54" height="13"/><text class="pnd" x="82" y="-405" text-anchor="middle">1-164-18</text></g>
           <g class="map-hotspot poster" data-poster="1-164-19" role="button" tabindex="0" aria-label="Poster 1-164-19, easel outside the top-left corner of Shep 164">
-            <rect class="map-hit" x="148" y="88" width="60" height="50"/><rect class="tile" x="151" y="112" width="54" height="13"/><text class="pnd" x="178" y="105" text-anchor="middle">1-164-19</text></g>
+            <rect class="map-hit" x="148" y="-422" width="60" height="50"/><rect class="tile" x="151" y="-398" width="54" height="13"/><text class="pnd" x="178" y="-405" text-anchor="middle">1-164-19</text></g>
           <g class="map-hotspot poster" data-poster="1-164-20" role="button" tabindex="0" aria-label="Poster 1-164-20, easel outside the top-left corner of Shep 164">
-            <rect class="map-hit" x="216" y="88" width="60" height="50"/><rect class="tile" x="219" y="112" width="54" height="13"/><text class="pnd" x="246" y="105" text-anchor="middle">1-164-20</text></g>
+            <rect class="map-hit" x="216" y="-422" width="60" height="50"/><rect class="tile" x="219" y="-398" width="54" height="13"/><text class="pnd" x="246" y="-405" text-anchor="middle">1-164-20</text></g>
         </svg>
         </div>
 
