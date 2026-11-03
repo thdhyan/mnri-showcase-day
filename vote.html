@@ -64,9 +64,9 @@
       </div>
 
       <form id="vote-form" class="mnri-form" novalidate>
-        <div class="form-row" id="poster-select-row" hidden>
-          <label for="poster-select">Poster</label>
-          <select id="poster-select" name="poster_select"><option value="">Choose a poster&hellip;</option></select>
+        <div class="form-row" id="poster-list-row" hidden>
+          <p class="poster-list-help">Tick the posters you want to vote on and give each one a rating (5 = best).</p>
+          <ul class="poster-list" id="poster-list"></ul>
         </div>
 
         <div class="form-row">
@@ -74,7 +74,7 @@
           <input type="text" id="voter-name" name="name" autocomplete="name" maxlength="100" required>
         </div>
 
-        <fieldset class="form-row rating">
+        <fieldset class="form-row rating" id="single-rating">
           <legend>Your rating (5 = best)</legend>
           <div class="rating-options">
             <input type="radio" id="r5" name="rating" value="5"><label for="r5" title="5 stars">&#9733;</label>

@@ -910,3 +910,15 @@ a:hover { color: var(--mnri-gold); }
 .rating-options { justify-content: center; }
 .mnri-form .btn-primary { align-self: center; justify-content: center; text-align: center; min-width: 14rem; }
 .form-msg { text-align: center; }
+
+/* Main vote page: list of posters with a checkbox and a star rating each. */
+.poster-list-help { margin: 0 0 0.75rem; color: var(--text-muted, #475569); }
+.poster-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.poster-list-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.6rem 0.8rem; border: 1px solid #e2e8f0; border-radius: 10px; background: #fff; }
+.poster-list-check { display: flex; align-items: flex-start; gap: 0.7rem; flex: 1; cursor: pointer; }
+.poster-list-check input { width: 1.3rem; height: 1.3rem; margin-top: 0.15rem; accent-color: #7a0019; flex: none; }
+.poster-list-presenter { display: block; font-size: 0.9rem; color: #64748b; }
+.poster-list-item .rating-options { flex: none; justify-content: flex-end; gap: 0; }
+.poster-list-item .rating-options label { font-size: 1.9rem; }
+@media (max-width: 560px) { .poster-list-item { flex-direction: column; align-items: stretch; } .poster-list-item .rating-options { justify-content: center; } }
+.poster-list-item { position: relative; }

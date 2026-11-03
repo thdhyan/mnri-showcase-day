@@ -31,7 +31,7 @@
       if (result.error) return showMsg(result.error);
       btn.disabled = true;
       try {
-        await send(result.payload);
+        for (const p of (result.payloads || [result.payload])) await send(p);
         form.hidden = true;
         document.getElementById("form-done").hidden = false;
       } catch (err) {
@@ -47,8 +47,9 @@
   const voteForm = document.getElementById("vote-form");
   if (voteForm) {
     const card = document.getElementById("poster-card");
-    const selectRow = document.getElementById("poster-select-row");
-    const select = document.getElementById("poster-select");
+    const listRow = document.getElementById("poster-list-row");
+    const list = document.getElementById("poster-list");
+    const singleRating = document.getElementById("single-rating");
     let posterId = new URLSearchParams(window.location.search).get("poster");
 
     function showCard(id) {
@@ -65,29 +66,57 @@
       card.hidden = false;
     }
 
+    function esc(s) {
+      return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+    }
+
     if (posterId && posters[posterId]) {
       showCard(posterId);
     } else {
-      // No (or unknown) poster in the link: let the visitor pick one.
+      // No (or unknown) poster in the link: list every poster with a checkbox and a star rating each.
       posterId = null;
+      singleRating.hidden = true;
       Object.keys(posters).sort().forEach((id) => {
-        const o = document.createElement("option");
-        o.value = id;
-        o.textContent = id + " — " + posters[id].title;
-        select.appendChild(o);
+        const p = posters[id];
+        const stars = [5, 4, 3, 2, 1].map((n) =>
+          '<input type="radio" id="r-' + id + '-' + n + '" name="rate-' + id + '" value="' + n + '">' +
+          '<label for="r-' + id + '-' + n + '" title="' + n + ' star' + (n > 1 ? "s" : "") + '">&#9733;</label>').join("");
+        const li = document.createElement("li");
+        li.className = "poster-list-item";
+        li.dataset.id = id;
+        li.innerHTML =
+          '<label class="poster-list-check"><input type="checkbox" name="pick" value="' + esc(id) + '">' +
+          '<span class="poster-list-text"><strong>' + esc(id) + '</strong> ' + esc(p.title) +
+          '<span class="poster-list-presenter">' + esc(p.presenter) + '</span></span></label>' +
+          '<div class="rating-options">' + stars + '</div>';
+        // Choosing a rating ticks the box automatically.
+        li.querySelector(".rating-options").addEventListener("change", () => {
+          li.querySelector('input[name="pick"]').checked = true;
+        });
+        list.appendChild(li);
       });
-      selectRow.hidden = false;
+      listRow.hidden = false;
     }
 
     wire(voteForm, () => {
-      const id = posterId || select.value;
       const name = voteForm.elements.name.value.trim();
-      const rating = (voteForm.querySelector('input[name="rating"]:checked') || {}).value;
-      if (!id) return { error: "Please choose a poster." };
       if (!name) return { error: "Please enter your name." };
-      if (!rating) return { error: "Please choose a rating from 1 to 5." };
-      const a = posters[id];
-      return { payload: { sheet: "Votes", poster: id, title: a.title, presenter: a.presenter, name, rating } };
+      if (posterId) {
+        const rating = (voteForm.querySelector('input[name="rating"]:checked') || {}).value;
+        if (!rating) return { error: "Please choose a rating from 1 to 5." };
+        const a = posters[posterId];
+        return { payloads: [{ sheet: "Votes", poster: posterId, title: a.title, presenter: a.presenter, name, rating }] };
+      }
+      const payloads = [];
+      for (const cb of voteForm.querySelectorAll('input[name="pick"]:checked')) {
+        const id = cb.value;
+        const r = voteForm.querySelector('input[name="rate-' + id + '"]:checked');
+        if (!r) return { error: "Please give a rating to poster " + id + " (or untick it)." };
+        const a = posters[id];
+        payloads.push({ sheet: "Votes", poster: id, title: a.title, presenter: a.presenter, name, rating: r.value });
+      }
+      if (!payloads.length) return { error: "Please tick at least one poster and rate it." };
+      return { payloads };
     });
   }
 
