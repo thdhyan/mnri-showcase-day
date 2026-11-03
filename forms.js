@@ -50,11 +50,21 @@
     const listRow = document.getElementById("poster-list-row");
     const list = document.getElementById("poster-list");
     const singleRating = document.getElementById("single-rating");
-    let posterId = new URLSearchParams(window.location.search).get("poster");
+    // QR codes use ?p=<permanent presenter id>, so they never change when poster positions change.
+    // Old ?poster=<board> links still work for boards that are currently assigned.
+    const all = window.MNRI_ASSIGNMENTS_FULL || posters;
+    const params = new URLSearchParams(window.location.search);
+    let posterId = null, entry = null;
+    if (params.get("p")) {
+      posterId = Object.keys(all).find((k) => all[k].id === params.get("p")) || null;
+      entry = posterId ? all[posterId] : null;
+    } else if (params.get("poster") && posters[params.get("poster")]) {
+      posterId = params.get("poster");
+      entry = posters[posterId];
+    }
 
-    function showCard(id) {
-      const a = posters[id];
-      document.getElementById("poster-card-id").textContent = "Poster " + id;
+    function showCard(id, a) {
+      document.getElementById("poster-card-id").textContent = posters[id] ? "Poster " + id : "Poster";
       document.getElementById("poster-card-title").textContent = a.title;
       document.getElementById("poster-card-presenter").textContent = "Presenter: " + a.presenter;
       const pdf = document.getElementById("poster-card-pdf");
@@ -70,8 +80,8 @@
       return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     }
 
-    if (posterId && posters[posterId]) {
-      showCard(posterId);
+    if (entry) {
+      showCard(posterId, entry);
     } else {
       // No (or unknown) poster in the link: list every poster with a checkbox and a star rating each.
       posterId = null;
@@ -102,11 +112,11 @@
     wire(voteForm, () => {
       const name = voteForm.elements.name.value.trim();
       if (!name) return { error: "Please enter your name." };
-      if (posterId) {
+      if (entry) {
         const rating = (voteForm.querySelector('input[name="rating"]:checked') || {}).value;
         if (!rating) return { error: "Please choose a rating from 1 to 5." };
-        const a = posters[posterId];
-        return { payloads: [{ sheet: "Votes", poster: posterId, title: a.title, presenter: a.presenter, name, rating }] };
+        const a = entry;
+        return { payloads: [{ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating }] };
       }
       const payloads = [];
       for (const cb of voteForm.querySelectorAll('input[name="pick"]:checked')) {
@@ -114,7 +124,7 @@
         const r = voteForm.querySelector('input[name="rate-' + id + '"]:checked');
         if (!r) return { error: "Please give a rating to poster " + id + " (or untick it)." };
         const a = posters[id];
-        payloads.push({ sheet: "Votes", poster: id, title: a.title, presenter: a.presenter, name, rating: r.value });
+        payloads.push({ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating: r.value });
       }
       if (!payloads.length) return { error: "Please tick at least one poster and rate it." };
       return { payloads };

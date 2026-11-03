@@ -1,25 +1,29 @@
 """Generate per-poster vote QR codes + a questions/suggestions QR code into qr/.
 Usage: PYTHONPATH=<dir with segno> python3 tools/make_qr.py
-Reads poster-data.js (board -> title/presenter), writes qr/*.png and qr/print.html.
+Reads poster-data.js (all posters: id/title/presenter), writes qr/*.png and qr/print.html.
 """
 import html, json, re, subprocess
 import segno
 
 SITE = "https://thdhyan.github.io/mnri-showcase-day/"
 posters = json.loads(subprocess.run(
-    ["node", "-e", "global.window={};require('./poster-data.js');console.log(JSON.stringify(window.MNRI_ASSIGNMENTS))"],
+    ["node", "-e", "global.window={};require('./poster-data.js');console.log(JSON.stringify(window.MNRI_ASSIGNMENTS_FULL))"],
     capture_output=True, text=True, check=True).stdout)
 
 def slug(s):
     return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:40]
 
+# QR codes are keyed by the permanent presenter id (poster-data.js `id`), NOT the board,
+# so moving a poster to another position never changes its QR code.
+import glob, os
+for old in glob.glob("qr/vote_*.png"):
+    os.remove(old)
 cards = []
-for board in sorted(posters):
-    p = posters[board]
-    url = f"{SITE}vote.html?poster={board}"
+for board, p in sorted(posters.items(), key=lambda kv: kv[1]["presenter"].lower()):
+    url = f"{SITE}vote.html?p={p['id']}"
     q = segno.make(url, error="m")
-    q.save(f"qr/vote_{board}_{slug(p['presenter'])}.png", scale=12, border=3)
-    cards.append((f"Poster {board}", p["title"], p["presenter"], "Scan to rate this poster (1-5)", q.svg_inline(scale=4, border=2)))
+    q.save(f"qr/vote_{p['id']}.png", scale=12, border=3)
+    cards.append((p["presenter"], p["title"], "", "Scan to rate this poster (1-5)", q.svg_inline(scale=4, border=2)))
 
 def card(a, b, c, d, svg):
     who = f"<p>{html.escape(c)}</p>" if c else ""
