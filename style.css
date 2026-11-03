@@ -3,7 +3,7 @@
    ========================================================================== */
 :root {
   --mnri-gold: #7c6a12;
-  --mnri-gold-light: #d4a843;
+  --mnri-gold-light: #ffcc33; /* UMN gold */
   --mnri-maroon: #7a0019;
   --mnri-maroon-light: #a8334d;
   --mnri-navy: #0f2027;
@@ -878,3 +878,35 @@ a:hover { color: var(--mnri-gold); }
 .rating-options input:checked ~ label { color: var(--mnri-gold-light); }
 .rating-options input:focus-visible + label { outline: 3px solid var(--mnri-gold-light); border-radius: 4px; }
 .form-row[hidden], .form-done[hidden], .mnri-form[hidden], .poster-pick[hidden], .form-msg[hidden] { display: none; }
+
+
+/* ---- UMN branding: maroon (#7a0019) and gold (#ffcc33) ---- */
+.logo-mark { background: linear-gradient(135deg, #7a0019 0%, #a8334d 100%); color: #ffcc33; box-shadow: var(--shadow-maroon); }
+.site-footer { background: #7a0019; color: #fff; border-top: 6px solid #ffcc33; padding: 2.5rem 0 1.75rem; }
+.site-footer::before { display: none; }
+.footer-inner { align-items: stretch; text-align: left; gap: 1.25rem; }
+.footer-cols { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; flex-wrap: wrap; }
+.footer-unit { display: flex; flex-direction: column; gap: 0.7rem; font-size: 0.9rem; line-height: 1.6; }
+.footer-unit a, .footer-legal a { color: #ffcc33; text-decoration: underline; text-underline-offset: 2px; }
+.footer-unit a:hover, .footer-legal a:hover { color: #fff; }
+.footer-brand { text-decoration: none !important; color: #fff !important; }
+.footer-brand .logo-mark { width: 48px; height: 48px; font-size: 0.9rem; background: #ffcc33; color: #7a0019; box-shadow: none; }
+.footer-brand div { font-size: 1.1rem; font-family: var(--font-heading); }
+.footer-brand small { display: block; font: 0.78rem/1.4 var(--font-body); color: #ffcc33; }
+.footer-umn img { display: block; max-width: 100%; height: auto; }
+.footer-legal { border-top: 1px solid rgba(255,204,51,.35); padding-top: 1rem; font-size: 0.78rem; line-height: 1.6; color: #f3dfe3; }
+.footer-disclaimer { color: #f3dfe3; max-width: none; }
+@media (max-width: 640px) { .footer-cols { flex-direction: column; } }
+
+/* ---- Buttons in UMN colours; centred vote form ---- */
+.btn-primary { background: #7a0019; color: #ffcc33; box-shadow: var(--shadow-maroon); }
+.btn-primary:hover { box-shadow: 0 12px 32px -4px rgba(122,0,25,.5), 0 4px 8px rgba(122,0,25,.2); }
+.btn-secondary { background: #fff; color: #7a0019; border: 2px solid #7a0019; }
+.btn-secondary:hover { background: #ffcc33; transform: translateY(-2px); }
+.btn[hidden], .detail-actions[hidden], .poster-pick-actions[hidden] { display: none; }
+.detail-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+.poster-pick-actions { margin-top: 0.75rem; }
+.form-row.rating legend { text-align: center; width: 100%; }
+.rating-options { justify-content: center; }
+.mnri-form .btn-primary { align-self: center; justify-content: center; text-align: center; min-width: 14rem; }
+.form-msg { text-align: center; }
