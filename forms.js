@@ -96,6 +96,7 @@
         list.appendChild(li);
       });
       listRow.hidden = false;
+      voteForm.closest(".form-card").classList.add("wide");
     }
 
     wire(voteForm, () => {
