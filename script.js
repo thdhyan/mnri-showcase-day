@@ -114,7 +114,7 @@
     if (actions) {
       const hasPdf = !!a && (window.MNRI_PDFS || []).indexOf(id) !== -1;
       actions.hidden = !a;
-      document.getElementById("detail-vote").href = "vote.html?poster=" + encodeURIComponent(id);
+      document.getElementById("detail-vote").href = "vote.html?p=" + encodeURIComponent(id);
       const pdfLink = document.getElementById("detail-pdf");
       pdfLink.hidden = !hasPdf;
       if (hasPdf) pdfLink.href = "posters/" + id + ".pdf";

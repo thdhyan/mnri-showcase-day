@@ -73,7 +73,7 @@
     }
 
     function showCard(id, a) {
-      document.getElementById("poster-card-id").textContent = posters[id] ? "Poster " + id : "Poster";
+      document.getElementById("poster-card-id").hidden = true;
       document.getElementById("poster-card-title").textContent = a.title;
       document.getElementById("poster-card-presenter").textContent = "Presenter: " + a.presenter;
       const pdf = document.getElementById("poster-card-pdf");
@@ -92,11 +92,12 @@
     if (entry) {
       showCard(posterId, entry);
     } else {
-      // No (or unknown) poster in the link: list every poster with a checkbox and a star rating each.
+      // No (or unknown) poster in the link: collapsed list (presenter + title). Tap a row to open it and rate inside.
       posterId = null;
       singleRating.hidden = true;
-      Object.keys(posters).sort().forEach((id) => {
+      Object.keys(posters).sort((x, y) => posters[x].presenter.localeCompare(posters[y].presenter)).forEach((id) => {
         const p = posters[id];
+        const hasPdf = (window.MNRI_PDFS || []).indexOf(id) !== -1;
         const stars = [5, 4, 3, 2, 1].map((n) =>
           '<input type="radio" id="r-' + id + '-' + n + '" name="rate-' + id + '" value="' + n + '">' +
           '<label for="r-' + id + '-' + n + '" title="' + n + ' star' + (n > 1 ? "s" : "") + '">&#9733;</label>').join("");
@@ -104,13 +105,27 @@
         li.className = "poster-list-item";
         li.dataset.id = id;
         li.innerHTML =
-          '<label class="poster-list-check"><input type="checkbox" name="pick" value="' + esc(id) + '">' +
-          '<span class="poster-list-text"><strong>' + esc(id) + '</strong> ' + esc(p.title) +
-          '<span class="poster-list-presenter">' + esc(p.presenter) + '</span></span></label>' +
-          '<div class="rating-options">' + stars + '</div>';
-        // Choosing a rating ticks the box automatically.
+          '<button type="button" class="poster-list-head" aria-expanded="false">' +
+          '<span class="poster-list-text"><strong>' + esc(p.presenter) + '</strong>' +
+          '<span class="poster-list-title">' + esc(p.title) + '</span></span>' +
+          '<span class="poster-list-badge" hidden></span></button>' +
+          '<div class="poster-list-body" hidden>' +
+          (hasPdf ? '<a class="poster-list-pdf" href="posters/' + id + '.pdf" target="_blank" rel="noopener">Open poster PDF &#8599;</a>' : '') +
+          '<div class="rating-options">' + stars + '</div></div>';
+        const head = li.querySelector(".poster-list-head");
+        const body = li.querySelector(".poster-list-body");
+        head.addEventListener("click", () => {
+          const open = body.hidden;
+          body.hidden = !open;
+          head.setAttribute("aria-expanded", open ? "true" : "false");
+          li.classList.toggle("open", open);
+        });
         li.querySelector(".rating-options").addEventListener("change", () => {
-          li.querySelector('input[name="pick"]').checked = true;
+          const r = li.querySelector('input[name="rate-' + id + '"]:checked');
+          const badge = li.querySelector(".poster-list-badge");
+          badge.textContent = "\u2605 " + r.value;
+          badge.hidden = false;
+          li.classList.add("rated");
         });
         list.appendChild(li);
       });
@@ -128,14 +143,13 @@
         return { payloads: [{ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating }] };
       }
       const payloads = [];
-      for (const cb of voteForm.querySelectorAll('input[name="pick"]:checked')) {
-        const id = cb.value;
+      for (const id of Object.keys(posters)) {
         const r = voteForm.querySelector('input[name="rate-' + id + '"]:checked');
-        if (!r) return { error: "Please give a rating to poster " + id + " (or untick it)." };
+        if (!r) continue;
         const a = posters[id];
         payloads.push({ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating: r.value });
       }
-      if (!payloads.length) return { error: "Please tick at least one poster and rate it." };
+      if (!payloads.length) return { error: "Please open a poster and rate it." };
       return { payloads };
     });
   }
