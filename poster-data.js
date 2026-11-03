@@ -17,6 +17,7 @@
   // MOCK assignment: 34 submitted posters, 2 expected slots, 2 optional overflow easels.
   window.MNRI_ASSIGNMENTS = {
   "TBD-padilla": { id: "nicholas-padilla", cat: "perception", title: "Palmer Amaranth (Amaranthus palmeri) Detection in Soybean Using Hyperspectral Drone Remote Sensing", presenter: "Nicholas Padilla" },
+  "TBD-qin":     { id: "jiayin-qin", cat: "learning", title: "PipeSpecVLA: Enabling Efficient Server-Edge VLA Inference via Asynchronous Speculation and Execution", presenter: "Jiayin Qin" },
   "TBD-jobi":    { id: "deepti-jobi", cat: "perception", title: "An LLM-Enabled Chat Interface for Enabling Knowledge-Guided Machine Learning in Ecosystem Sciences through PyKGML", presenter: "Deepti Jobi" },
   "1-164-01":  { id: "david-widhalm", cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
   "1-164-02":  { id: "minghao-zou", cat: "learning",   title: "Reasoning Over Fully-occluded Obstacle for Non-prehensile Loco-manipulation", presenter: "Minghao Zou" },
@@ -42,7 +43,7 @@
   "1-SV-01":  { id: "yuanzheng-li", cat: "networked",  title: "Resource-Aware Data Uploads for Agricultural Robots", presenter: "Yuanzheng Li" },
   "1-SV-02":  { id: "mingxi-su", cat: "learning",   title: "Traceable VLA Policy: From Memory to Motion", presenter: "Mingxi Su" },
   "1-SV-03":  { id: "minghe-lu", cat: "wearables",  title: "Robots for Those in Transition: Exploring Mental Wellness through Design Probes", presenter: "Minghe Lu" },
-  "1-SV-04":  { id: "golamari-mundada-narapareddy-tumu", cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Golamari, Mundada, Narapareddy, Tumu" },
+  "1-SV-04":  { id: "golamari-mundada-narapareddy-tumu", cat: "perception", title: "From Vision-Language-Action to Motion: Mapless LiDAR Occupancy-Guided Trajectory Refinement", presenter: "Akul Manoj Mundada" },
   "1-SV-05":  { id: "farhad-soleimani", cat: "networked",  title: "C-V2X Monitoring and Anomaly Detection", presenter: "Farhad Soleimani" },
   "1-164-18":  { id: "maria-gini", cat: "perception", title: "FarmGuard: Unmanned Aerial Robotic Defender for Deer Detection and Deterrence", presenter: "Maria Gini" },
   "1-164-17":  { id: "lalitaditya-divakarla", cat: "networked", title: "DRIVE-SAFE: Remote and Cooperative Autonomous Driving in Dynamic Environments using 5G/NextG Technology", presenter: "Lalitaditya Divakarla" },
@@ -60,7 +61,7 @@
   window.MNRI_ASSIGNMENTS_FULL = window.MNRI_ASSIGNMENTS;
   // Assigned so far = presenters who replied (Nov 2-3). Add boards here as others confirm.
   window.MNRI_ASSIGNMENTS = {};
-  ["1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-13", "1-H-06", "1-SV-05", "2-H-02", "2-H-07"].forEach(function (b) {
+  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "1-H-03", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-07"].forEach(function (b) {
     window.MNRI_ASSIGNMENTS[b] = window.MNRI_ASSIGNMENTS_FULL[b];
   });
 
