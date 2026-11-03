@@ -89,14 +89,16 @@
       return String(s).replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
     }
 
-    if (entry) {
-      showCard(posterId, entry);
-    } else {
-      // No (or unknown) poster in the link: collapsed list (presenter + title). Tap a row to open it and rate inside.
-      posterId = null;
+    {
+      // Collapsed list (presenter + title); tap a row to open/close it and rate inside.
+      // A QR link (?p=) shows its poster opened in a separate block just above the name/submit button.
       singleRating.hidden = true;
-      Object.keys(posters).sort((x, y) => posters[x].presenter.localeCompare(posters[y].presenter)).forEach((id) => {
-        const p = posters[id];
+      card.hidden = true;
+      const featured = document.getElementById("poster-featured");
+      const pool = Object.assign({}, posters);
+      if (entry) pool[posterId] = entry;
+      Object.keys(pool).sort((x, y) => pool[x].presenter.localeCompare(pool[y].presenter)).forEach((id) => {
+        const p = pool[id];
         const hasPdf = (window.MNRI_PDFS || []).indexOf(id) !== -1;
         const stars = [5, 4, 3, 2, 1].map((n) =>
           '<input type="radio" id="r-' + id + '-' + n + '" name="rate-' + id + '" value="' + n + '">' +
@@ -127,7 +129,15 @@
           badge.hidden = false;
           li.classList.add("rated");
         });
-        list.appendChild(li);
+        if (entry && id === posterId) {
+          body.hidden = false;
+          head.setAttribute("aria-expanded", "true");
+          li.classList.add("open");
+          featured.appendChild(li);
+          featured.hidden = false;
+        } else {
+          list.appendChild(li);
+        }
       });
       listRow.hidden = false;
       voteForm.closest(".form-card").classList.add("wide");
@@ -136,17 +146,11 @@
     wire(voteForm, () => {
       const name = voteForm.elements.name.value.trim();
       if (!name) return { error: "Please enter your name." };
-      if (entry) {
-        const rating = (voteForm.querySelector('input[name="rating"]:checked') || {}).value;
-        if (!rating) return { error: "Please choose a rating from 1 to 5." };
-        const a = entry;
-        return { payloads: [{ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating }] };
-      }
       const payloads = [];
-      for (const id of Object.keys(posters)) {
+      for (const id of Object.keys(posters).concat(entry ? [posterId] : [])) {
         const r = voteForm.querySelector('input[name="rate-' + id + '"]:checked');
         if (!r) continue;
-        const a = posters[id];
+        const a = id === posterId && entry ? entry : posters[id];
         payloads.push({ sheet: "Votes", poster: a.id, title: a.title, presenter: a.presenter, name, rating: r.value });
       }
       if (!payloads.length) return { error: "Please open a poster and rate it." };

@@ -936,3 +936,6 @@ a:hover { color: var(--mnri-gold); }
   .poster-list-title { font-size: 0.72rem; }
   .poster-list-item .rating-options label { font-size: 1.6rem; padding: 0; }
 }
+
+.poster-list.featured { grid-template-columns: 1fr; margin: 0 0 1rem; }
+.poster-list.featured[hidden] { display: none; }
