@@ -3,7 +3,7 @@
    Votes and feedback are posted there and saved to a Google Sheet. */
 window.MNRI_CONFIG = {
   SCRIPT_URL: "https://script.google.com/macros/s/AKfycbz5S3x5ng5KI4IML8fcLuX89pPxrN_RvzSs1VqywqqfAkaO9YE0EwVq0OtJLzESxP5M/exec",
-  // Set to true ONLY after redeploying apps-script/Code.gs (new version) that accepts batched votes.
-  BATCH_VOTES: false,
+  // Requires (already deployed) redeploying apps-script/Code.gs (new version) that accepts batched votes.
+  BATCH_VOTES: true,
   SITE_URL: "https://thdhyan.github.io/mnri-showcase-day/"
 };
