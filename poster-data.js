@@ -16,9 +16,9 @@
   // Each entry has a permanent `id` (used by QR codes: vote.html?p=<id>). Never change an id; boards can change freely.
   // MOCK assignment: 34 submitted posters, 2 expected slots, 2 optional overflow easels.
   window.MNRI_ASSIGNMENTS = {
-  "TBD-padilla": { id: "nicholas-padilla", cat: "perception", title: "Palmer Amaranth (Amaranthus palmeri) Detection in Soybean Using Hyperspectral Drone Remote Sensing", presenter: "Nicholas Padilla" },
-  "TBD-qin":     { id: "jiayin-qin", cat: "learning", title: "PipeSpecVLA: Enabling Efficient Server-Edge VLA Inference via Asynchronous Speculation and Execution", presenter: "Jiayin Qin" },
-  "TBD-jobi":    { id: "deepti-jobi", cat: "perception", title: "An LLM-Enabled Chat Interface for Enabling Knowledge-Guided Machine Learning in Ecosystem Sciences through PyKGML", presenter: "Deepti Jobi" },
+  "2-ST-01": { id: "nicholas-padilla", cat: "perception", title: "Palmer Amaranth (Amaranthus palmeri) Detection in Soybean Using Hyperspectral Drone Remote Sensing", presenter: "Nicholas Padilla" },
+  "1-164-16":  { id: "jiayin-qin", cat: "learning", title: "PipeSpecVLA: Enabling Efficient Server-Edge VLA Inference via Asynchronous Speculation and Execution", presenter: "Jiayin Qin" },
+  "2-ST-02":    { id: "deepti-jobi", cat: "perception", title: "An LLM-Enabled Chat Interface for Enabling Knowledge-Guided Machine Learning in Ecosystem Sciences through PyKGML", presenter: "Deepti Jobi" },
   "1-164-01":  { id: "david-widhalm", cat: "marine",     title: "Design and Development of the MeCO Open-Source AUV", presenter: "David Widhalm" },
   "1-164-02":  { id: "minghao-zou", cat: "learning",   title: "Reasoning Over Fully-occluded Obstacle for Non-prehensile Loco-manipulation", presenter: "Minghao Zou" },
   "1-164-03":  { id: "rishi-mukherjee", cat: "marine",     title: "SeaCube: Open-Source Autonomous Docking Station for AUV Operations", presenter: "Rishi Mukherjee" },
@@ -63,10 +63,10 @@
   window.MNRI_ASSIGNMENTS_FULL = window.MNRI_ASSIGNMENTS;
   // Assigned so far = presenters who replied (Nov 2-3). Add boards here as others confirm.
   window.MNRI_ASSIGNMENTS = {};
-  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "1-H-03", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-07", "1-164-05", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-05", "2-H-03", "1-H-01", "1-164-14", "1-164-11"].forEach(function (b) {
+  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "1-H-03", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-07", "1-164-05", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-05", "2-H-03", "1-H-01", "1-164-14", "1-164-11", "1-164-16", "2-ST-01", "2-ST-02"].forEach(function (b) {
     window.MNRI_ASSIGNMENTS[b] = window.MNRI_ASSIGNMENTS_FULL[b];
   });
 
   // Boards with a poster PDF in posters/<board>.pdf (shown on the map panel and vote page).
-  window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-18", "1-164-19", "1-164-20", "1-H-01", "1-H-02", "1-H-03", "1-H-04", "1-H-05", "2-H-01", "2-H-02", "2-H-04", "2-H-05", "2-H-06"];
+  window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-16", "1-164-18", "1-164-19", "1-164-20", "1-H-01", "1-H-02", "1-H-03", "1-H-04", "1-H-05", "2-H-01", "2-H-02", "2-H-04", "2-H-05", "2-H-06"];
 })();
