@@ -20,7 +20,7 @@
     ],
     mechanical: [
       stop('Keller courtyard', local('keller-courtyard'), 24, 57, 'Leave Keller toward the courtyard and Scholars Walk. Match the buildings with this view.'),
-      stop('After turning left on Union Street', local('mechanical-approach'), 51, 40, 'From the Keller exit view (photo 15), turn left onto Union Street and continue toward Shepherd.'),
+      stop('After turning left on Union Street', local('mechanical-approach'), 51, 40, 'From the Keller exit view (photo 15), turn left onto Union Street and walk to the end of the building toward Shepherd.'),
       stop('Mechanical Engineering entrance', old('step01-entrance-me'), 17, 40, 'Find the Mechanical Engineering entrance shown in this photo.'),
       stop('Inside Mechanical Engineering', old('step02-right-after-entering'), 21, 36, 'After entering, take a right toward the corridor.'),
       stop('ME 1130 corridor', old('step03-hallway-me1130'), 26, 36, 'Follow the hallway to ME 1130; check the room signs.')
@@ -61,6 +61,7 @@
     'keller-hallway': { box: [760, 600, 115, 240], arrow: 'M 680 1060 L 740 830 Q 740 740 820 740 L 870 740', label: [330, 1140, 'Curve right toward the Keller exit'] },
     'keller-exit': { box: [900, 505, 180, 265], arrow: 'M 650 870 L 970 660', label: [340, 880, 'Exit Keller through these doors'] },
     'union-street': { box: [960, 590, 55, 145], arrow: 'M 740 1050 L 340 1050', label: [180, 1120, 'Turn left along this sidewalk'], landmark: [1030, 570, 'Parking ramp landmark'] },
+    'mechanical-approach': { box: [670, 620, 140, 200], arrow: 'M 580 1050 L 740 760', label: [300, 1140, 'Walk to the end of the building'] },
     'shepherd-approach': { box: [720, 625, 170, 150], arrow: 'M 670 1060 L 815 770', label: [330, 1120, 'Continue straight toward Shepherd'] }
   };
   const svgNS = 'http://www.w3.org/2000/svg';
@@ -143,8 +144,8 @@
     const paths = [
       [[1, 2, 3, 4, 5, 6, 7, 8, 9]],
       [[3, 4, 10, 12, 13, 14, 20]],
-      [[9, 15, 11, 16, 17, 18, 19]],
-      [[12, 22, 23, 24, 17, 18, 19]]
+      [[9, 15, 11, 16, 24, 17, 18, 19]],
+      [[12, 22, 23, 16, 24, 17, 18, 19]]
     ];
     paths.forEach((branches) => {
       const line = document.createElementNS(svgNS, 'path');
