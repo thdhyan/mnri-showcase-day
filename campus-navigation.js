@@ -20,7 +20,7 @@
     ],
     mechanical: [
       stop('Keller courtyard', local('keller-courtyard'), 24, 57, 'Leave Keller toward the courtyard and Scholars Walk. Match the buildings with this view.'),
-      stop('Mechanical Engineering approach', local('mechanical-approach'), 18, 46, 'Follow Scholars Walk toward Mechanical Engineering, north of Keller Hall.'),
+      stop('Walk toward Akerman', local('mechanical-approach'), 18, 46, 'From Union Street, walk toward Akerman, then continue to the shared walkway toward Shepherd (photos 16 / 23).'),
       stop('Mechanical Engineering entrance', old('step01-entrance-me'), 17, 40, 'Find the Mechanical Engineering entrance shown in this photo.'),
       stop('Inside Mechanical Engineering', old('step02-right-after-entering'), 21, 36, 'After entering, take a right toward the corridor.'),
       stop('ME 1130 corridor', old('step03-hallway-me1130'), 26, 36, 'Follow the hallway to ME 1130; check the room signs.')
