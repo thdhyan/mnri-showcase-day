@@ -8,9 +8,10 @@
   const msg = document.getElementById("form-msg");
   const btn = document.getElementById("submit-btn");
 
-  function showMsg(text) {
-    msg.textContent = text;
-    msg.hidden = !text;
+  function showMsg(text, el) {
+    el = el || msg;
+    el.textContent = text;
+    el.hidden = !text;
   }
 
   // Apps Script web apps do not send CORS headers, so use a no-cors form post (the response is opaque).
@@ -26,9 +27,14 @@
   function wire(form, build) {
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      showMsg("");
+      // Vote form: submit button and message live inside each poster card; others use the page-level ones.
+      const btn = e.submitter || document.getElementById("submit-btn");
+      const body = btn.closest(".poster-list-body");
+      const msg = (body && body.querySelector(".card-msg")) || document.getElementById("form-msg");
+      form.querySelectorAll(".card-msg").forEach((m) => showMsg("", m));
+      showMsg("", msg);
       const result = build();
-      if (result.error) return showMsg(result.error);
+      if (result.error) return showMsg(result.error, msg);
       btn.disabled = true;
       try {
         const list = result.payloads || [result.payload];
@@ -45,7 +51,7 @@
       } catch (err) {
         showMsg(err.message === "not-configured"
           ? "This form is not connected yet. Please tell an organizer."
-          : "Could not send. Check your connection and try again.");
+          : "Could not send. Check your connection and try again.", msg);
         btn.disabled = false;
         if (btn.dataset.label) btn.innerHTML = btn.dataset.label;
       }
@@ -113,7 +119,13 @@
           '<span class="poster-list-badge" hidden></span></button>' +
           '<div class="poster-list-body" hidden>' +
           (hasPdf ? '<a class="poster-list-pdf" href="posters/' + id + '.pdf" target="_blank" rel="noopener">Open poster PDF &#8599;</a>' : '') +
-          '<div class="rating-options">' + stars + '</div></div>';
+          '<div class="rating-options">' + stars + '</div>' +
+          '<div class="card-submit">' +
+          '<p class="form-msg card-msg" role="status" aria-live="polite" hidden></p>' +
+          '<div class="card-submit-row">' +
+          '<label class="card-name-wrap">Your name <span class="req" aria-hidden="true">*</span>' +
+          '<input type="text" class="card-name" name="name" autocomplete="name" maxlength="100" required aria-required="true"></label>' +
+          '<button type="submit" class="btn btn-primary card-btn">Submit vote</button></div></div></div>';
         const head = li.querySelector(".poster-list-head");
         const body = li.querySelector(".poster-list-body");
         head.addEventListener("click", () => {
@@ -143,13 +155,20 @@
       voteForm.closest(".form-card").classList.add("wide");
     }
 
-    voteForm.elements.name.addEventListener("input", (e) => e.target.classList.remove("invalid"));
+    // One name for the whole form: every card's name box mirrors the others.
+    let activeName = null;
+    voteForm.addEventListener("focusin", (e) => { if (e.target.classList && e.target.classList.contains("card-name")) activeName = e.target; });
+    voteForm.addEventListener("input", (e) => {
+      if (!e.target.classList || !e.target.classList.contains("card-name")) return;
+      voteForm.querySelectorAll(".card-name").forEach((i) => { i.classList.remove("invalid"); if (i !== e.target) i.value = e.target.value; });
+    });
     wire(voteForm, () => {
-      const nameInput = voteForm.elements.name;
-      const name = nameInput.value.trim();
-      nameInput.classList.toggle("invalid", !name);
+      const names = voteForm.querySelectorAll(".card-name");
+      const name = (names[0] ? names[0].value : "").trim();
+      names.forEach((i) => i.classList.toggle("invalid", !name));
       if (!name) {
-        nameInput.focus();
+        const open = voteForm.querySelector(".poster-list-item.open .card-name");
+        (activeName && activeName.offsetParent ? activeName : open || names[0]).focus();
         return { error: "Your name is required. Please enter it before submitting." };
       }
       const payloads = [];
