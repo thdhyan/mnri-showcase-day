@@ -11,7 +11,7 @@
       stop('East Bank station', local('station-platform'), 70, 95, 'Start at East Bank station on the Green Line. Use the marked crossing toward Keller Hall.'),
       stop('Keller Hall from Washington Avenue', local('keller-from-station'), 47, 91, 'Look for the brick Keller Hall building shown here.'),
       stop('Keller south entrance', local('keller-south-entrance'), 38, 79, 'Approach the recessed entrance with red doors.'),
-      stop('Red-door atrium', local('keller-red-door-atrium'), 34, 73, 'Use this atrium as your entrance landmark.'),
+      stop('Red-door atrium', local('keller-red-door-atrium'), 34, 73, 'At the outdoor atrium, enter the red doors for Keller Hall, or stay outside and follow the courtyard toward Mechanical Engineering (photo 10).'),
       stop('Keller lobby', local('keller-lobby'), 31, 67, 'Inside Keller Hall, look for the lobby shown here. Follow event signs for your room.'),
       stop('Keller interior corridor', local('keller-corridor'), 25, 63, 'Use the glass-sided corridor as an indoor landmark.'),
       stop('Keller landing', local('keller-landing'), 32, 58, 'Match this landing with your surroundings; check posted room signs.'),
@@ -137,8 +137,8 @@
     // Nested arrays represent separate branches within the same walking route.
     const paths = [
       [[1, 2, 3, 4, 5, 6, 7, 8, 9]],
-      [[9, 10, 12, 13, 14, 20]],
-      [[9, 15, 16, 17, 18, 19], [15, 11]],
+      [[3, 4, 10, 12, 13, 14, 20], [9, 10]],
+      [[9, 15, 11, 16, 17, 18, 19]],
       [[12, 22, 24, 23, 17, 18, 19]]
     ];
     paths.forEach((branches, index) => {
