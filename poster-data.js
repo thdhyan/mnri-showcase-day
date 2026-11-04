@@ -36,7 +36,7 @@
   "1-164-15": { id: "xun-tu", cat: "learning",   title: "Grasp-TAGS: Task-Aware Grasp Selection for Loco-manipulation", presenter: "Xun Tu" },
   "1-H-01":  { id: "lucas-myers", cat: "systems",    title: "Active Control of a Laser-Actuated Photonic Metasurface", presenter: "Lucas Myers" },
   "1-H-02":  { id: "sakshi-singh", cat: "marine",     title: "Context-Aware Safety Assessment for AUVs in Marine Debris Management", presenter: "Sakshi Singh" },
-  "2-ST-03":  { id: "mohammed-jassim-jahubar-ali", cat: "perception", title: "Automated Truck Parking Occupancy Detection using 3D Perception", presenter: "Mohammed Jassim Jahubar Ali" },
+  "1-H-03":  { id: "mario-jerez", cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
   "1-H-04":  { id: "michael-feldkamp", cat: "wearables", title: "Step Placement Swing Control for Powered Knee-Ankle Prostheses", presenter: "Michael Feldkamp" },
   "1-H-05":  { id: "narapareddy-tumu-mundada", cat: "wearables", title: "Look and Pick: Gaze-Directed Grasping with Closed-Loop Correction from Smart Glasses", presenter: "Nikhila Narapareddy" },
   "1-H-06":  { id: "kalyan-sai-reddy-lankireddy", cat: "perception", title: "Vision-Language-Guided Waypoint Generation for Mapless Robot Navigation", presenter: "Kalyan Sai Reddy Lankireddy" },
@@ -54,7 +54,7 @@
   "2-H-03":  { id: "mingxi-su", cat: "learning",   title: "Traceable VLA Policy: From Memory to Motion", presenter: "Mingxi Su" },
   "2-H-04":  { id: "francis-aweenagua", cat: "marine",     title: "Overcoming Data Scarcity in Child AUV Position Estimation (SIFT-YOLOv9)", presenter: "Francis Aweenagua" },
   "2-H-05":  { id: "tian-xie", cat: "learning",   title: "A-PACE: Asynchronous Predictive Alignment for Frozen VLA Execution", presenter: "Tian Xie" },
-  "2-H-06":  { id: "mario-jerez", cat: "perception", title: "Conflict-Free Distributed Pathfinding for Collective Construction", presenter: "Mario Jerez" },
+  "2-H-06":  { id: "mohammed-jassim-jahubar-ali", cat: "perception", title: "Automated Truck Parking Occupancy Detection using 3D Perception", presenter: "Mohammed Jassim Jahubar Ali" },
   "2-H-07":  { id: "varadaraya-ganesh-shenoy", cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
 };
 
@@ -63,10 +63,10 @@
   window.MNRI_ASSIGNMENTS_FULL = window.MNRI_ASSIGNMENTS;
   // Assigned so far = presenters who replied (Nov 2-3). Add boards here as others confirm.
   window.MNRI_ASSIGNMENTS = {};
-  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "2-ST-03", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-07", "1-164-05", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-05", "2-H-03", "1-H-01", "1-164-14", "1-164-11", "1-164-16", "2-ST-01", "2-ST-02"].forEach(function (b) {
+  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-06", "2-H-07", "1-164-05", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-05", "2-H-03", "1-H-01", "1-164-14", "1-164-11", "1-164-16", "2-ST-01", "2-ST-02"].forEach(function (b) {
     window.MNRI_ASSIGNMENTS[b] = window.MNRI_ASSIGNMENTS_FULL[b];
   });
 
   // Boards with a poster PDF in posters/<board>.pdf (shown on the map panel and vote page).
-  window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-16", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-01", "1-H-02", "1-H-04", "1-H-05", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-01", "2-H-02", "2-H-03", "2-H-04", "2-H-05", "2-H-06", "2-H-07", "2-ST-03"];
+  window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-16", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-01", "1-H-02", "1-H-03", "1-H-04", "1-H-05", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-01", "2-H-02", "2-H-03", "2-H-04", "2-H-05", "2-H-06", "2-H-07"];
 })();
