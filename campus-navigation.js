@@ -20,7 +20,7 @@
     ],
     mechanical: [
       stop('Keller courtyard', local('keller-courtyard'), 24, 57, 'Leave Keller toward the courtyard and Scholars Walk. Match the buildings with this view.'),
-      stop('Walk toward Akerman', local('mechanical-approach'), 18, 46, 'From Union Street, walk toward Akerman, then continue to the shared walkway toward Shepherd (photos 16 / 23).'),
+      stop('Outside Keller toward Union Street', local('mechanical-approach'), 47, 51, 'After leaving Keller (photo 9), continue outside toward Union Street (photo 15).'),
       stop('Mechanical Engineering entrance', old('step01-entrance-me'), 17, 40, 'Find the Mechanical Engineering entrance shown in this photo.'),
       stop('Inside Mechanical Engineering', old('step02-right-after-entering'), 21, 36, 'After entering, take a right toward the corridor.'),
       stop('ME 1130 corridor', old('step03-hallway-me1130'), 26, 36, 'Follow the hallway to ME 1130; check the room signs.')
@@ -140,7 +140,7 @@
     const paths = [
       [[1, 2, 3, 4, 5, 6, 7, 8, 9]],
       [[3, 4, 10, 12, 13, 14, 20]],
-      [[9, 15, 11, 16, 17, 18, 19]],
+      [[9, 11, 15, 16, 17, 18, 19]],
       [[12, 22, 24, 23, 17, 18, 19]]
     ];
     paths.forEach((branches) => {
