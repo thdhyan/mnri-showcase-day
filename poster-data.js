@@ -58,14 +58,8 @@
   "2-H-07":  { id: "varadaraya-ganesh-shenoy", cat: "systems",    title: "Active Inference for Car Following", presenter: "Varadaraya Ganesh Shenoy" },
 };
 
-  // TEMPORARY: assignments are hidden while presenters choose their own slots (all boards show as open).
-  // Full list kept in MNRI_ASSIGNMENTS_FULL; to restore, delete the next two lines' reset. Only Rishi (1-164-03) assigned so far.
+  // All 40 posters have assigned boards. Keep the full-list alias for consumers.
   window.MNRI_ASSIGNMENTS_FULL = window.MNRI_ASSIGNMENTS;
-  // Assigned so far = presenters who replied (Nov 2-3). Add boards here as others confirm.
-  window.MNRI_ASSIGNMENTS = {};
-  ["1-164-02", "1-164-03", "1-164-04", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-12", "1-164-13", "1-H-04", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-02", "2-H-06", "2-H-07", "1-164-05", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-05", "2-H-03", "1-H-01", "1-164-14", "1-164-11", "1-164-16", "2-ST-01", "2-ST-02"].forEach(function (b) {
-    window.MNRI_ASSIGNMENTS[b] = window.MNRI_ASSIGNMENTS_FULL[b];
-  });
 
   // Boards with a poster PDF in posters/<board>.pdf (shown on the map panel and vote page).
   window.MNRI_PDFS = ["1-164-01", "1-164-02", "1-164-03", "1-164-04", "1-164-05", "1-164-06", "1-164-07", "1-164-08", "1-164-09", "1-164-10", "1-164-11", "1-164-12", "1-164-13", "1-164-14", "1-164-15", "1-164-16", "1-164-17", "1-164-18", "1-164-19", "1-164-20", "1-H-01", "1-H-02", "1-H-03", "1-H-04", "1-H-05", "1-H-06", "1-SV-01", "1-SV-02", "1-SV-03", "1-SV-04", "1-SV-05", "2-H-01", "2-H-02", "2-H-03", "2-H-04", "2-H-05", "2-H-06", "2-H-07"];
