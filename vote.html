@@ -71,11 +71,6 @@
 
         <ul class="poster-list featured" id="poster-featured" hidden></ul>
 
-        <div class="form-row">
-          <label for="voter-name">Your name <span class="req" aria-hidden="true">*</span></label>
-          <input type="text" id="voter-name" name="name" autocomplete="name" maxlength="100" required aria-required="true">
-        </div>
-
         <fieldset class="form-row rating" id="single-rating">
           <legend>Your rating (5 = best)</legend>
           <div class="rating-options">
@@ -87,8 +82,16 @@
           </div>
         </fieldset>
 
-        <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
-        <button type="submit" class="btn btn-primary" id="submit-btn"><i data-lucide="send"></i>Submit vote</button>
+        <div class="vote-bar">
+          <p class="form-msg" id="form-msg" role="status" aria-live="polite" hidden></p>
+          <div class="vote-bar-row">
+            <div class="vote-bar-name">
+              <label for="voter-name">Your name <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="voter-name" name="name" autocomplete="name" maxlength="100" required aria-required="true">
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-btn"><i data-lucide="send"></i>Submit vote</button>
+          </div>
+        </div>
       </form>
 
       <div class="form-done" id="form-done" hidden>
