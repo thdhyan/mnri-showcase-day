@@ -125,6 +125,9 @@
     el('pins').querySelectorAll('button').forEach((button) => {
       button.setAttribute('aria-pressed', String(button.dataset.stops.split(',').includes(String(index))));
     });
+    const lines = [...el('lines').children];
+    const activeLine = lines.find((line) => line.dataset.stops.split(',').includes(String(index + 1)));
+    lines.forEach((line) => { line.style.display = line === activeLine ? '' : 'none'; });
     el('stop-list').querySelectorAll('button').forEach((button, i) => {
       button.setAttribute('aria-pressed', String(i === index));
     });
@@ -132,22 +135,22 @@
   function draw() {
     el('pins').replaceChildren();
     el('stop-list').replaceChildren();
-    const colors = ['#ffcc33', '#64e4ff', '#e6a3ff', '#9bff91'];
     // Stable photo numbers match the map, list and navigation-tree diagram.
     // Nested arrays represent separate branches within the same walking route.
     const paths = [
       [[1, 2, 3, 4, 5, 6, 7, 8, 9]],
-      [[3, 4, 10, 12, 13, 14, 20], [9, 10]],
+      [[3, 4, 10, 12, 13, 14, 20]],
       [[9, 15, 11, 16, 17, 18, 19]],
       [[12, 22, 24, 23, 17, 18, 19]]
     ];
-    paths.forEach((branches, index) => {
+    paths.forEach((branches) => {
       const line = document.createElementNS(svgNS, 'path');
       line.setAttribute('d', branches.map((branch) => branch.map((id, i) => {
         const point = route[id - 1];
         return (i === 0 ? 'M ' : 'L ') + point.x + ',' + point.y;
       }).join(' ')).join(' '));
-      line.setAttribute('stroke', colors[index]);
+      line.setAttribute('stroke', '#ffcc33');
+      line.dataset.stops = branches.flat().join(',');
       el('lines').append(line);
     });
     route.forEach((item, index) => {

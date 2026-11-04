@@ -965,8 +965,6 @@ a:hover { color: var(--mnri-gold); }
 .campus-pin small { pointer-events:none; position:absolute; top:-4px; left:19px; padding:1px 3px; border-radius:3px; background:#7a0019; color:white; font:bold 9px/12px Arial,sans-serif; }
 .campus-pin[aria-pressed="true"] { color:#ffcc33; z-index:1; }
 .campus-pin:hover,.campus-pin:focus-visible { z-index:2; outline:2px solid #ffcc33; outline-offset:2px; }
-.campus-route-legend { display:flex; flex-wrap:wrap; gap:.6rem 1rem; margin-top:1rem; font-size:.85rem; }
-.campus-route-legend span::before { content:""; display:inline-block; width:1.2rem; border-top:4px solid var(--route-color); margin-right:.4rem; vertical-align:middle; filter:drop-shadow(0 1px 1px #444); }
 .campus-annotated-photo { position:relative; display:block; }
 .campus-photo-overlay { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
 
