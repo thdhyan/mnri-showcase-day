@@ -14,13 +14,13 @@
       stop('Red-door atrium', local('keller-red-door-atrium'), 34, 73, 'At the outdoor atrium, enter the red doors for Keller Hall, or stay outside and follow the courtyard toward Mechanical Engineering (photo 10).'),
       stop('Keller lobby', local('keller-lobby'), 31, 67, 'Inside Keller Hall, look for the lobby shown here. Follow event signs for your room.'),
       stop('Keller interior corridor', local('keller-corridor'), 25, 63, 'Use the glass-sided corridor as an indoor landmark.'),
-      stop('Keller landing', local('keller-landing'), 32, 58, 'Match this landing with your surroundings; check posted room signs.'),
-      stop('Keller hallway', local('keller-hallway'), 39, 63, 'Continue using the room signs and event signage.'),
+      stop('Keller landing', local('keller-landing'), 32, 58, 'Take a sharp right at the landing to Keller 3-180.'),
+      stop('Keller hallway', local('keller-hallway'), 39, 63, 'Curve right toward the Keller exit; follow the exit signs.'),
       stop('Keller exit', local('keller-exit'), 43, 56, 'This exit is a landmark for continuing to the other event buildings.')
     ],
     mechanical: [
       stop('Keller courtyard', local('keller-courtyard'), 24, 57, 'Leave Keller toward the courtyard and Scholars Walk. Match the buildings with this view.'),
-      stop('Outside Keller toward Union Street', local('mechanical-approach'), 47, 51, 'After leaving Keller (photo 9), continue outside toward Union Street (photo 15).'),
+      stop('After turning left on Union Street', local('mechanical-approach'), 51, 40, 'From the Keller exit view (photo 15), turn left onto Union Street and continue toward Shepherd.'),
       stop('Mechanical Engineering entrance', old('step01-entrance-me'), 17, 40, 'Find the Mechanical Engineering entrance shown in this photo.'),
       stop('Inside Mechanical Engineering', old('step02-right-after-entering'), 21, 36, 'After entering, take a right toward the corridor.'),
       stop('ME 1130 corridor', old('step03-hallway-me1130'), 26, 36, 'Follow the hallway to ME 1130; check the room signs.')
@@ -37,8 +37,8 @@
       stop('Exit Mechanical Engineering', old('step04-exit-building'), 31, 36, 'From ME 1130, walk back to the exit door shown here.'),
       stop('Turn right toward Shepherd', old('step05-right-sheplabs'), 17, 40, 'Outside Mechanical Engineering, take a right toward Shepherd Laboratories.'),
       stop('Follow the covered walkway', old('step06-walk-end'), 36, 43, 'Continue along the covered walkway to the end of the building.'),
-      stop('Turn left at the end', old('step07-left-turn'), 49, 28, 'At the end of the walkway, take a left as shown by the arrow.'),
-      stop('Continue toward Shepherd', old('step08-walk-end2'), 47, 40, 'Keep walking to the end of the building toward the Shepherd entrance.'),
+      stop('Turn left at the end', old('step07-left-turn'), 44, 40, 'At the end of the walkway, take a left as shown by the arrow.'),
+      stop('Continue toward Shepherd', old('step08-walk-end2'), 49, 28, 'Keep walking to the end of the building toward the Shepherd entrance.'),
     ]
   };
   const el = (id) => document.getElementById('campus-' + id);
@@ -53,11 +53,12 @@
     'station-platform': { box: [490, 350, 320, 370], arrow: 'M 270 1000 L 350 655', label: [100, 1110, 'Follow platform to the marked crossing'] },
     'keller-from-station': { box: [410, 210, 1010, 650], arrow: 'M 480 1040 L 850 790', label: [260, 1130, 'Keller Hall • use the marked crossing'] },
     'keller-south-entrance': { box: [930, 525, 180, 310], arrow: 'M 600 1040 L 1000 760', label: [280, 1130, 'Approach the red-door entrance'] },
-    'keller-red-door-atrium': { box: [1070, 630, 520, 290], arrow: 'M 780 1050 L 1250 830', label: [450, 1140, 'Enter through the red doors on the right'] },
+    'keller-red-door-atrium': { box: [1070, 630, 520, 290], arrow: 'M 780 1050 L 1250 830', label: [450, 1140, 'Enter through the red doors on the right'], extra: [{ arrow: 'M 650 1040 L 740 750', label: [100, 550, 'Outside route to MechE'] }] },
+    'keller-courtyard': { box: [760, 800, 260, 250], arrow: 'M 530 1080 L 880 900', label: [250, 1150, 'Continue outside toward MechE'] },
     'keller-lobby': { box: [450, 285, 260, 360], arrow: 'M 850 950 L 590 590', label: [400, 1100, 'Continue toward the glass-sided corridor'] },
     'keller-corridor': { box: [760, 540, 180, 220], arrow: 'M 620 1070 L 850 740', label: [420, 1140, 'Follow this corridor straight ahead'] },
-    'keller-landing': { box: [0, 530, 620, 190], arrow: 'M 900 1000 L 440 710', label: [390, 1120, 'Continue across the landing'] },
-    'keller-hallway': { box: [675, 570, 130, 150], arrow: 'M 780 1060 L 740 740', label: [400, 1140, 'Follow the hallway • check room signs'] },
+    'keller-landing': { box: [1130, 430, 290, 550], arrow: 'M 650 1000 L 650 750 L 1300 750', label: [430, 1120, 'Sharp right → Keller 3-180'] },
+    'keller-hallway': { box: [760, 600, 115, 240], arrow: 'M 680 1060 L 740 830 Q 740 740 820 740 L 870 740', label: [330, 1140, 'Curve right toward the Keller exit'] },
     'keller-exit': { box: [900, 505, 180, 265], arrow: 'M 650 870 L 970 660', label: [340, 880, 'Exit Keller through these doors'] },
     'union-street': { box: [960, 590, 55, 145], arrow: 'M 740 1050 L 340 1050', label: [180, 1120, 'Turn left along this sidewalk'], landmark: [1030, 570, 'Parking ramp landmark'] },
     'shepherd-approach': { box: [720, 625, 170, 150], arrow: 'M 670 1060 L 815 770', label: [330, 1120, 'Continue straight toward Shepherd'] }
@@ -80,10 +81,12 @@
     };
     const [x, y, width, height] = note.box;
     add('rect', { x, y, width, height, fill: 'none', stroke: '#ff2020', 'stroke-width': 10 });
-    add('path', { d: note.arrow, fill: 'none', stroke: 'white', 'stroke-width': 30, 'stroke-linecap': 'round', 'marker-end': 'url(#photo-arrow-white)' });
-    add('path', { d: note.arrow, fill: 'none', stroke: '#ff2020', 'stroke-width': 18, 'stroke-linecap': 'round', 'marker-end': 'url(#photo-arrow-red)' });
-    [note.label, note.landmark].filter(Boolean).forEach(([x, y, text]) => {
-      add('text', { x, y, fill: '#e00000', stroke: 'white', 'stroke-width': 14, 'paint-order': 'stroke', 'font-family': 'Arial, sans-serif', 'font-size': note.fontSize || 48, 'font-weight': 700 }, text);
+    [note, ...(note.extra || [])].forEach((direction) => {
+      add('path', { d: direction.arrow, fill: 'none', stroke: 'white', 'stroke-width': 30, 'stroke-linecap': 'round', 'marker-end': 'url(#photo-arrow-white)' });
+      add('path', { d: direction.arrow, fill: 'none', stroke: '#ff2020', 'stroke-width': 18, 'stroke-linecap': 'round', 'marker-end': 'url(#photo-arrow-red)' });
+      [direction.label, direction.landmark].filter(Boolean).forEach(([x, y, text]) => {
+        add('text', { x, y, fill: '#e00000', stroke: 'white', 'stroke-width': 14, 'paint-order': 'stroke', 'font-family': 'Arial, sans-serif', 'font-size': note.fontSize || 48, 'font-weight': 700 }, text);
+      });
     });
   }
   let selected = 0;
@@ -140,8 +143,8 @@
     const paths = [
       [[1, 2, 3, 4, 5, 6, 7, 8, 9]],
       [[3, 4, 10, 12, 13, 14, 20]],
-      [[9, 11, 15, 16, 17, 18, 19]],
-      [[12, 22, 24, 23, 17, 18, 19]]
+      [[9, 15, 11, 16, 17, 18, 19]],
+      [[12, 22, 23, 24, 17, 18, 19]]
     ];
     paths.forEach((branches) => {
       const line = document.createElementNS(svgNS, 'path');
