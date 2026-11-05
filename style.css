@@ -96,6 +96,7 @@ a:hover { color: var(--mnri-gold); }
 }
 
 .logo { display: flex; align-items: center; gap: 0.65rem; min-width: 200px; }
+.logo { text-decoration: none; color: inherit; }
 
 .logo-mark {
   width: 40px; height: 40px;
