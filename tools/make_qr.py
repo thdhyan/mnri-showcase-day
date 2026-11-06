@@ -1,5 +1,6 @@
 """Generate branded print-ready showcase QR sheets. Requires segno and Chrome."""
 import html
+import base64
 import json
 import subprocess
 from pathlib import Path
@@ -7,6 +8,7 @@ from pathlib import Path
 import segno
 
 SITE = "https://thdhyan.github.io/mnri-showcase-day/"
+LOGO = base64.b64encode(Path('media/brand/mnri-logo.png').read_bytes()).decode('ascii')
 out = Path("qr")
 out.mkdir(exist_ok=True)
 posters = json.loads(subprocess.run(
@@ -15,14 +17,16 @@ posters = json.loads(subprocess.run(
 
 
 def qr(url):
-    return segno.make(url, error="m").svg_inline(scale=4, border=4)
+    code = segno.make(url, error="m")
+    size = code.symbol_size(border=4)[0] * 4
+    return code.svg_inline(scale=4, border=4).replace('<svg ', f'<svg viewBox="0 0 {size} {size}" ')
 
 
 def card(name, subtitle, url, hint):
-    return (f'<section class="card"><div class="brand">MnRI <span>MINNESOTA ROBOTICS INSTITUTE</span></div>'
+    return (f'<section class="card"><div class="heading"><div class="logo"><img src="data:image/png;base64,{LOGO}" alt="Minnesota Robotics Institute, University of Minnesota"></div>'
             f'<div class="event">ROBOTICS RESEARCH SHOWCASE</div><h2>{html.escape(name)}</h2>'
             f'<div class="subtitle">{html.escape(subtitle)}</div>{qr(url)}'
-            f'<div class="hint">{html.escape(hint)}</div></section>')
+            f'<div class="hint">{html.escape(hint)}</div></div></section>')
 
 
 def document(cards, columns=3):
@@ -34,12 +38,15 @@ def document(cards, columns=3):
 @page {{ size: 11in 8.5in; margin: 0 }}
 * {{ box-sizing: border-box }} body {{ margin: 0; font-family: Arial, sans-serif; color: #222 }}
 .page {{ width: 11in; height: 8.5in; padding: .30in; display: grid; grid-template-columns: repeat({columns}, 1fr); grid-template-rows: {'repeat(2, 1fr)' if columns == 3 else '1fr'}; gap: .16in; break-after: page }}
-.card {{ border: 1px dashed #999; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: .10in }}
-.brand {{ color: #7a0019; font-size: 19pt; font-weight: 900; line-height: 1 }} .brand span {{ display: block; font-size: 6.3pt; letter-spacing: .06em; margin-top: 3px }}
-.event {{ color: #7a0019; font-size: 7.5pt; letter-spacing: .06em; border-bottom: 3px solid #ffcc33; padding: 5px 0 4px; margin-bottom: 5px; font-weight: bold }}
-h2 {{ color: #7a0019; font-size: 14pt; margin: 2px 0 3px; line-height: 1.1 }} .subtitle {{ font-size: 8pt; line-height: 1.15; max-height: .43in; overflow: hidden }}
-svg {{ width: {'2.05in' if columns == 3 else '4in'}; height: {'2.05in' if columns == 3 else '4in'}; flex-shrink: 0 }}
-.hint {{ font-size: 10pt; font-weight: bold; margin-top: 1px }}
+.card {{ position: relative; border: {'1px dashed #bbb' if columns == 3 else 'none'}; text-align: center; overflow: hidden }}
+.heading {{ position: absolute; inset: 0; }}
+.logo {{ position: absolute; top: {'0.04in' if columns == 3 else '0.05in'}; left: 50%; transform: translateX(-50%); width: {'1.65in' if columns == 3 else '2.35in'}; height: {'0.98in' if columns == 3 else '1.42in'}; overflow: hidden }}
+.logo img {{ position: absolute; width: 100%; height: auto; left: 0; top: -40% }}
+.event {{ position: absolute; top: {'1.01in' if columns == 3 else '1.42in'}; left: 0; width: 100%; color: #7a0019; font-size: {'7pt' if columns == 3 else '11pt'}; letter-spacing: .08em; font-weight: bold }}
+h2 {{ position: absolute; top: {'1.19in' if columns == 3 else '1.72in'}; left: 5%; width: 90%; color: #7a0019; font-size: {'13pt' if columns == 3 else '25pt'}; margin: 0; line-height: 1.1 }}
+.subtitle {{ position: absolute; top: {'1.45in' if columns == 3 else '2.13in'}; left: 5%; width: 90%; font-size: {'8pt' if columns == 3 else '13pt'}; line-height: 1.1; max-height: .35in; overflow: hidden }}
+svg {{ position: absolute; left: 50%; top: {'68%' if columns == 3 else '59%'}; transform: translate(-50%, -50%); width: {'1.75in' if columns == 3 else '3.9in'}; height: {'1.75in' if columns == 3 else '3.9in'} }}
+.hint {{ position: absolute; bottom: {'0.12in' if columns == 3 else '0.35in'}; width: 100%; color: #7a0019; font-size: {'9pt' if columns == 3 else '18pt'}; font-weight: bold; letter-spacing: .04em }}
 </style><body>{pages}</body></html>'''
 
 
@@ -59,6 +66,7 @@ make_pdf('presenter-qr-cards', document(cards))
 for name, title, subtitle, url in [
     ('website-branded', 'Showcase Website', 'Schedule, posters and event information', SITE),
     ('navigation-branded', 'Event Navigation', 'Find your way around the showcase', SITE + 'navigation.html'),
+    ('feedback-branded', 'Questions & Suggestions', 'Share your feedback with the organizers', SITE + 'feedback.html'),
 ]:
     make_pdf(name, document([card(title, subtitle, url, 'SCAN TO OPEN')], columns=1))
-print(f'Generated {len(cards)} presenter cards and 2 event pages.')
+print(f'Generated {len(cards)} presenter cards and 3 event pages.')
