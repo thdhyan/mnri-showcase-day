@@ -1,60 +1,64 @@
-"""Generate per-poster vote QR codes + a questions/suggestions QR code into qr/.
-Usage: PYTHONPATH=<dir with segno> python3 tools/make_qr.py
-Reads poster-data.js (all posters: id/title/presenter), writes qr/*.png and qr/print.html.
-"""
-import html, json, re, subprocess
+"""Generate branded print-ready showcase QR sheets. Requires segno and Chrome."""
+import html
+import json
+import subprocess
+from pathlib import Path
+
 import segno
 
 SITE = "https://thdhyan.github.io/mnri-showcase-day/"
+out = Path("qr")
+out.mkdir(exist_ok=True)
 posters = json.loads(subprocess.run(
     ["node", "-e", "global.window={};require('./poster-data.js');console.log(JSON.stringify(window.MNRI_ASSIGNMENTS_FULL))"],
     capture_output=True, text=True, check=True).stdout)
 
-def slug(s):
-    return re.sub(r"[^a-z0-9]+", "-", s.lower()).strip("-")[:40]
 
-# QR codes are keyed by the permanent presenter id (poster-data.js `id`), NOT the board,
-# so moving a poster to another position never changes its QR code.
-import glob, os
-for old in glob.glob("qr/vote_*.png"):
-    os.remove(old)
-cards = []
-for board, p in sorted(posters.items(), key=lambda kv: kv[1]["presenter"].lower()):
-    url = f"{SITE}vote.html?p={p['id']}"
-    q = segno.make(url, error="m")
-    q.save(f"qr/vote_{p['id']}.png", scale=12, border=3)
-    cards.append((p["presenter"], p["title"], "", "Scan to rate this poster (1-5)", q.svg_inline(scale=4, border=2)))
+def qr(url):
+    return segno.make(url, error="m").svg_inline(scale=4, border=4)
 
-def card(a, b, c, d, svg):
-    who = f"<p>{html.escape(c)}</p>" if c else ""
-    return f'<section class="card"><h2>{html.escape(a)}</h2><h3>{html.escape(b)}</h3>{who}{svg}<p class="hint">{html.escape(d)}</p></section>'
 
-general = []
-for name, fname, label, hint, url in [
-    ("Main voting page", "vote-main", "Pick a poster and rate it", "Scan to vote", f"{SITE}vote.html"),
-    ("Showcase Day website", "website", "Schedule, navigation and poster map", "Scan to open the website", SITE),
-    ("Showcase Day schedule", "schedule", "Full schedule for the day", "Scan to open the schedule", f"{SITE}schedule.html"),
-    ("Questions & Suggestions", "questions-and-suggestions", "Ask the organizers a question or share a suggestion", "Scan to open the form", f"{SITE}feedback.html"),
-]:
-    q = segno.make(url, error="m")
-    q.save(f"qr/{fname}.png", scale=12, border=3)
-    q.save(f"qr/{fname}.pdf", scale=12, border=3)
-    general.append(card(name, label, "", hint, q.svg_inline(scale=4, border=2)))
+def card(name, subtitle, url, hint):
+    return (f'<section class="card"><div class="brand">MnRI <span>MINNESOTA ROBOTICS INSTITUTE</span></div>'
+            f'<div class="event">ROBOTICS RESEARCH SHOWCASE</div><h2>{html.escape(name)}</h2>'
+            f'<div class="subtitle">{html.escape(subtitle)}</div>{qr(url)}'
+            f'<div class="hint">{html.escape(hint)}</div></section>')
 
-# Landscape letter, 3 columns x 2 rows = 6 per page; general codes get their own last page.
-def pages(cells):
-    return "".join('<div class="page">' + "".join(cells[i:i + 6]) + "</div>" for i in range(0, len(cells), 6))
 
-body = pages([card(*c) for c in cards]) + pages(general)
-open("qr/print.html", "w").write(f"""<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><title>MnRI Showcase QR codes (print)</title>
+def document(cards, columns=3):
+    per_page = columns * 2 if columns == 3 else 1
+    pages = ''.join('<div class="page">' + ''.join(cards[i:i + per_page]) + '</div>'
+                    for i in range(0, len(cards), per_page))
+    return f'''<!doctype html><html lang="en"><meta charset="utf-8"><title>MnRI Showcase QR codes</title>
 <style>
-@page{{size:11in 8.5in;margin:0}}
-body{{font-family:Helvetica,Arial,sans-serif;margin:0}}
-.page{{width:11in;height:8.5in;box-sizing:border-box;padding:.35in;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(2,1fr);gap:.2in;break-after:page;page-break-after:always}}
-.card{{border:1px dashed #999;box-sizing:border-box;padding:.15in;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden}}
-.card h2{{font-size:15pt;margin:0 0 .06in;color:#7a0019}} .card h3{{font-size:10pt;margin:0 0 .04in;line-height:1.2}} .card p{{font-size:9pt;margin:0 0 .08in}}
-.card svg{{width:2.2in;height:2.2in}} .card .hint{{font-size:11pt;font-weight:700;margin:.08in 0 0}}
-</style></head><body>{body}</body></html>
-""")
-print(len(cards), "poster cards,", len(general), "general")
+@page {{ size: 11in 8.5in; margin: 0 }}
+* {{ box-sizing: border-box }} body {{ margin: 0; font-family: Arial, sans-serif; color: #222 }}
+.page {{ width: 11in; height: 8.5in; padding: .30in; display: grid; grid-template-columns: repeat({columns}, 1fr); grid-template-rows: {'repeat(2, 1fr)' if columns == 3 else '1fr'}; gap: .16in; break-after: page }}
+.card {{ border: 1px dashed #999; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; overflow: hidden; padding: .10in }}
+.brand {{ color: #7a0019; font-size: 19pt; font-weight: 900; line-height: 1 }} .brand span {{ display: block; font-size: 6.3pt; letter-spacing: .06em; margin-top: 3px }}
+.event {{ color: #7a0019; font-size: 7.5pt; letter-spacing: .06em; border-bottom: 3px solid #ffcc33; padding: 5px 0 4px; margin-bottom: 5px; font-weight: bold }}
+h2 {{ color: #7a0019; font-size: 14pt; margin: 2px 0 3px; line-height: 1.1 }} .subtitle {{ font-size: 8pt; line-height: 1.15; max-height: .43in; overflow: hidden }}
+svg {{ width: {'2.05in' if columns == 3 else '4in'}; height: {'2.05in' if columns == 3 else '4in'}; flex-shrink: 0 }}
+.hint {{ font-size: 10pt; font-weight: bold; margin-top: 1px }}
+</style><body>{pages}</body></html>'''
+
+
+def make_pdf(name, content):
+    path = (out / (name + '.html')).resolve()
+    path.write_text(content, encoding='utf-8')
+    subprocess.run(['google-chrome', '--headless', '--no-sandbox', '--disable-gpu', '--user-data-dir=/tmp/mnri-chrome-qr',
+                    '--no-pdf-header-footer', '--print-to-pdf=' + str(path.with_suffix('.pdf')),
+                    path.as_uri()], check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+cards = []
+for board, poster in sorted(posters.items(), key=lambda item: item[1]['presenter'].lower()):
+    url = f"{SITE}vote.html?p={poster['id']}"
+    segno.make(url, error='m').save(out / f"vote_{poster['id']}.png", scale=12, border=4)
+    cards.append(card(poster['presenter'], poster['title'], url, 'SCAN TO RATE THIS POSTER'))
+make_pdf('presenter-qr-cards', document(cards))
+for name, title, subtitle, url in [
+    ('website-branded', 'Showcase Website', 'Schedule, posters and event information', SITE),
+    ('navigation-branded', 'Event Navigation', 'Find your way around the showcase', SITE + 'navigation.html'),
+]:
+    make_pdf(name, document([card(title, subtitle, url, 'SCAN TO OPEN')], columns=1))
+print(f'Generated {len(cards)} presenter cards and 2 event pages.')
